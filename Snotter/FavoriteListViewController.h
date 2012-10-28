@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FavoriteListViewController.h
 //  Snotter
 //
 //  Created by 松瀬 弘樹 on 12/10/21.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface FavoriteListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

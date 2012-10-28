@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  AreaListViewController.h
 //  Snotter
 //
 //  Created by 松瀬 弘樹 on 12/10/21.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface AreaListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

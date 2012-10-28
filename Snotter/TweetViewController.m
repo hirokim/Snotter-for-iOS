@@ -1,33 +1,32 @@
 //
-//  FirstViewController.m
+//  TweetViewController.m
 //  Snotter
 //
-//  Created by 松瀬 弘樹 on 12/10/21.
+//  Created by 松瀬 弘樹 on 12/10/28.
 //  Copyright (c) 2012年 松瀬 弘樹. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "TweetViewController.h"
 
-@interface FirstViewController ()
+@interface TweetViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation TweetViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"First", @"First");
-        self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        // Custom initialization
     }
     return self;
 }
-							
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
