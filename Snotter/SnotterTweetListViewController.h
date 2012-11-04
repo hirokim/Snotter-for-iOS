@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIAsyncImageView.h"
+#import "SearchViewController.h"
 
-@interface SnotterTweetListViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIAsyncImageView *imageTest;
-- (IBAction)test:(id)sender;
+@interface SnotterTweetListViewController : UIViewController <SearchViewControllerDelegate>
+
+@property (nonatomic) SearchViewController *timeLineView;
 
 @end

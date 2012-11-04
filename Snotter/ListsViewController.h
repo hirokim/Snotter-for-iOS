@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "TimeLineViewController.h"
 
+@protocol ListsViewControllerDelegate <TimeLineViewControllerDelegate>
+
+@end
+
 @interface ListsViewController : TimeLineViewController
 
+- (id)initWithDelegate:(id<ListsViewControllerDelegate>)delegate;
 - (void)loadListTimeLineWithListID:(NSString *)listId SinceID:(NSString *)sinceId MaxID:(NSString *)maxId;
 
 @end

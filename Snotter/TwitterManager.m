@@ -176,7 +176,36 @@ static dispatch_queue_t serialQueue;
 }
 
 /**
- * リスト取得
+ * サーチリクエスト
+ *
+ */
+- (void)requestSearchStatusesWithKeywords:(NSArray *)words SinceID:(NSString *)sinceId MaxID:(NSString *)maxId Handler:(RequestHandler)handler
+{
+    NSString *searchKeyword = [words componentsJoinedByString:@"+OR+"];
+    
+    DNSLog(@"Keyword:%@", searchKeyword);
+    DNSLog(@"SinceID:%@", sinceId);
+    DNSLog(@"MaxID:%@", maxId);
+    
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/search/tweets.json"];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:searchKeyword forKey:@"q"];
+    [params setObject:@"20" forKey:@"count"];
+    [params setObject:@"1" forKey:@"include_entities"];
+    [params setObject:@"1" forKey:@"include_rts"];
+    if (sinceId)    [params setObject:sinceId forKey:@"since_id"];
+    if (maxId)      [params setObject:maxId forKey:@"max_id"];
+    
+    [self requestWithURL:url parameters:params requestMethod:TWRequestMethodGET Handler:^(NSDictionary *searchResult) {
+        
+        NSArray *statuses = [searchResult objectForKey:@"statuses"];
+        handler([self parseTimelineWithTimelineData:statuses]);
+    }];
+}
+
+/**
+ * リストリクエスト
  *
  */
 - (void)requestListsStatusesWithListID:(NSString *)listId SinceID:(NSString *)sinceId MaxID:(NSString *)maxId Handler:(RequestHandler)handler

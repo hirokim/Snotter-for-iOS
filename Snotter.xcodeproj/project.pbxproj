@@ -13,9 +13,6 @@
 		F54ED6451633B77400F0ED00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F54ED6431633B77400F0ED00 /* InfoPlist.strings */; };
 		F54ED6471633B77400F0ED00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F54ED6461633B77400F0ED00 /* main.m */; };
 		F54ED64B1633B77400F0ED00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F54ED64A1633B77400F0ED00 /* AppDelegate.m */; };
-		F54ED64D1633B77400F0ED00 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F54ED64C1633B77400F0ED00 /* Default.png */; };
-		F54ED64F1633B77400F0ED00 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F54ED64E1633B77400F0ED00 /* Default@2x.png */; };
-		F54ED6511633B77400F0ED00 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F54ED6501633B77400F0ED00 /* Default-568h@2x.png */; };
 		F54ED6711633B84D00F0ED00 /* AreaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54ED66F1633B84D00F0ED00 /* AreaListViewController.m */; };
 		F54ED6721633B84D00F0ED00 /* AreaListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54ED6701633B84D00F0ED00 /* AreaListViewController.xib */; };
 		F54ED6761633B91800F0ED00 /* SnotterTweetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54ED6741633B91800F0ED00 /* SnotterTweetListViewController.m */; };
@@ -49,6 +46,55 @@
 		F56936FF16398835001B7067 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F56936F716398835001B7067 /* grayArrow@2x.png */; };
 		F569370016398835001B7067 /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F56936F816398835001B7067 /* whiteArrow.png */; };
 		F569370116398835001B7067 /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F56936F916398835001B7067 /* whiteArrow@2x.png */; };
+		F5954FCE16462296006F4D69 /* WebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5954FCC16462295006F4D69 /* WebBrowserViewController.m */; };
+		F5954FCF16462296006F4D69 /* WebBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5954FCD16462296006F4D69 /* WebBrowserViewController.xib */; };
+		F5954FD7164624C6006F4D69 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F5954FD6164624C6006F4D69 /* SVProgressHUD.m */; };
+		F5954FDD16464246006F4D69 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5954FDC16464243006F4D69 /* SearchViewController.m */; };
+		F595500316465067006F4D69 /* akita.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE416465067006F4D69 /* akita.csv */; };
+		F595500416465067006F4D69 /* aomori.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE516465067006F4D69 /* aomori.csv */; };
+		F595500516465067006F4D69 /* douchu.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE616465067006F4D69 /* douchu.csv */; };
+		F595500616465067006F4D69 /* douhoku.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE716465067006F4D69 /* douhoku.csv */; };
+		F595500716465067006F4D69 /* doutou.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE816465067006F4D69 /* doutou.csv */; };
+		F595500816465067006F4D69 /* fuji.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE916465067006F4D69 /* fuji.csv */; };
+		F595500916465067006F4D69 /* hakuba.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FEA16465067006F4D69 /* hakuba.csv */; };
+		F595500A16465067006F4D69 /* hida.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FEB16465067006F4D69 /* hida.csv */; };
+		F595500B16465067006F4D69 /* hukui.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FEC16465067006F4D69 /* hukui.csv */; };
+		F595500C16465067006F4D69 /* hukushima.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FED16465067006F4D69 /* hukushima.csv */; };
+		F595500D16465067006F4D69 /* hyougo.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FEE16465067006F4D69 /* hyougo.csv */; };
+		F595500E16465067006F4D69 /* ishikawa.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FEF16465067006F4D69 /* ishikawa.csv */; };
+		F595500F16465067006F4D69 /* iwate.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FF016465067006F4D69 /* iwate.csv */; };
+		F595501016465067006F4D69 /* jouetsu.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FF116465067006F4D69 /* jouetsu.csv */; };
+		F595501116465067006F4D69 /* kanagawa.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FF216465067006F4D69 /* kanagawa.csv */; };
+		F595501216465067006F4D69 /* karuizawa.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FF316465067006F4D69 /* karuizawa.csv */; };
+		F595501316465067006F4D69 /* kusatsu.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FF416465067006F4D69 /* kusatsu.csv */; };
+		F595501416465067006F4D69 /* kyoto.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FF516465067006F4D69 /* kyoto.csv */; };
+		F595501516465067006F4D69 /* kyushu.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FF616465067006F4D69 /* kyushu.csv */; };
+		F595501616465067006F4D69 /* madarao.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FF716465067006F4D69 /* madarao.csv */; };
+		F595501716465067006F4D69 /* miyagi.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FF816465067006F4D69 /* miyagi.csv */; };
+		F595501816465067006F4D69 /* myoukou.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FF916465067006F4D69 /* myoukou.csv */; };
+		F595501916465067006F4D69 /* nasu.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FFA16465067006F4D69 /* nasu.csv */; };
+		F595501A16465067006F4D69 /* numata.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FFB16465067006F4D69 /* numata.csv */; };
+		F595501B16465067006F4D69 /* okayama.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FFC16465067006F4D69 /* okayama.csv */; };
+		F595501C16465067006F4D69 /* shiga.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FFD16465067006F4D69 /* shiga.csv */; };
+		F595501D16465067006F4D69 /* shigakougen.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FFE16465067006F4D69 /* shigakougen.csv */; };
+		F595501E16465067006F4D69 /* shikoku.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FFF16465067006F4D69 /* shikoku.csv */; };
+		F595501F16465067006F4D69 /* tottori.csv in Resources */ = {isa = PBXBuildFile; fileRef = F595500016465067006F4D69 /* tottori.csv */; };
+		F595502016465067006F4D69 /* toyama.csv in Resources */ = {isa = PBXBuildFile; fileRef = F595500116465067006F4D69 /* toyama.csv */; };
+		F595502116465067006F4D69 /* yamagata.csv in Resources */ = {isa = PBXBuildFile; fileRef = F595500216465067006F4D69 /* yamagata.csv */; };
+		F59550231646583D006F4D69 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59550221646583D006F4D69 /* MapKit.framework */; };
+		F595502516465892006F4D69 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F595502416465891006F4D69 /* CoreLocation.framework */; };
+		F5955028164658E8006F4D69 /* Gelande.m in Sources */ = {isa = PBXBuildFile; fileRef = F5955027164658E7006F4D69 /* Gelande.m */; };
+		F595502C16466E75006F4D69 /* GelandeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F595502A16466E74006F4D69 /* GelandeListViewController.m */; };
+		F595502D16466E75006F4D69 /* GelandeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F595502B16466E74006F4D69 /* GelandeListViewController.xib */; };
+		F59550311646722A006F4D69 /* GelandeTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F595502F16467227006F4D69 /* GelandeTweetViewController.m */; };
+		F59550321646722A006F4D69 /* GelandeTweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F595503016467229006F4D69 /* GelandeTweetViewController.xib */; };
+		F595503616467D06006F4D69 /* GelandeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F595503416467D03006F4D69 /* GelandeMapViewController.m */; };
+		F595503716467D06006F4D69 /* GelandeMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F595503516467D04006F4D69 /* GelandeMapViewController.xib */; };
+		F595503C1646C025006F4D69 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F59550391646C025006F4D69 /* Default-568h@2x.png */; };
+		F595503D1646C025006F4D69 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F595503A1646C025006F4D69 /* Default.png */; };
+		F595503E1646C025006F4D69 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F595503B1646C025006F4D69 /* Default@2x.png */; };
+		F59550411646C039006F4D69 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F595503F1646C039006F4D69 /* icon.png */; };
+		F59550421646C039006F4D69 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F59550401646C039006F4D69 /* icon@2x.png */; };
 		F5F33302163D730A00C205E9 /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F33300163D730900C205E9 /* TweetViewController.m */; };
 		F5F33303163D730A00C205E9 /* TweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5F33301163D730900C205E9 /* TweetViewController.xib */; };
 /* End PBXBuildFile section */
@@ -64,9 +110,6 @@
 		F54ED6481633B77400F0ED00 /* Snotter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Snotter-Prefix.pch"; sourceTree = "<group>"; };
 		F54ED6491633B77400F0ED00 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F54ED64A1633B77400F0ED00 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F54ED64C1633B77400F0ED00 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		F54ED64E1633B77400F0ED00 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		F54ED6501633B77400F0ED00 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F54ED66E1633B84D00F0ED00 /* AreaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaListViewController.h; sourceTree = "<group>"; };
 		F54ED66F1633B84D00F0ED00 /* AreaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaListViewController.m; sourceTree = "<group>"; };
 		F54ED6701633B84D00F0ED00 /* AreaListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaListViewController.xib; sourceTree = "<group>"; };
@@ -114,6 +157,62 @@
 		F56936F716398835001B7067 /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
 		F56936F816398835001B7067 /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
 		F56936F916398835001B7067 /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
+		F5954FCB16462295006F4D69 /* WebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebBrowserViewController.h; sourceTree = "<group>"; };
+		F5954FCC16462295006F4D69 /* WebBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebBrowserViewController.m; sourceTree = "<group>"; };
+		F5954FCD16462296006F4D69 /* WebBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebBrowserViewController.xib; sourceTree = "<group>"; };
+		F5954FD5164624C6006F4D69 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		F5954FD6164624C6006F4D69 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		F5954FDB16464241006F4D69 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		F5954FDC16464243006F4D69 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		F5954FE416465067006F4D69 /* akita.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = akita.csv; sourceTree = "<group>"; };
+		F5954FE516465067006F4D69 /* aomori.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aomori.csv; sourceTree = "<group>"; };
+		F5954FE616465067006F4D69 /* douchu.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = douchu.csv; sourceTree = "<group>"; };
+		F5954FE716465067006F4D69 /* douhoku.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = douhoku.csv; sourceTree = "<group>"; };
+		F5954FE816465067006F4D69 /* doutou.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = doutou.csv; sourceTree = "<group>"; };
+		F5954FE916465067006F4D69 /* fuji.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fuji.csv; sourceTree = "<group>"; };
+		F5954FEA16465067006F4D69 /* hakuba.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hakuba.csv; sourceTree = "<group>"; };
+		F5954FEB16465067006F4D69 /* hida.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hida.csv; sourceTree = "<group>"; };
+		F5954FEC16465067006F4D69 /* hukui.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hukui.csv; sourceTree = "<group>"; };
+		F5954FED16465067006F4D69 /* hukushima.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hukushima.csv; sourceTree = "<group>"; };
+		F5954FEE16465067006F4D69 /* hyougo.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hyougo.csv; sourceTree = "<group>"; };
+		F5954FEF16465067006F4D69 /* ishikawa.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ishikawa.csv; sourceTree = "<group>"; };
+		F5954FF016465067006F4D69 /* iwate.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iwate.csv; sourceTree = "<group>"; };
+		F5954FF116465067006F4D69 /* jouetsu.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jouetsu.csv; sourceTree = "<group>"; };
+		F5954FF216465067006F4D69 /* kanagawa.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kanagawa.csv; sourceTree = "<group>"; };
+		F5954FF316465067006F4D69 /* karuizawa.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = karuizawa.csv; sourceTree = "<group>"; };
+		F5954FF416465067006F4D69 /* kusatsu.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kusatsu.csv; sourceTree = "<group>"; };
+		F5954FF516465067006F4D69 /* kyoto.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kyoto.csv; sourceTree = "<group>"; };
+		F5954FF616465067006F4D69 /* kyushu.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kyushu.csv; sourceTree = "<group>"; };
+		F5954FF716465067006F4D69 /* madarao.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = madarao.csv; sourceTree = "<group>"; };
+		F5954FF816465067006F4D69 /* miyagi.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = miyagi.csv; sourceTree = "<group>"; };
+		F5954FF916465067006F4D69 /* myoukou.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myoukou.csv; sourceTree = "<group>"; };
+		F5954FFA16465067006F4D69 /* nasu.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nasu.csv; sourceTree = "<group>"; };
+		F5954FFB16465067006F4D69 /* numata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = numata.csv; sourceTree = "<group>"; };
+		F5954FFC16465067006F4D69 /* okayama.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = okayama.csv; sourceTree = "<group>"; };
+		F5954FFD16465067006F4D69 /* shiga.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shiga.csv; sourceTree = "<group>"; };
+		F5954FFE16465067006F4D69 /* shigakougen.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shigakougen.csv; sourceTree = "<group>"; };
+		F5954FFF16465067006F4D69 /* shikoku.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shikoku.csv; sourceTree = "<group>"; };
+		F595500016465067006F4D69 /* tottori.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tottori.csv; sourceTree = "<group>"; };
+		F595500116465067006F4D69 /* toyama.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toyama.csv; sourceTree = "<group>"; };
+		F595500216465067006F4D69 /* yamagata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yamagata.csv; sourceTree = "<group>"; };
+		F59550221646583D006F4D69 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F595502416465891006F4D69 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F5955026164658E6006F4D69 /* Gelande.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gelande.h; sourceTree = "<group>"; };
+		F5955027164658E7006F4D69 /* Gelande.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gelande.m; sourceTree = "<group>"; };
+		F595502916466E72006F4D69 /* GelandeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GelandeListViewController.h; sourceTree = "<group>"; };
+		F595502A16466E74006F4D69 /* GelandeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GelandeListViewController.m; sourceTree = "<group>"; };
+		F595502B16466E74006F4D69 /* GelandeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GelandeListViewController.xib; sourceTree = "<group>"; };
+		F595502E16467225006F4D69 /* GelandeTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GelandeTweetViewController.h; sourceTree = "<group>"; };
+		F595502F16467227006F4D69 /* GelandeTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GelandeTweetViewController.m; sourceTree = "<group>"; };
+		F595503016467229006F4D69 /* GelandeTweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GelandeTweetViewController.xib; sourceTree = "<group>"; };
+		F595503316467D01006F4D69 /* GelandeMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GelandeMapViewController.h; sourceTree = "<group>"; };
+		F595503416467D03006F4D69 /* GelandeMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GelandeMapViewController.m; sourceTree = "<group>"; };
+		F595503516467D04006F4D69 /* GelandeMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GelandeMapViewController.xib; sourceTree = "<group>"; };
+		F59550391646C025006F4D69 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F595503A1646C025006F4D69 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F595503B1646C025006F4D69 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F595503F1646C039006F4D69 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		F59550401646C039006F4D69 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		F5F332FF163D730900C205E9 /* TweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetViewController.h; sourceTree = "<group>"; };
 		F5F33300163D730900C205E9 /* TweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetViewController.m; sourceTree = "<group>"; };
 		F5F33301163D730900C205E9 /* TweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetViewController.xib; sourceTree = "<group>"; };
@@ -124,6 +223,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F595502516465892006F4D69 /* CoreLocation.framework in Frameworks */,
+				F59550231646583D006F4D69 /* MapKit.framework in Frameworks */,
 				F56936F01639838F001B7067 /* QuartzCore.framework in Frameworks */,
 				F54ED6981633DAFD00F0ED00 /* Accounts.framework in Frameworks */,
 				F54ED6961633DAF400F0ED00 /* Twitter.framework in Frameworks */,
@@ -156,6 +257,8 @@
 		F54ED6391633B77400F0ED00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F595502416465891006F4D69 /* CoreLocation.framework */,
+				F59550221646583D006F4D69 /* MapKit.framework */,
 				F56936EF1639838F001B7067 /* QuartzCore.framework */,
 				F54ED6971633DAFC00F0ED00 /* Accounts.framework */,
 				F54ED6951633DAF400F0ED00 /* Twitter.framework */,
@@ -171,11 +274,15 @@
 			children = (
 				F54ED6491633B77400F0ED00 /* AppDelegate.h */,
 				F54ED64A1633B77400F0ED00 /* AppDelegate.m */,
+				F5954FE21646500D006F4D69 /* Resources */,
 				F54ED6411633B77400F0ED00 /* Supporting Files */,
 				F54ED6871633BE2700F0ED00 /* TwitterUtil */,
 				F54ED66E1633B84D00F0ED00 /* AreaListViewController.h */,
 				F54ED66F1633B84D00F0ED00 /* AreaListViewController.m */,
 				F54ED6701633B84D00F0ED00 /* AreaListViewController.xib */,
+				F595502916466E72006F4D69 /* GelandeListViewController.h */,
+				F595502A16466E74006F4D69 /* GelandeListViewController.m */,
+				F595502B16466E74006F4D69 /* GelandeListViewController.xib */,
 				F54ED6731633B91800F0ED00 /* SnotterTweetListViewController.h */,
 				F54ED6741633B91800F0ED00 /* SnotterTweetListViewController.m */,
 				F54ED6751633B91800F0ED00 /* SnotterTweetListViewController.xib */,
@@ -188,6 +295,14 @@
 				F54ED6881633BFFD00F0ED00 /* SettingViewController.h */,
 				F54ED6891633BFFD00F0ED00 /* SettingViewController.m */,
 				F54ED68A1633BFFE00F0ED00 /* SettingViewController.xib */,
+				F5955026164658E6006F4D69 /* Gelande.h */,
+				F5955027164658E7006F4D69 /* Gelande.m */,
+				F595502E16467225006F4D69 /* GelandeTweetViewController.h */,
+				F595502F16467227006F4D69 /* GelandeTweetViewController.m */,
+				F595503016467229006F4D69 /* GelandeTweetViewController.xib */,
+				F595503316467D01006F4D69 /* GelandeMapViewController.h */,
+				F595503416467D03006F4D69 /* GelandeMapViewController.m */,
+				F595503516467D04006F4D69 /* GelandeMapViewController.xib */,
 			);
 			path = Snotter;
 			sourceTree = "<group>";
@@ -199,9 +314,6 @@
 				F54ED6431633B77400F0ED00 /* InfoPlist.strings */,
 				F54ED6461633B77400F0ED00 /* main.m */,
 				F54ED6481633B77400F0ED00 /* Snotter-Prefix.pch */,
-				F54ED64C1633B77400F0ED00 /* Default.png */,
-				F54ED64E1633B77400F0ED00 /* Default@2x.png */,
-				F54ED6501633B77400F0ED00 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -209,12 +321,10 @@
 		F54ED6871633BE2700F0ED00 /* TwitterUtil */ = {
 			isa = PBXGroup;
 			children = (
+				F5954FDE16464424006F4D69 /* TimeLineGroup */,
 				F56936F11639881C001B7067 /* TwitterResources */,
 				F54ED68D1633D23100F0ED00 /* TwitterManager.h */,
 				F54ED68E1633D23100F0ED00 /* TwitterManager.m */,
-				F54ED6821633BD3000F0ED00 /* TimeLineViewController.h */,
-				F54ED6831633BD3100F0ED00 /* TimeLineViewController.m */,
-				F54ED6841633BD3100F0ED00 /* TimeLineViewController.xib */,
 				F54ED6901633DAD400F0ED00 /* TwitterAccountsViewController.h */,
 				F54ED6911633DAD500F0ED00 /* TwitterAccountsViewController.m */,
 				F54ED6921633DAD500F0ED00 /* TwitterAccountsViewController.xib */,
@@ -229,11 +339,14 @@
 				F54ED6B716341ACF00F0ED00 /* ImageCache.m */,
 				F56936EB163982FD001B7067 /* EGORefreshTableHeaderView.h */,
 				F56936EC163982FD001B7067 /* EGORefreshTableHeaderView.m */,
-				F54ED6BD163429A800F0ED00 /* ListsViewController.h */,
-				F54ED6BE163429A800F0ED00 /* ListsViewController.m */,
+				F5954FD5164624C6006F4D69 /* SVProgressHUD.h */,
+				F5954FD6164624C6006F4D69 /* SVProgressHUD.m */,
 				F5F332FF163D730900C205E9 /* TweetViewController.h */,
 				F5F33300163D730900C205E9 /* TweetViewController.m */,
 				F5F33301163D730900C205E9 /* TweetViewController.xib */,
+				F5954FCB16462295006F4D69 /* WebBrowserViewController.h */,
+				F5954FCC16462295006F4D69 /* WebBrowserViewController.m */,
+				F5954FCD16462296006F4D69 /* WebBrowserViewController.xib */,
 			);
 			name = TwitterUtil;
 			sourceTree = "<group>";
@@ -251,6 +364,79 @@
 				F56936F916398835001B7067 /* whiteArrow@2x.png */,
 			);
 			name = TwitterResources;
+			sourceTree = "<group>";
+		};
+		F5954FDE16464424006F4D69 /* TimeLineGroup */ = {
+			isa = PBXGroup;
+			children = (
+				F54ED6821633BD3000F0ED00 /* TimeLineViewController.h */,
+				F54ED6831633BD3100F0ED00 /* TimeLineViewController.m */,
+				F54ED6841633BD3100F0ED00 /* TimeLineViewController.xib */,
+				F54ED6BD163429A800F0ED00 /* ListsViewController.h */,
+				F54ED6BE163429A800F0ED00 /* ListsViewController.m */,
+				F5954FDB16464241006F4D69 /* SearchViewController.h */,
+				F5954FDC16464243006F4D69 /* SearchViewController.m */,
+			);
+			name = TimeLineGroup;
+			sourceTree = "<group>";
+		};
+		F5954FE21646500D006F4D69 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F59550381646BFD5006F4D69 /* images */,
+				F5954FE31646501C006F4D69 /* csv */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F5954FE31646501C006F4D69 /* csv */ = {
+			isa = PBXGroup;
+			children = (
+				F5954FE416465067006F4D69 /* akita.csv */,
+				F5954FE516465067006F4D69 /* aomori.csv */,
+				F5954FE616465067006F4D69 /* douchu.csv */,
+				F5954FE716465067006F4D69 /* douhoku.csv */,
+				F5954FE816465067006F4D69 /* doutou.csv */,
+				F5954FE916465067006F4D69 /* fuji.csv */,
+				F5954FEA16465067006F4D69 /* hakuba.csv */,
+				F5954FEB16465067006F4D69 /* hida.csv */,
+				F5954FEC16465067006F4D69 /* hukui.csv */,
+				F5954FED16465067006F4D69 /* hukushima.csv */,
+				F5954FEE16465067006F4D69 /* hyougo.csv */,
+				F5954FEF16465067006F4D69 /* ishikawa.csv */,
+				F5954FF016465067006F4D69 /* iwate.csv */,
+				F5954FF116465067006F4D69 /* jouetsu.csv */,
+				F5954FF216465067006F4D69 /* kanagawa.csv */,
+				F5954FF316465067006F4D69 /* karuizawa.csv */,
+				F5954FF416465067006F4D69 /* kusatsu.csv */,
+				F5954FF516465067006F4D69 /* kyoto.csv */,
+				F5954FF616465067006F4D69 /* kyushu.csv */,
+				F5954FF716465067006F4D69 /* madarao.csv */,
+				F5954FF816465067006F4D69 /* miyagi.csv */,
+				F5954FF916465067006F4D69 /* myoukou.csv */,
+				F5954FFA16465067006F4D69 /* nasu.csv */,
+				F5954FFB16465067006F4D69 /* numata.csv */,
+				F5954FFC16465067006F4D69 /* okayama.csv */,
+				F5954FFD16465067006F4D69 /* shiga.csv */,
+				F5954FFE16465067006F4D69 /* shigakougen.csv */,
+				F5954FFF16465067006F4D69 /* shikoku.csv */,
+				F595500016465067006F4D69 /* tottori.csv */,
+				F595500116465067006F4D69 /* toyama.csv */,
+				F595500216465067006F4D69 /* yamagata.csv */,
+			);
+			name = csv;
+			sourceTree = "<group>";
+		};
+		F59550381646BFD5006F4D69 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F595503F1646C039006F4D69 /* icon.png */,
+				F59550401646C039006F4D69 /* icon@2x.png */,
+				F59550391646C025006F4D69 /* Default-568h@2x.png */,
+				F595503A1646C025006F4D69 /* Default.png */,
+				F595503B1646C025006F4D69 /* Default@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,9 +491,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F54ED6451633B77400F0ED00 /* InfoPlist.strings in Resources */,
-				F54ED64D1633B77400F0ED00 /* Default.png in Resources */,
-				F54ED64F1633B77400F0ED00 /* Default@2x.png in Resources */,
-				F54ED6511633B77400F0ED00 /* Default-568h@2x.png in Resources */,
 				F54ED6721633B84D00F0ED00 /* AreaListViewController.xib in Resources */,
 				F54ED6771633B91800F0ED00 /* SnotterTweetListViewController.xib in Resources */,
 				F54ED67C1633B99000F0ED00 /* FavoriteListViewController.xib in Resources */,
@@ -325,6 +508,46 @@
 				F569370016398835001B7067 /* whiteArrow.png in Resources */,
 				F569370116398835001B7067 /* whiteArrow@2x.png in Resources */,
 				F5F33303163D730A00C205E9 /* TweetViewController.xib in Resources */,
+				F5954FCF16462296006F4D69 /* WebBrowserViewController.xib in Resources */,
+				F595500316465067006F4D69 /* akita.csv in Resources */,
+				F595500416465067006F4D69 /* aomori.csv in Resources */,
+				F595500516465067006F4D69 /* douchu.csv in Resources */,
+				F595500616465067006F4D69 /* douhoku.csv in Resources */,
+				F595500716465067006F4D69 /* doutou.csv in Resources */,
+				F595500816465067006F4D69 /* fuji.csv in Resources */,
+				F595500916465067006F4D69 /* hakuba.csv in Resources */,
+				F595500A16465067006F4D69 /* hida.csv in Resources */,
+				F595500B16465067006F4D69 /* hukui.csv in Resources */,
+				F595500C16465067006F4D69 /* hukushima.csv in Resources */,
+				F595500D16465067006F4D69 /* hyougo.csv in Resources */,
+				F595500E16465067006F4D69 /* ishikawa.csv in Resources */,
+				F595500F16465067006F4D69 /* iwate.csv in Resources */,
+				F595501016465067006F4D69 /* jouetsu.csv in Resources */,
+				F595501116465067006F4D69 /* kanagawa.csv in Resources */,
+				F595501216465067006F4D69 /* karuizawa.csv in Resources */,
+				F595501316465067006F4D69 /* kusatsu.csv in Resources */,
+				F595501416465067006F4D69 /* kyoto.csv in Resources */,
+				F595501516465067006F4D69 /* kyushu.csv in Resources */,
+				F595501616465067006F4D69 /* madarao.csv in Resources */,
+				F595501716465067006F4D69 /* miyagi.csv in Resources */,
+				F595501816465067006F4D69 /* myoukou.csv in Resources */,
+				F595501916465067006F4D69 /* nasu.csv in Resources */,
+				F595501A16465067006F4D69 /* numata.csv in Resources */,
+				F595501B16465067006F4D69 /* okayama.csv in Resources */,
+				F595501C16465067006F4D69 /* shiga.csv in Resources */,
+				F595501D16465067006F4D69 /* shigakougen.csv in Resources */,
+				F595501E16465067006F4D69 /* shikoku.csv in Resources */,
+				F595501F16465067006F4D69 /* tottori.csv in Resources */,
+				F595502016465067006F4D69 /* toyama.csv in Resources */,
+				F595502116465067006F4D69 /* yamagata.csv in Resources */,
+				F595502D16466E75006F4D69 /* GelandeListViewController.xib in Resources */,
+				F59550321646722A006F4D69 /* GelandeTweetViewController.xib in Resources */,
+				F595503716467D06006F4D69 /* GelandeMapViewController.xib in Resources */,
+				F595503C1646C025006F4D69 /* Default-568h@2x.png in Resources */,
+				F595503D1646C025006F4D69 /* Default.png in Resources */,
+				F595503E1646C025006F4D69 /* Default@2x.png in Resources */,
+				F59550411646C039006F4D69 /* icon.png in Resources */,
+				F59550421646C039006F4D69 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +575,13 @@
 				F54ED6BF163429A900F0ED00 /* ListsViewController.m in Sources */,
 				F56936ED163982FD001B7067 /* EGORefreshTableHeaderView.m in Sources */,
 				F5F33302163D730A00C205E9 /* TweetViewController.m in Sources */,
+				F5954FCE16462296006F4D69 /* WebBrowserViewController.m in Sources */,
+				F5954FD7164624C6006F4D69 /* SVProgressHUD.m in Sources */,
+				F5954FDD16464246006F4D69 /* SearchViewController.m in Sources */,
+				F5955028164658E8006F4D69 /* Gelande.m in Sources */,
+				F595502C16466E75006F4D69 /* GelandeListViewController.m in Sources */,
+				F59550311646722A006F4D69 /* GelandeTweetViewController.m in Sources */,
+				F595503616467D06006F4D69 /* GelandeMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

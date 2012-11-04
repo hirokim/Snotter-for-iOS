@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import "UIAsyncImageView.h"
+#import "TweetStatus.h"
 
-@interface TweetViewController : UIViewController
+@interface TweetViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIView *userView;
+@property (weak, nonatomic) IBOutlet UITableView *tweetTableView;
+@property (weak, nonatomic) IBOutlet UIAsyncImageView *imgProfile;
+@property (weak, nonatomic) IBOutlet UILabel *lblUserName;
+@property (weak, nonatomic) IBOutlet UILabel *lblScreenName;
+
+- (id)initWithStatus:(TweetStatus *)status;
 
 @end

@@ -7,8 +7,13 @@
 //
 
 #import "FavoriteListViewController.h"
+#import "Gelande.h"
+#import "GelandeTweetViewController.h"
+#import "TwitterManager.h"
 
 @interface FavoriteListViewController ()
+
+@property (nonatomic) NSMutableArray *favoriteList;
 
 @end
 
@@ -18,7 +23,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = @"お気に入り";
     }
     return self;
 }
@@ -26,7 +31,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.navigationController.navigationBar.tintColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
+    
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"設定"
+                                                            style:UIBarButtonItemStylePlain
+                                                           target:self
+                                                           action:@selector(showSetting)];
+    self.navigationItem.leftBarButtonItem = btn;
+    
+    self.navigationItem.rightBarButtonItem = [self editButtonItem];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSData *data = [ud objectForKey:FAVORITE_KEY];
+    self.favoriteList = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    [self.tableView reloadData];
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    
+    // UITableView の setEditing:animated: メソッドを呼ぶ。
+    [self.tableView setEditing:editing animated:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,7 +67,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -46,7 +78,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return [self.favoriteList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -57,61 +89,45 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
+    Gelande *gelande = [self.favoriteList objectAtIndex:indexPath.row];
+    cell.textLabel.text = gelande.name;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:16.0];
     
     return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	// 編集
+	[self.favoriteList removeObjectAtIndex:indexPath.row];
+	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+	NSData* classDataSave = [NSKeyedArchiver archivedDataWithRootObject:self.favoriteList];
+    [ud setObject:classDataSave forKey:FAVORITE_KEY];
+    [ud synchronize];
+    
+	// 見た目的にも削除
+	[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+					 withRowAnimation:UITableViewRowAnimationTop];
+}
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-#pragma mark - Table view delegate
+#pragma mark - Table view data source
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    GelandeTweetViewController *ctl = [[GelandeTweetViewController alloc] initWithGelande:[self.favoriteList objectAtIndex:indexPath.row]];
+    [self.navigationController pushViewController:ctl animated:YES];
+}
+
+- (void)viewDidUnload {
+    [self setTableView:nil];
+    [super viewDidUnload];
+}
+
+#pragma mark - 
+
+- (void)showSetting
+{
+    [[TwitterManager sharedInstance] logInWithShowInView:self];
 }
 
 @end

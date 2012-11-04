@@ -101,7 +101,9 @@
  */
 - (IBAction)cancel:(id)sender
 {
-    [self.delegate cancelSelectAccount];
+    if ([self.delegate respondsToSelector:@selector(cancelSelectAccount)])
+        [self.delegate cancelSelectAccount];
+    
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -159,7 +161,7 @@
  */
 - (void)fetchAccounts
 {
-    [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error)
+    [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error)
      {
          if (!granted)
          {

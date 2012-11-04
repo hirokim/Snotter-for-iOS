@@ -26,6 +26,15 @@
     return self;
 }
 
+- (id)initWithDelegate:(id<ListsViewControllerDelegate>)delegate
+{
+    self = [super initWithNibName:@"TimeLineViewController" bundle:nil];
+    if (self) {
+        self.delegate = delegate;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

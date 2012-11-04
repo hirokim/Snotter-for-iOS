@@ -23,15 +23,19 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // ビューコントローラ生成してタブにぶち込む
-    UIViewController *viewController1 = [[AreaListViewController alloc] initWithNibName:@"AreaListViewController" bundle:nil];
+    // ビューコントローラ生成
+    UIViewController *viewController1 = [[AreaListViewController alloc] initWithNibName:@"AreaListViewController" bundle:nil];    
     UIViewController *viewController2 = [[SnotterTweetListViewController alloc] initWithNibName:@"SnotterTweetListViewController" bundle:nil];
     UIViewController *viewController3 = [[FavoriteListViewController alloc] initWithNibName:@"FavoriteListViewController" bundle:nil];
     UIViewController *viewController4 = [[OfficialTweetListViewController alloc] initWithNibName:@"OfficialTweetListViewController" bundle:nil];
-    UIViewController *viewController5 = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
+    
+    UINavigationController *naviCon1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
+    UINavigationController *naviCon2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
+    UINavigationController *naviCon3 = [[UINavigationController alloc] initWithRootViewController:viewController3];
+    UINavigationController *naviCon4 = [[UINavigationController alloc] initWithRootViewController:viewController4];
     
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[viewController1, viewController2, viewController3, viewController4, viewController5];
+    self.tabBarController.viewControllers = @[naviCon1, naviCon2, naviCon3, naviCon4];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     

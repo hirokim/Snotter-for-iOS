@@ -7,6 +7,8 @@
 //
 
 #import "OfficialTweetListViewController.h"
+#import "TweetViewController.h"
+#import "TwitterManager.h"
 
 @interface OfficialTweetListViewController ()
 
@@ -18,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = @"関連ツイート";
     }
     return self;
 }
@@ -27,13 +29,32 @@
 {
     [super viewDidLoad];
     
-    self.timeLineView = [[ListsViewController alloc] initWithNibName:@"TimeLineViewController" bundle:nil];
+    self.navigationController.navigationBar.tintColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
+    
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"設定"
+                                                            style:UIBarButtonItemStylePlain
+                                                           target:self
+                                                           action:@selector(showSetting)];
+    self.navigationItem.leftBarButtonItem = btn;
+    
+    self.timeLineView = [[ListsViewController alloc] initWithDelegate:self];
     self.timeLineView.tableView.frame = self.view.frame;
     [self.view addSubview:self.timeLineView.tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    if (![TwitterManager sharedInstance].usingAccount) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
+                                                        message:@"Twitterアカウントが設定されていません。"
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        return;
+    }
+    
     if (self.timeLineView.statuses.count == 0) {
         [self.timeLineView loadListTimeLineWithListID:@"79026236" SinceID:nil MaxID:nil];
     }
@@ -43,6 +64,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)timeLineViewController:(TimeLineViewController *)controller selectedStatus:(TweetStatus *)status
+{
+    TweetViewController *ctl = [[TweetViewController alloc] initWithStatus:status];
+    [self.navigationController pushViewController:ctl animated:YES];
+}
+
+#pragma mark - 
+
+- (void)showSetting
+{
+    [[TwitterManager sharedInstance] logInWithShowInView:self];
 }
 
 @end

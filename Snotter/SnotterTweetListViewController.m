@@ -7,6 +7,7 @@
 //
 
 #import "SnotterTweetListViewController.h"
+#import "TweetViewController.h"
 #import "TwitterManager.h"
 
 @interface SnotterTweetListViewController ()
@@ -19,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = @"ｽﾉったーﾂｲｰﾄ";
     }
     return self;
 }
@@ -28,7 +29,35 @@
 {
     [super viewDidLoad];
     
-    [self.imageTest loadImageWithURL:@"https://si0.twimg.com/profile_images/1843055878/__________2012-02-21_20.42.27__normal.png"];
+    self.navigationController.navigationBar.tintColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
+    
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"設定"
+                                                            style:UIBarButtonItemStylePlain
+                                                           target:self
+                                                           action:@selector(showSetting)];
+    self.navigationItem.leftBarButtonItem = btn;
+    
+    self.timeLineView = [[SearchViewController alloc] initWithDelegate:self];
+    self.timeLineView.tableView.frame = self.view.frame;
+    [self.view addSubview:self.timeLineView.tableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (![TwitterManager sharedInstance].usingAccount) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
+                                                        message:@"Twitterアカウントが設定されていません。"
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        return;
+    }
+    
+    if (self.timeLineView.statuses.count == 0) {
+        [self.timeLineView loadSearchTimeLineWithKeywords:@[@"#_snotter"] SinceID:nil MaxID:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,12 +66,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)test:(id)sender {
-    
-    [[TwitterManager sharedInstance] logInWithShowInView:self];
-}
 - (void)viewDidUnload {
-    [self setImageTest:nil];
     [super viewDidUnload];
 }
+
+- (void)timeLineViewController:(TimeLineViewController *)controller selectedStatus:(TweetStatus *)status
+{
+    TweetViewController *ctl = [[TweetViewController alloc] initWithStatus:status];
+    [self.navigationController pushViewController:ctl animated:YES];
+}
+
+- (void)showSetting
+{
+    [[TwitterManager sharedInstance] logInWithShowInView:self];
+}
+
 @end

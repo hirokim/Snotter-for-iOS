@@ -8,9 +8,9 @@
 
 #import "TimeLineViewController.h"
 #import "TwitterManager.h"
-#import "TweetStatus.h"
 #import "TweetCell.h"
 #import "UIAsyncImageView.h"
+#import "TweetViewController.h"
 
 @interface TimeLineViewController ()
 
@@ -129,7 +129,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self.delegate respondsToSelector:@selector(timeLineViewController:selectedStatus:)]) {
+        
+        [self.delegate timeLineViewController:self selectedStatus:[self.statuses objectAtIndex:indexPath.row]];
+    }
     
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - 
@@ -229,7 +234,7 @@
         
         [self.statuses insertObjects:insertStatuses
                            atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, insertStatuses.count)]];
-        [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationTop];
+        [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
     }
     
     [self doneLoadingTimeLineData];
@@ -255,7 +260,7 @@
     if (addStatuses.count > 0) {
         
         [self.statuses addObjectsFromArray:addStatuses];
-        [self.tableView insertRowsAtIndexPaths:addIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
+        [self.tableView insertRowsAtIndexPaths:addIndexPaths withRowAnimation:UITableViewRowAnimationTop];
     }
     
     [self doneLoadingTimeLineData];

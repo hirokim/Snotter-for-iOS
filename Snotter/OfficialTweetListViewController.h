@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ListsViewController.h"
 
-@interface OfficialTweetListViewController : UIViewController
+@interface OfficialTweetListViewController : UIViewController <ListsViewControllerDelegate>
 
 @property (nonatomic) ListsViewController *timeLineView;
 

@@ -24,4 +24,6 @@ typedef void (^RequestHandler)(id);
 
 - (void)requestListsStatusesWithListID:(NSString *)listId SinceID:(NSString *)sinceId MaxID:(NSString *)maxId Handler:(RequestHandler)handler;
 
+- (void)requestSearchStatusesWithKeywords:(NSArray *)words SinceID:(NSString *)sinceId MaxID:(NSString *)maxId Handler:(RequestHandler)handler;
+
 @end

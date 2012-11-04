@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "TweetStatus.h"
 #import "EGORefreshTableHeaderView.h"
 
 enum LoadStatus
@@ -17,8 +18,18 @@ enum LoadStatus
     LoadFailed  = 2
 };
 
+@class TimeLineViewController;
+
+@protocol TimeLineViewControllerDelegate <NSObject>
+
+@optional
+- (void)timeLineViewController:(TimeLineViewController *)controller selectedStatus:(TweetStatus *)status;
+
+@end
+
 @interface TimeLineViewController : UITableViewController <EGORefreshTableHeaderDelegate>
 
+@property (weak, nonatomic) id<TimeLineViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIView *TweetFooterView;
 @property (weak, nonatomic) IBOutlet UIButton *BtnTweetFooter;
 @property (nonatomic) NSMutableArray *statuses;

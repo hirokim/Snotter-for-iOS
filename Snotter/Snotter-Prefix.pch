@@ -13,8 +13,25 @@
     #import <Foundation/Foundation.h>
 #endif
 
+/*
+ デバックログ
+ */
 #ifdef  DEBUG
 #define DNSLog(...);    NSLog(__VA_ARGS__);
 #else
 #define DNSLog(...);
 #endif
+
+/*
+ ナビゲーションバーの色
+ */
+#define NAVIGATION_BAR_COLOR 0x0099CC
+#define HEXCOLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0];
+
+/*
+ １mあたりの緯度経度の変化
+ */
+#define ONE_METER 0.00000925926
+
+
+#define FAVORITE_KEY @"FavoriteGelande"
