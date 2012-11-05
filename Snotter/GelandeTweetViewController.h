@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Twitter/TWTweetComposeViewController.h>
 #import "Gelande.h"
 #import "SearchViewController.h"
 
-@interface GelandeTweetViewController : UIViewController <SearchViewControllerDelegate, UIActionSheetDelegate>
+@interface GelandeTweetViewController : UIViewController <SearchViewControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic) SearchViewController *timeLineView;
 

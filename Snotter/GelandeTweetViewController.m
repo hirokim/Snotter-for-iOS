@@ -135,12 +135,28 @@
             break;
         }
         case 1: {
+            UIActionSheet *sheet;
             
-            UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Tweet"
-                                                               delegate:self
-                                                      cancelButtonTitle:@"キャンセル"
-                                                 destructiveButtonTitle:@"つぶやく"
-                                                      otherButtonTitles:@"カメラロールから選択", @"写真を撮る", nil];
+            // カメラが使えるかどうか
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                
+                sheet = [[UIActionSheet alloc] initWithTitle:@"Tweet"
+                                                    delegate:self
+                                           cancelButtonTitle:@"キャンセル"
+                                      destructiveButtonTitle:@"つぶやく"
+                                           otherButtonTitles:@"カメラロールから選択", @"写真を撮る", nil];
+                sheet.cancelButtonIndex = 3;
+            }
+            else {
+                
+                sheet = [[UIActionSheet alloc] initWithTitle:@"Tweet"
+                                                    delegate:self
+                                           cancelButtonTitle:@"キャンセル"
+                                      destructiveButtonTitle:@"つぶやく"
+                                           otherButtonTitles:@"カメラロールから選択", nil];
+                sheet.cancelButtonIndex = 2;
+            }
+            
             [sheet showInView:self.tabBarController.view];
             break;
         }
@@ -172,19 +188,64 @@
             
         case 0:
             // つぶやく
+            [self tweetWithImage:nil];
             break;
             
         case 1:
             // カメラロールから
+            [self showImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
             break;
             
         case 2:
-            // 写真を撮る
+            // キャンセルじゃない場合
+            if (actionSheet.cancelButtonIndex != buttonIndex) {
+                
+                // 写真を撮る
+                [self showImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+            }
             break;
             
         default:
             break;
     }
+}
+
+- (void)showImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)type
+{
+    UIImagePickerController *iPicker = [[UIImagePickerController alloc] init];
+    iPicker.sourceType = type;
+    iPicker.delegate = self;
+    
+    [self presentModalViewController:iPicker animated:YES];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        [self tweetWithImage:image];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark -
+
+- (void)tweetWithImage:(UIImage *)image
+{
+    TWTweetComposeViewController *viewController = [[TWTweetComposeViewController alloc] init];
+    [viewController setInitialText:[NSString stringWithFormat:@"#_snotter #%@ ", self.gelande.hashTag]];
+    
+    if (image)
+        [viewController addImage:image];
+    
+    [self presentModalViewController:viewController animated:YES];
 }
 
 @end
