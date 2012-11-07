@@ -95,6 +95,11 @@
 		F595503E1646C025006F4D69 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F595503B1646C025006F4D69 /* Default@2x.png */; };
 		F59550411646C039006F4D69 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F595503F1646C039006F4D69 /* icon.png */; };
 		F59550421646C039006F4D69 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F59550401646C039006F4D69 /* icon@2x.png */; };
+		F5C1D6B8164AA93700D519F1 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1D6B6164AA93700D519F1 /* libGoogleAnalytics.a */; };
+		F5C1D6BC164AA95B00D519F1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1D6BB164AA95B00D519F1 /* libsqlite3.0.dylib */; };
+		F5C1D6BE164AA97100D519F1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1D6BD164AA97100D519F1 /* Security.framework */; };
+		F5C1D6C0164AA97B00D519F1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1D6BF164AA97B00D519F1 /* CFNetwork.framework */; };
+		F5C1D6C2164AA98500D519F1 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1D6C1164AA98500D519F1 /* iAd.framework */; };
 		F5F33302163D730A00C205E9 /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F33300163D730900C205E9 /* TweetViewController.m */; };
 		F5F33303163D730A00C205E9 /* TweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5F33301163D730900C205E9 /* TweetViewController.xib */; };
 /* End PBXBuildFile section */
@@ -213,6 +218,12 @@
 		F595503B1646C025006F4D69 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		F595503F1646C039006F4D69 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		F59550401646C039006F4D69 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		F5C1D6B5164AA93700D519F1 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
+		F5C1D6B6164AA93700D519F1 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		F5C1D6BB164AA95B00D519F1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		F5C1D6BD164AA97100D519F1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F5C1D6BF164AA97B00D519F1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F5C1D6C1164AA98500D519F1 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		F5F332FF163D730900C205E9 /* TweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetViewController.h; sourceTree = "<group>"; };
 		F5F33300163D730900C205E9 /* TweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetViewController.m; sourceTree = "<group>"; };
 		F5F33301163D730900C205E9 /* TweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetViewController.xib; sourceTree = "<group>"; };
@@ -223,6 +234,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C1D6C2164AA98500D519F1 /* iAd.framework in Frameworks */,
+				F5C1D6C0164AA97B00D519F1 /* CFNetwork.framework in Frameworks */,
+				F5C1D6BE164AA97100D519F1 /* Security.framework in Frameworks */,
+				F5C1D6BC164AA95B00D519F1 /* libsqlite3.0.dylib in Frameworks */,
 				F595502516465892006F4D69 /* CoreLocation.framework in Frameworks */,
 				F59550231646583D006F4D69 /* MapKit.framework in Frameworks */,
 				F56936F01639838F001B7067 /* QuartzCore.framework in Frameworks */,
@@ -231,6 +246,7 @@
 				F54ED63B1633B77400F0ED00 /* UIKit.framework in Frameworks */,
 				F54ED63D1633B77400F0ED00 /* Foundation.framework in Frameworks */,
 				F54ED63F1633B77400F0ED00 /* CoreGraphics.framework in Frameworks */,
+				F5C1D6B8164AA93700D519F1 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +273,10 @@
 		F54ED6391633B77400F0ED00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5C1D6BB164AA95B00D519F1 /* libsqlite3.0.dylib */,
+				F5C1D6C1164AA98500D519F1 /* iAd.framework */,
+				F5C1D6BF164AA97B00D519F1 /* CFNetwork.framework */,
+				F5C1D6BD164AA97100D519F1 /* Security.framework */,
 				F595502416465891006F4D69 /* CoreLocation.framework */,
 				F59550221646583D006F4D69 /* MapKit.framework */,
 				F56936EF1639838F001B7067 /* QuartzCore.framework */,
@@ -274,6 +294,7 @@
 			children = (
 				F54ED6491633B77400F0ED00 /* AppDelegate.h */,
 				F54ED64A1633B77400F0ED00 /* AppDelegate.m */,
+				F5C1D6B4164AA93700D519F1 /* Analytics */,
 				F5954FE21646500D006F4D69 /* Resources */,
 				F54ED6411633B77400F0ED00 /* Supporting Files */,
 				F54ED6871633BE2700F0ED00 /* TwitterUtil */,
@@ -437,6 +458,15 @@
 				F595503B1646C025006F4D69 /* Default@2x.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		F5C1D6B4164AA93700D519F1 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1D6B5164AA93700D519F1 /* GANTracker.h */,
+				F5C1D6B6164AA93700D519F1 /* libGoogleAnalytics.a */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -623,6 +653,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -645,6 +676,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
@@ -654,6 +686,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snotter/Snotter-Prefix.pch";
 				INFOPLIST_FILE = "Snotter/Snotter-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Snotter/Analytics\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -665,6 +701,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snotter/Snotter-Prefix.pch";
 				INFOPLIST_FILE = "Snotter/Snotter-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Snotter/Analytics\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

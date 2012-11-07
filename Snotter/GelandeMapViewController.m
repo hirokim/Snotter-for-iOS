@@ -94,7 +94,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
+    [[GANTracker sharedTracker] trackPageview:GELANDE_MAP withError:nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,6 +11,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "GANTracker.h"
 #endif
 
 /*
@@ -35,3 +36,24 @@
 
 
 #define FAVORITE_KEY @"FavoriteGelande"
+
+#define OFFICIAL_TWEET_LIST         @"/関連ツイート"
+#define AREA_LIST                   @"/エリアリスト"
+#define SNOTTER_TWEET               @"/スノったーツイート"
+#define GELANDE_LIST                @"/ゲレンデリスト"
+#define GELANDE_TWEET               @"/ゲレンデ詳細"
+#define FAVORITE_LIST               @"/お気に入りリスト"
+#define GELANDE_MAP                 @"/ゲレンデマップ"
+
+#define AREA_SELECTED               @"エリア選択"
+#define SEGMENT_SELECTED            @"セグメント選択"
+
+#define SEL_FAVORITE                @"お気に入り登録"
+#define SEL_TWEET                   @"ツイート"
+#define SEL_GOOGLE_SEARCH           @"Google検索"
+#define SEL_MAP                     @"マップ表示"
+
+#define TWEETED                     @"ツイート完了"
+
+
+

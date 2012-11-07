@@ -69,6 +69,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [[GANTracker sharedTracker] trackPageview:GELANDE_TWEET withError:nil];
+    
     if (![TwitterManager sharedInstance].usingAccount) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
@@ -108,6 +110,8 @@
         
         case 0: {
             
+            [[GANTracker sharedTracker] trackEvent:GELANDE_TWEET action:SEGMENT_SELECTED label:SEL_FAVORITE value:-1 withError:nil];
+            
             NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
             NSMutableArray *favoriteList = [ud objectForKey:FAVORITE_KEY];
             if (!favoriteList) {
@@ -135,6 +139,9 @@
             break;
         }
         case 1: {
+            
+            [[GANTracker sharedTracker] trackEvent:GELANDE_TWEET action:SEGMENT_SELECTED label:SEL_TWEET value:-1 withError:nil];
+            
             UIActionSheet *sheet;
             
             // カメラが使えるかどうか
@@ -162,6 +169,8 @@
         }
         case 2: {
             
+            [[GANTracker sharedTracker] trackEvent:GELANDE_TWEET action:SEGMENT_SELECTED label:SEL_GOOGLE_SEARCH value:-1 withError:nil];
+            
             NSString *urlStr = [NSString stringWithFormat:@"http://www.google.co.jp/search?q=%@", [self.gelande.name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
             WebBrowserViewController *ctl = [[WebBrowserViewController alloc] initWithURL:urlStr];
             ctl.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -169,6 +178,8 @@
             break;
         }
         case 3: {
+            
+            [[GANTracker sharedTracker] trackEvent:GELANDE_TWEET action:SEGMENT_SELECTED label:SEL_MAP value:-1 withError:nil];
             
             GelandeMapViewController *ctl = [[GelandeMapViewController alloc] initWithGelande:self.gelande];
             [self.navigationController pushViewController:ctl animated:YES];
@@ -244,6 +255,14 @@
     
     if (image)
         [viewController addImage:image];
+    
+    viewController.completionHandler = ^(TWTweetComposeViewControllerResult res) {
+        
+        if (res == TWTweetComposeViewControllerResultDone) {
+            
+            [[GANTracker sharedTracker] trackEvent:GELANDE_TWEET action:SEL_TWEET label:TWEETED value:-1 withError:nil];
+        }
+    };
     
     [self presentModalViewController:viewController animated:YES];
 }

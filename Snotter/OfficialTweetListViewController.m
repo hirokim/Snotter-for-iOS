@@ -44,6 +44,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [[GANTracker sharedTracker] trackPageview:OFFICIAL_TWEET_LIST withError:nil];
+    
     if (![TwitterManager sharedInstance].usingAccount) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"

@@ -45,6 +45,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [[GANTracker sharedTracker] trackPageview:AREA_LIST withError:nil];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
@@ -105,7 +106,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GelandeListViewController *ctl = [[GelandeListViewController alloc] initWithGelandeList:[[self.areaList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+    NSArray *gelandeList = [[self.areaList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    Gelande *gelande = [gelandeList lastObject];
+    
+    [[GANTracker sharedTracker] trackEvent:AREA_LIST action:AREA_SELECTED label:gelande.smallAreaName value:-1 withError:nil];
+    
+    GelandeListViewController *ctl = [[GelandeListViewController alloc] initWithGelandeList:gelandeList];
     [self.navigationController pushViewController:ctl animated:YES];
 }
 

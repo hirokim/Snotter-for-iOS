@@ -55,6 +55,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [[GANTracker sharedTracker] trackPageview:GELANDE_LIST withError:nil];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
@@ -100,8 +101,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GelandeTweetViewController *ctl = [[GelandeTweetViewController alloc] initWithGelande:[self.gelandeList
-                                                                                           objectAtIndex:indexPath.row]];
+    Gelande *gelande = [self.gelandeList objectAtIndex:indexPath.row];
+    
+    [[GANTracker sharedTracker] trackEvent:@"/ゲレンデリスト" action:@"ゲレンデ選択" label:gelande.name value:-1 withError:nil];
+    
+    GelandeTweetViewController *ctl = [[GelandeTweetViewController alloc] initWithGelande:gelande];
     [self.navigationController pushViewController:ctl animated:YES];
 }
 

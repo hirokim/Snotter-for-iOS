@@ -42,7 +42,7 @@
     // フッター設定
     self.tableView.tableFooterView = self.TweetFooterView;
     [self.BtnTweetFooter addTarget:self
-                            action:@selector(loadOldTimeLineData)
+                            action:@selector(loadMoreTweet)
                   forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -286,7 +286,9 @@
 
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
 {
-	[self loadNewTimeLineData];
+    if (self.loadStatus != Loading) {
+        [self loadNewTimeLineData];
+    }
 }
 
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
@@ -297,6 +299,14 @@
 - (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view
 {
 	return self.refreshDate;
+}
+
+#pragma mark -
+- (void)loadMoreTweet
+{
+    if (self.loadStatus != Loading) {
+        [self loadOldTimeLineData];
+    }
 }
 
 @end

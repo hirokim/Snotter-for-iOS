@@ -49,6 +49,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [[GANTracker sharedTracker] trackPageview:SNOTTER_TWEET withError:nil];
+    
     if (![TwitterManager sharedInstance].usingAccount) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
@@ -175,6 +177,14 @@
     
     if (image)
         [viewController addImage:image];
+    
+    viewController.completionHandler = ^(TWTweetComposeViewControllerResult res) {
+        
+        if (res == TWTweetComposeViewControllerResultDone) {
+            
+            [[GANTracker sharedTracker] trackEvent:SNOTTER_TWEET action:SEL_TWEET label:TWEETED value:-1 withError:nil];
+        }
+    };
     
     [self presentModalViewController:viewController animated:YES];
 }

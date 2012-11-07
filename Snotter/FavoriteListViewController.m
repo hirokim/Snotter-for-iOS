@@ -45,6 +45,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [[GANTracker sharedTracker] trackPageview:FAVORITE_LIST withError:nil];
+    
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
@@ -114,7 +116,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GelandeTweetViewController *ctl = [[GelandeTweetViewController alloc] initWithGelande:[self.favoriteList objectAtIndex:indexPath.row]];
+    Gelande *gelande = [self.favoriteList objectAtIndex:indexPath.row];
+    
+    [[GANTracker sharedTracker] trackEvent:@"/お気に入りリスト" action:@"お気に入り選択" label:gelande.name value:-1 withError:nil];
+    
+    GelandeTweetViewController *ctl = [[GelandeTweetViewController alloc] initWithGelande:gelande];
     [self.navigationController pushViewController:ctl animated:YES];
 }
 
