@@ -173,45 +173,12 @@
     
     NSDateComponents* tweetDateComponents = [[NSCalendar currentCalendar] components:unit fromDate:date];
     
-    static NSDateFormatter *dateFormatter = nil;
-    if (!dateFormatter) {
-        
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    }
-    
-    // 時間をのぞいた日付で比較する
-	NSString *tmpDate = nil;
-    tmpDate = [dateFormatter stringFromDate:date];
-	NSDate *tweetDate = [dateFormatter dateFromString:tmpDate];
-    tmpDate = [dateFormatter stringFromDate:[NSDate date]];
-	NSDate *nowDate = [dateFormatter dateFromString:tmpDate];
-    
-    NSDateComponents *compare = [[NSCalendar currentCalendar] components:NSDayCalendarUnit
-                                                                fromDate:tweetDate
-                                                                  toDate:nowDate
-                                                                 options:0];
-    if (compare.day == 0) {
-        
-        return [NSString stringWithFormat:@"%d:%02d",
-                tweetDateComponents.hour,
-                tweetDateComponents.minute];
-    }
-    else if (compare.day == 1) {
-        
-        return [NSString stringWithFormat:@"昨日 %d:%02d",
-                tweetDateComponents.hour,
-                tweetDateComponents.minute];
-    }
-    else {
-        
-        return [NSString stringWithFormat:@"%d/%d %d:%02d",
-                tweetDateComponents.month,
-                tweetDateComponents.day,
-                tweetDateComponents.hour,
-                tweetDateComponents.minute];
-    }
+    return [NSString stringWithFormat:@"%d/%d/%d %d:%02d",
+            tweetDateComponents.year,
+            tweetDateComponents.month,
+            tweetDateComponents.day,
+            tweetDateComponents.hour,
+            tweetDateComponents.minute];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

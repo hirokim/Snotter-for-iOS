@@ -251,7 +251,7 @@
 - (void)tweetWithImage:(UIImage *)image
 {
     TWTweetComposeViewController *viewController = [[TWTweetComposeViewController alloc] init];
-    [viewController setInitialText:[NSString stringWithFormat:@"#_snotter #%@ ", self.gelande.hashTag]];
+    [viewController setInitialText:[NSString stringWithFormat:@"#_snotter #%@ 【%@】", self.gelande.hashTag, self.gelande.name]];
     
     if (image)
         [viewController addImage:image];

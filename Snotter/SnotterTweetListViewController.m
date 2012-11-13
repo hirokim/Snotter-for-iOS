@@ -62,7 +62,7 @@
         return;
     }
     
-    if (self.timeLineView.statuses.count == 0) {
+    if (self.timeLineView.statuses.count == 0 && self.timeLineView.loadStatus != Loading) {
         [self.timeLineView loadSearchTimeLineWithKeywords:@[@"#_snotter"] SinceID:nil MaxID:nil];
     }
 }

@@ -57,7 +57,7 @@
         return;
     }
     
-    if (self.timeLineView.statuses.count == 0) {
+    if (self.timeLineView.statuses.count == 0 && self.timeLineView.loadStatus != Loading) {
         [self.timeLineView loadListTimeLineWithListID:@"79026236" SinceID:nil MaxID:nil];
     }
 }
