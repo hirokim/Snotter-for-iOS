@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavoriteListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface FavoriteListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NADViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

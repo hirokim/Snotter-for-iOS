@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D435777165345B200CE7523 /* NetworkActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D435776165345B200CE7523 /* NetworkActivityManager.m */; };
+		2D4357851653638300CE7523 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4357821653638300CE7523 /* libNendAd.a */; };
+		2D4357861653638300CE7523 /* libNendAd_readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D4357831653638300CE7523 /* libNendAd_readme.txt */; };
 		F54ED63B1633B77400F0ED00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54ED63A1633B77400F0ED00 /* UIKit.framework */; };
 		F54ED63D1633B77400F0ED00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54ED63C1633B77400F0ED00 /* Foundation.framework */; };
 		F54ED63F1633B77400F0ED00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54ED63E1633B77400F0ED00 /* CoreGraphics.framework */; };
@@ -105,6 +108,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D435775165345B200CE7523 /* NetworkActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkActivityManager.h; sourceTree = "<group>"; };
+		2D435776165345B200CE7523 /* NetworkActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkActivityManager.m; sourceTree = "<group>"; };
+		2D4357821653638300CE7523 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
+		2D4357831653638300CE7523 /* libNendAd_readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libNendAd_readme.txt; sourceTree = "<group>"; };
+		2D4357841653638300CE7523 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
 		F54ED6361633B77400F0ED00 /* Snotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F54ED63A1633B77400F0ED00 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F54ED63C1633B77400F0ED00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -247,15 +255,27 @@
 				F54ED63D1633B77400F0ED00 /* Foundation.framework in Frameworks */,
 				F54ED63F1633B77400F0ED00 /* CoreGraphics.framework in Frameworks */,
 				F5C1D6B8164AA93700D519F1 /* libGoogleAnalytics.a in Frameworks */,
+				2D4357851653638300CE7523 /* libNendAd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D4357811653638300CE7523 /* NendAd */ = {
+			isa = PBXGroup;
+			children = (
+				2D4357821653638300CE7523 /* libNendAd.a */,
+				2D4357831653638300CE7523 /* libNendAd_readme.txt */,
+				2D4357841653638300CE7523 /* NADView.h */,
+			);
+			path = NendAd;
+			sourceTree = "<group>";
+		};
 		F54ED62B1633B77400F0ED00 = {
 			isa = PBXGroup;
 			children = (
+				2D4357811653638300CE7523 /* NendAd */,
 				F54ED6401633B77400F0ED00 /* Snotter */,
 				F54ED6391633B77400F0ED00 /* Frameworks */,
 				F54ED6371633B77400F0ED00 /* Products */,
@@ -294,6 +314,8 @@
 			children = (
 				F54ED6491633B77400F0ED00 /* AppDelegate.h */,
 				F54ED64A1633B77400F0ED00 /* AppDelegate.m */,
+				2D435775165345B200CE7523 /* NetworkActivityManager.h */,
+				2D435776165345B200CE7523 /* NetworkActivityManager.m */,
 				F5C1D6B4164AA93700D519F1 /* Analytics */,
 				F5954FE21646500D006F4D69 /* Resources */,
 				F54ED6411633B77400F0ED00 /* Supporting Files */,
@@ -578,6 +600,7 @@
 				F595503E1646C025006F4D69 /* Default@2x.png in Resources */,
 				F59550411646C039006F4D69 /* icon.png in Resources */,
 				F59550421646C039006F4D69 /* icon@2x.png in Resources */,
+				2D4357861653638300CE7523 /* libNendAd_readme.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +635,7 @@
 				F595502C16466E75006F4D69 /* GelandeListViewController.m in Sources */,
 				F59550311646722A006F4D69 /* GelandeTweetViewController.m in Sources */,
 				F595503616467D06006F4D69 /* GelandeMapViewController.m in Sources */,
+				2D435777165345B200CE7523 /* NetworkActivityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +713,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Snotter/Analytics\"",
+					"\"$(SRCROOT)/NendAd\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -704,6 +729,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Snotter/Analytics\"",
+					"\"$(SRCROOT)/NendAd\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

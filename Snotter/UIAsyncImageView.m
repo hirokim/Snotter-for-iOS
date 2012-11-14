@@ -47,8 +47,6 @@
  */
 - (void)loadImageWithURL:(NSString *)url
 {
-    [self startIndicator];
-    
     [self abort];
     _imageURL = url;
     
@@ -60,6 +58,8 @@
         [self stopIndicator];
         return;
     }
+    
+    [self startIndicator];
     
     data = [[NSMutableData alloc] initWithCapacity:0];
     
@@ -148,7 +148,7 @@
  */
 - (void)startIndicator
 {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [[NetworkActivityManager sharedInstance] increment];
     [indicator startAnimating];
     indicator.hidden = NO;
 }
@@ -158,7 +158,7 @@
  */
 - (void)stopIndicator
 {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [[NetworkActivityManager sharedInstance] decrement];
     [indicator stopAnimating];
     indicator.hidden = YES;
 }

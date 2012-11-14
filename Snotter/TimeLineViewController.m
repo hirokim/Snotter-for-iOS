@@ -210,7 +210,7 @@
 	self.loadStatus = Loaded;
     [self.BtnTweetFooter setTitle:@"もっと見る" forState:UIControlStateNormal];
     self.refreshDate = [NSDate date];
-	[self.refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];	
+	[self.refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
 }
 
 - (void)doneLoadingNewTimeLineDataWithStatuses:(NSArray *)statuses

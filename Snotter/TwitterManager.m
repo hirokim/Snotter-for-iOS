@@ -140,12 +140,16 @@ static dispatch_queue_t serialQueue;
  */
 - (void)requestWithURL:(NSURL *)url parameters:(NSDictionary *)params requestMethod:(TWRequestMethod)requestMethod Handler:(RequestHandler)handler
 {
+    [[NetworkActivityManager sharedInstance] increment];
+    
     TWRequest *request = [[TWRequest alloc] initWithURL:url
                                              parameters:params
                                           requestMethod:requestMethod];
     
     [request setAccount:self.usingAccount];
     [request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+        
+        [[NetworkActivityManager sharedInstance] decrement];
         
         if (error) {
             DNSLog(error.description);
@@ -191,7 +195,7 @@ static dispatch_queue_t serialQueue;
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:searchKeyword forKey:@"q"];
-    [params setObject:@"20" forKey:@"count"];
+    [params setObject:@"10" forKey:@"count"];
     [params setObject:@"1" forKey:@"include_entities"];
     [params setObject:@"1" forKey:@"include_rts"];
     if (sinceId)    [params setObject:sinceId forKey:@"since_id"];
@@ -217,7 +221,7 @@ static dispatch_queue_t serialQueue;
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:listId forKey:@"list_id"];
-    [params setObject:@"20" forKey:@"count"];
+    [params setObject:@"10" forKey:@"count"];
     [params setObject:@"1" forKey:@"include_entities"];
     [params setObject:@"1" forKey:@"include_rts"];
     if (sinceId)    [params setObject:sinceId forKey:@"since_id"];

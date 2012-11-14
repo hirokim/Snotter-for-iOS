@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AreaListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface AreaListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NADViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

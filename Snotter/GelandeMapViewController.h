@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "Gelande.h"
 
-@interface GelandeMapViewController : UIViewController <MKMapViewDelegate>
+@interface GelandeMapViewController : UIViewController <MKMapViewDelegate, NADViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *btnOpenMap;

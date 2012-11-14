@@ -11,7 +11,7 @@
 #import "Gelande.h"
 #import "SearchViewController.h"
 
-@interface GelandeTweetViewController : UIViewController <SearchViewControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface GelandeTweetViewController : UIViewController <SearchViewControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, NADViewDelegate>
 
 @property (nonatomic) SearchViewController *timeLineView;
 

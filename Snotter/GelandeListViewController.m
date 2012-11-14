@@ -15,6 +15,9 @@
 
 @property (nonatomic) NSArray *gelandeList;
 
+@property (nonatomic) NADView *nadView;
+@property (nonatomic) BOOL *isNadViewVisible;
+
 @end
 
 @implementation GelandeListViewController
@@ -51,12 +54,28 @@
                                                            target:self
                                                            action:@selector(showMap)];
     self.navigationItem.rightBarButtonItem = btn;
+    
+    self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,
+                                                             self.view.frame.size.height,
+                                                             NAD_ADVIEW_SIZE_320x50.width,
+                                                             NAD_ADVIEW_SIZE_320x50.height)];
+    [self.view addSubview:self.nadView];
+    [self.nadView setNendID:@"42ab03e7c858d17ad8dfceccfed97c8038a9e12e" spotID:@"16073"];
+    [self.nadView setDelegate:self];
+    [self.nadView load];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [[GANTracker sharedTracker] trackPageview:GELANDE_LIST withError:nil];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
+    [self.nadView resume];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.nadView pause];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +85,7 @@
 }
 
 - (void)viewDidUnload {
+    [self setNadView:nil];
     [self setTableView:nil];
     [super viewDidUnload];
 }
@@ -125,6 +145,63 @@
 	lblTitle.textColor = [UIColor whiteColor];
 	lblTitle.backgroundColor = [UIColor clearColor];
 	self.navigationItem.titleView = lblTitle;
+}
+
+#pragma mark - NADView delegate
+
+// NADViewのロードが成功した時に呼ばれる
+- (void)nadViewDidFinishLoad:(NADView *)adView
+{
+    NSLog(@"FirstView delegate nadViewDidFinishLoad");
+}
+
+// 広告受信成功
+-(void)nadViewDidReceiveAd:(NADView *)adView
+{
+    NSLog(@"FirstView delegate nadViewDidReceiveAd");
+    
+    if (!self.isNadViewVisible) {
+        
+        [UIView transitionWithView:self.view
+                          duration:1.0
+                           options:UIViewAnimationCurveEaseOut
+                        animations:^{
+                            
+                            [self nadViewFrameOffset:self.nadView.frame.size.height * -1];
+                        }
+                        completion:nil];
+    }
+}
+
+// 広告受信エラー
+-(void)nadViewDidFailToReceiveAd:(NADView *)adView
+{
+    NSLog(@"FirstView delegate nadViewDidFailToReceiveAd");
+    
+    if (self.isNadViewVisible) {
+        
+        [UIView transitionWithView:self.view
+                          duration:1.0
+                           options:UIViewAnimationCurveEaseOut
+                        animations:^{
+                            
+                            [self nadViewFrameOffset:self.nadView.frame.size.height];
+                        }
+                        completion:nil];
+    }
+}
+
+- (void)nadViewFrameOffset:(float)height
+{
+    self.tableView.frame = CGRectMake(self.tableView.frame.origin.x,
+                                      self.tableView.frame.origin.y,
+                                      self.tableView.frame.size.width,
+                                      self.tableView.frame.size.height
+                                      + height);
+    
+    self.nadView.frame = CGRectOffset(self.nadView.frame,
+                                      0,
+                                      height);
 }
 
 @end

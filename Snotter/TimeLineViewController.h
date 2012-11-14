@@ -13,8 +13,8 @@
 
 enum LoadStatus
 {
-    Loading     = 0,
-    Loaded      = 1,
+    Loaded      = 0,
+    Loading     = 1,
     LoadFailed  = 2
 };
 

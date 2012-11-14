@@ -10,7 +10,7 @@
 #import <Twitter/TWTweetComposeViewController.h>
 #import "SearchViewController.h"
 
-@interface SnotterTweetListViewController : UIViewController <SearchViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface SnotterTweetListViewController : UIViewController <SearchViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, NADViewDelegate>
 
 @property (nonatomic) SearchViewController *timeLineView;
 

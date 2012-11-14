@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GelandeListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface GelandeListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NADViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
