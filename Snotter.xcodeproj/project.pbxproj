@@ -10,6 +10,14 @@
 		2D435777165345B200CE7523 /* NetworkActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D435776165345B200CE7523 /* NetworkActivityManager.m */; };
 		2D4357851653638300CE7523 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4357821653638300CE7523 /* libNendAd.a */; };
 		2D4357861653638300CE7523 /* libNendAd_readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D4357831653638300CE7523 /* libNendAd_readme.txt */; };
+		2D803F561654B05C00A56730 /* Balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D803F4E1654B05C00A56730 /* Balloon.png */; };
+		2D803F571654B05C00A56730 /* Balloon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D803F4F1654B05C00A56730 /* Balloon@2x.png */; };
+		2D803F581654B05C00A56730 /* FormatBullets.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D803F501654B05C00A56730 /* FormatBullets.png */; };
+		2D803F591654B05C00A56730 /* FormatBullets@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D803F511654B05C00A56730 /* FormatBullets@2x.png */; };
+		2D803F5A1654B05C00A56730 /* Heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D803F521654B05C00A56730 /* Heart.png */; };
+		2D803F5B1654B05C00A56730 /* Heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D803F531654B05C00A56730 /* Heart@2x.png */; };
+		2D803F5C1654B05C00A56730 /* Information.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D803F541654B05C00A56730 /* Information.png */; };
+		2D803F5D1654B05C00A56730 /* Information@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D803F551654B05C00A56730 /* Information@2x.png */; };
 		F54ED63B1633B77400F0ED00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54ED63A1633B77400F0ED00 /* UIKit.framework */; };
 		F54ED63D1633B77400F0ED00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54ED63C1633B77400F0ED00 /* Foundation.framework */; };
 		F54ED63F1633B77400F0ED00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54ED63E1633B77400F0ED00 /* CoreGraphics.framework */; };
@@ -113,6 +121,14 @@
 		2D4357821653638300CE7523 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
 		2D4357831653638300CE7523 /* libNendAd_readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libNendAd_readme.txt; sourceTree = "<group>"; };
 		2D4357841653638300CE7523 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
+		2D803F4E1654B05C00A56730 /* Balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Balloon.png; sourceTree = "<group>"; };
+		2D803F4F1654B05C00A56730 /* Balloon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Balloon@2x.png"; sourceTree = "<group>"; };
+		2D803F501654B05C00A56730 /* FormatBullets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FormatBullets.png; sourceTree = "<group>"; };
+		2D803F511654B05C00A56730 /* FormatBullets@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FormatBullets@2x.png"; sourceTree = "<group>"; };
+		2D803F521654B05C00A56730 /* Heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Heart.png; sourceTree = "<group>"; };
+		2D803F531654B05C00A56730 /* Heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Heart@2x.png"; sourceTree = "<group>"; };
+		2D803F541654B05C00A56730 /* Information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Information.png; sourceTree = "<group>"; };
+		2D803F551654B05C00A56730 /* Information@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Information@2x.png"; sourceTree = "<group>"; };
 		F54ED6361633B77400F0ED00 /* Snotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F54ED63A1633B77400F0ED00 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F54ED63C1633B77400F0ED00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -473,6 +489,14 @@
 		F59550381646BFD5006F4D69 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2D803F4E1654B05C00A56730 /* Balloon.png */,
+				2D803F4F1654B05C00A56730 /* Balloon@2x.png */,
+				2D803F501654B05C00A56730 /* FormatBullets.png */,
+				2D803F511654B05C00A56730 /* FormatBullets@2x.png */,
+				2D803F521654B05C00A56730 /* Heart.png */,
+				2D803F531654B05C00A56730 /* Heart@2x.png */,
+				2D803F541654B05C00A56730 /* Information.png */,
+				2D803F551654B05C00A56730 /* Information@2x.png */,
 				F595503F1646C039006F4D69 /* icon.png */,
 				F59550401646C039006F4D69 /* icon@2x.png */,
 				F59550391646C025006F4D69 /* Default-568h@2x.png */,
@@ -601,6 +625,14 @@
 				F59550411646C039006F4D69 /* icon.png in Resources */,
 				F59550421646C039006F4D69 /* icon@2x.png in Resources */,
 				2D4357861653638300CE7523 /* libNendAd_readme.txt in Resources */,
+				2D803F561654B05C00A56730 /* Balloon.png in Resources */,
+				2D803F571654B05C00A56730 /* Balloon@2x.png in Resources */,
+				2D803F581654B05C00A56730 /* FormatBullets.png in Resources */,
+				2D803F591654B05C00A56730 /* FormatBullets@2x.png in Resources */,
+				2D803F5A1654B05C00A56730 /* Heart.png in Resources */,
+				2D803F5B1654B05C00A56730 /* Heart@2x.png in Resources */,
+				2D803F5C1654B05C00A56730 /* Information.png in Resources */,
+				2D803F5D1654B05C00A56730 /* Information@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

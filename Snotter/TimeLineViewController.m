@@ -97,7 +97,7 @@
     CGSize maxBounds = CGSizeMake(cell.tweetText.bounds.size.width, 500);
     CGSize detailSize = [cell.tweetText.text sizeWithFont:cell.tweetText.font
                                         constrainedToSize:maxBounds
-                                            lineBreakMode:UILineBreakModeWordWrap];
+                                            lineBreakMode:UILineBreakModeCharacterWrap];
     cell.tweetText.frame = CGRectMake(cell.tweetText.frame.origin.x,
                                       cell.tweetText.frame.origin.y,
                                       cell.tweetText.frame.size.width,
@@ -116,7 +116,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TweetCell *cell = (TweetCell *)[self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    TweetCell *cell = (TweetCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
     float newHeight = cell.userName.frame.size.height + cell.tweetText.frame.size.height + 5;
     
     if (newHeight > cell.bounds.size.height) {

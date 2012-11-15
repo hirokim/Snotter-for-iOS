@@ -231,14 +231,7 @@
     
     if (!self.isNadViewVisible) {
         
-        [UIView transitionWithView:self.view
-                          duration:1.0
-                           options:UIViewAnimationCurveEaseOut
-                        animations:^{
-                            
-                            [self nadViewFrameOffset:self.nadView.frame.size.height * -1];
-                        }
-                        completion:nil];
+        [self nadViewFrameOffset:self.nadView.frame.size.height * -1];
     }
 }
 
@@ -249,32 +242,28 @@
     
     if (self.isNadViewVisible) {
         
-        [UIView transitionWithView:self.view
-                          duration:1.0
-                           options:UIViewAnimationCurveEaseOut
-                        animations:^{
-                            
-                            [self nadViewFrameOffset:self.nadView.frame.size.height];
-                        }
-                        completion:nil];
+        [self nadViewFrameOffset:self.nadView.frame.size.height];
     }
 }
 
 - (void)nadViewFrameOffset:(float)height
 {
-    self.mapView.frame = CGRectMake(self.mapView.frame.origin.x,
-                                    self.mapView.frame.origin.y,
-                                    self.mapView.frame.size.width,
-                                    self.mapView.frame.size.height
-                                    + height);
-    
-    self.btnOpenMap.frame = CGRectOffset(self.btnOpenMap.frame,
-                                         0,
-                                         height);
-    
-    self.nadView.frame = CGRectOffset(self.nadView.frame,
-                                      0,
-                                      height);
+    [UIView animateWithDuration:0.5 animations:^{
+        
+//        self.mapView.frame = CGRectMake(self.mapView.frame.origin.x,
+//                                        self.mapView.frame.origin.y,
+//                                        self.mapView.frame.size.width,
+//                                        self.mapView.frame.size.height
+//                                        + height);
+        
+        self.btnOpenMap.frame = CGRectOffset(self.btnOpenMap.frame,
+                                             0,
+                                             height);
+        
+        self.nadView.frame = CGRectOffset(self.nadView.frame,
+                                          0,
+                                          height);
+    } completion:nil];
 }
 
 @end

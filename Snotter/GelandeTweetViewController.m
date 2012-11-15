@@ -84,8 +84,6 @@
 {
     [[GANTracker sharedTracker] trackPageview:GELANDE_TWEET withError:nil];
     
-    [self.nadView resume];
-    
     if (![TwitterManager sharedInstance].usingAccount) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
@@ -94,8 +92,14 @@
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"OK", nil];
         [alert show];
+        
+        self.timeLineView.tableView.hidden = YES;
         return;
     }
+    
+    self.timeLineView.tableView.hidden = NO;
+    
+    [self.nadView resume];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -303,14 +307,7 @@
     
     if (!self.isNadViewVisible) {
         
-        [UIView transitionWithView:self.view
-                          duration:1.0
-                           options:UIViewAnimationCurveEaseOut
-                        animations:^{
-                            
-                            [self nadViewFrameOffset:self.nadView.frame.size.height * -1];
-                        }
-                        completion:nil];
+        [self nadViewFrameOffset:self.nadView.frame.size.height * -1];
     }
 }
 
@@ -321,28 +318,24 @@
     
     if (self.isNadViewVisible) {
         
-        [UIView transitionWithView:self.view
-                          duration:1.0
-                           options:UIViewAnimationCurveEaseOut
-                        animations:^{
-                            
-                            [self nadViewFrameOffset:self.nadView.frame.size.height];
-                        }
-                        completion:nil];
+        [self nadViewFrameOffset:self.nadView.frame.size.height];
     }
 }
 
 - (void)nadViewFrameOffset:(float)height
 {
-    self.timeLineView.tableView.frame = CGRectMake(self.timeLineView.tableView.frame.origin.x,
-                                                   self.timeLineView.tableView.frame.origin.y,
-                                                   self.timeLineView.tableView.frame.size.width,
-                                                   self.timeLineView.tableView.frame.size.height
-                                                   + height);
-    
-    self.nadView.frame = CGRectOffset(self.nadView.frame,
-                                      0,
-                                      height);
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        self.timeLineView.tableView.frame = CGRectMake(self.timeLineView.tableView.frame.origin.x,
+                                                       self.timeLineView.tableView.frame.origin.y,
+                                                       self.timeLineView.tableView.frame.size.width,
+                                                       self.timeLineView.tableView.frame.size.height
+                                                       + height);
+        
+        self.nadView.frame = CGRectOffset(self.nadView.frame,
+                                          0,
+                                          height);
+    } completion:nil];
 }
 
 @end

@@ -40,6 +40,26 @@
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[naviCon1, naviCon2, naviCon3, naviCon4];
+    
+    
+    UITabBarItem *tbItem;
+    tbItem = [self.tabBarController.tabBar.items objectAtIndex:0];
+    tbItem.title = @"スキー場";
+    tbItem.image = [UIImage imageNamed:@"FormatBullets"];
+    
+    tbItem = [self.tabBarController.tabBar.items objectAtIndex:1];
+    tbItem.title = @"ｽﾉったーﾂｲｰﾄ";
+    tbItem.image = [UIImage imageNamed:@"Balloon"];
+    
+    tbItem = [self.tabBarController.tabBar.items objectAtIndex:2];
+    tbItem.title = @"お気に入り";
+    tbItem.image = [UIImage imageNamed:@"Heart"];
+    
+    tbItem = [self.tabBarController.tabBar.items objectAtIndex:3];
+    tbItem.title = @"関連ツイート";
+    tbItem.image = [UIImage imageNamed:@"Information"];
+    
+    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
