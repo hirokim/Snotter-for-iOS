@@ -71,6 +71,7 @@
  */
 - (void)viewDidUnload
 {
+    [self setLblErrorMessage:nil];
     [self setTableview:nil];
     accountStore = nil;
     accountType = nil;
@@ -163,36 +164,32 @@
 {
     [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error)
      {
-         if (!granted)
-         {
-             // ユーザがtwitterアカウントへのアクセスを拒否
-             NSLog(@"User rejected access to his account.");
-             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-         }
-         else
-         {
-             // twitter アカウントへのアクセス許可
-             accounts = [accountStore accountsWithAccountType:accountType];
-             if ([accounts count] == 0)
+         dispatch_async(dispatch_get_main_queue(), ^{
+             
+             if (!granted)
              {
-                 //設定されていなければ、twitter設定画面へ飛ばすアラート表示
-                 UIAlertView *twAlert = [[UIAlertView alloc]initWithTitle:@"設定"
-                                                                  message:@"Twitterアカウントがありません。"
-                                                                 delegate:nil
-                                                        cancelButtonTitle:nil
-                                                        otherButtonTitles:@"OK",
-                                         nil];
-                 [twAlert show];
-                 
-                 [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                 // ユーザがtwitterアカウントへのアクセスを拒否
+                 NSLog(@"User rejected access to his account.");
+                 self.tableview.hidden = YES;
+                 self.lblErrorMessage.text = @"Twitterアカウントへのアクセス権限がありません。\niPhoneの設定からTwitterアカウントを確認してください。";
              }
              else
              {
-                 dispatch_async(dispatch_get_main_queue(), ^{
+                 // twitter アカウントへのアクセス許可
+                 accounts = [accountStore accountsWithAccountType:accountType];
+                 if ([accounts count] == 0)
+                 {
+                     //設定されていない
+                     self.tableview.hidden = YES;
+                     self.lblErrorMessage.text = @"Twitterアカウントがありません。\niPhoneの設定からTwitterアカウントを追加してください。";
+                 }
+                 else
+                 {
                      [self.tableview reloadData];
-                 });
+                     
+                 }
              }
-         }
+         });
      }];
 }
 

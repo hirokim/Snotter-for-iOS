@@ -103,11 +103,13 @@
                                       cell.tweetText.frame.size.width,
                                       detailSize.height);
     
-    // 先頭、最後尾のIDを保持
+    // 先頭のIDを保持
     if (indexPath.row == 0) {
         self.sinceId = status.status_id;
     }
-    else if (indexPath.row == [self.statuses count] - 1) {
+    
+    // 最後尾のIDを保持
+    if (indexPath.row == [self.statuses count] - 1) {
         self.maxId = status.status_id;
     }
     
@@ -226,7 +228,7 @@
         }
         
         [insertStatuses addObject:status];
-        [insertIndexPaths addObject:[NSIndexPath indexPathForItem:rowIndex inSection:0]];
+        [insertIndexPaths addObject:[NSIndexPath indexPathForRow:rowIndex inSection:0]];
         rowIndex++;
     }
     
@@ -253,7 +255,7 @@
         }
         
         [addStatuses addObject:status];
-        [addIndexPaths addObject:[NSIndexPath indexPathForItem:rowIndex inSection:0]];
+        [addIndexPaths addObject:[NSIndexPath indexPathForRow:rowIndex inSection:0]];
         rowIndex++;
     }
     

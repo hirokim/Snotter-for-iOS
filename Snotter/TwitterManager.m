@@ -16,6 +16,13 @@ typedef void (^fetchAccountHandler)(ACAccount *fetchAccount);
 // 使用中アカウント保持用キー
 NSString *const CURRENT_TWITTER_ID = @"CURRENT_TWITTER_ID";
 
+@interface TwitterManager()
+{
+    ACAccountStore *accountStore;
+    ACAccountType *accountType;
+}
+@end
+
 @implementation TwitterManager
 
 static TwitterManager* _sharedInstance = nil;
@@ -45,6 +52,9 @@ static dispatch_queue_t serialQueue;
     dispatch_sync(serialQueue, ^{
         obj = [super init];
         if (obj) {
+            
+            accountStore = [[ACAccountStore alloc] init];
+            accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
             
             NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
             NSString *twitterId = [ud objectForKey:CURRENT_TWITTER_ID];
@@ -97,27 +107,22 @@ static dispatch_queue_t serialQueue;
  */
 - (void)fetchAccountWithIdentifier:(NSString *)identifier :(fetchAccountHandler)handler
 {
-    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    
     // Twitterの使用許可を得る
-    [accountStore requestAccessToAccountsWithType:accountType
-                                          options:nil
-                                       completion:^(BOOL granted, NSError *error) {
-                                           
-                                           if (error) {
-                                               DNSLog(error.localizedDescription);
-                                           }
-                                           
-                                           ACAccount *tmpAccount = nil;
-                                           if (granted) {
-                                               
-                                               // 既にログインしているなら、使用中アカウントを取得
-                                               tmpAccount = [accountStore accountWithIdentifier:identifier];
-                                           }
-                                           
-                                           handler(tmpAccount);
-                                       }];
+    [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error) {
+        
+        if (error) {
+            DNSLog(error.localizedDescription);
+        }
+        
+        ACAccount *tmpAccount = nil;
+        if (granted) {
+            
+            // 既にログインしているなら、使用中アカウントを取得
+            tmpAccount = [accountStore accountWithIdentifier:identifier];
+        }
+        
+        handler(tmpAccount);
+    }];
 }
 
 /**

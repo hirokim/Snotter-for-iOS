@@ -21,6 +21,7 @@
 
 @interface TwitterAccountsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *lblErrorMessage;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (nonatomic) id<TwitterAccountsViewControllerDelegate> delegate;
 

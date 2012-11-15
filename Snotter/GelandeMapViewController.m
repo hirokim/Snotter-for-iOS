@@ -16,7 +16,7 @@
 @property (nonatomic) CLLocationCoordinate2D coordinates;
 
 @property (nonatomic) NADView *nadView;
-@property (nonatomic) BOOL *isNadViewVisible;
+@property (nonatomic) BOOL isNadViewVisible;
 
 @end
 
@@ -93,21 +93,24 @@
         
         [self updateTitleWithTitle:g.name];
     }
-    
-    
-    self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,
-                                                             self.view.frame.size.height,
-                                                             NAD_ADVIEW_SIZE_320x50.width,
-                                                             NAD_ADVIEW_SIZE_320x50.height)];
-    [self.view addSubview:self.nadView];
-    [self.nadView setNendID:@"42ab03e7c858d17ad8dfceccfed97c8038a9e12e" spotID:@"16073"];
-    [self.nadView setDelegate:self];
-    [self.nadView load];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [[GANTracker sharedTracker] trackPageview:GELANDE_MAP withError:nil];
+    
+    if (!self.nadView) {
+        
+        self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,
+                                                                 self.view.frame.size.height,
+                                                                 NAD_ADVIEW_SIZE_320x50.width,
+                                                                 NAD_ADVIEW_SIZE_320x50.height)];
+        
+        [self.view addSubview:self.nadView];
+        [self.nadView setNendID:@"42ab03e7c858d17ad8dfceccfed97c8038a9e12e" spotID:@"16073"];
+        [self.nadView setDelegate:self];
+        [self.nadView load];
+    }
     
     [self.nadView resume];
 }
@@ -231,6 +234,7 @@
     
     if (!self.isNadViewVisible) {
         
+        self.isNadViewVisible = YES;
         [self nadViewFrameOffset:self.nadView.frame.size.height * -1];
     }
 }
@@ -242,6 +246,7 @@
     
     if (self.isNadViewVisible) {
         
+        self.isNadViewVisible = NO;
         [self nadViewFrameOffset:self.nadView.frame.size.height];
     }
 }
@@ -250,12 +255,6 @@
 {
     [UIView animateWithDuration:0.5 animations:^{
         
-//        self.mapView.frame = CGRectMake(self.mapView.frame.origin.x,
-//                                        self.mapView.frame.origin.y,
-//                                        self.mapView.frame.size.width,
-//                                        self.mapView.frame.size.height
-//                                        + height);
-        
         self.btnOpenMap.frame = CGRectOffset(self.btnOpenMap.frame,
                                              0,
                                              height);
@@ -263,7 +262,14 @@
         self.nadView.frame = CGRectOffset(self.nadView.frame,
                                           0,
                                           height);
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        
+        self.mapView.frame = CGRectMake(self.mapView.frame.origin.x,
+                                        self.mapView.frame.origin.y,
+                                        self.mapView.frame.size.width,
+                                        self.mapView.frame.size.height
+                                        + height);
+    }];
 }
 
 @end

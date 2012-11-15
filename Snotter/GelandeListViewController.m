@@ -16,7 +16,7 @@
 @property (nonatomic) NSArray *gelandeList;
 
 @property (nonatomic) NADView *nadView;
-@property (nonatomic) BOOL *isNadViewVisible;
+@property (nonatomic) BOOL isNadViewVisible;
 
 @end
 
@@ -54,21 +54,25 @@
                                                            target:self
                                                            action:@selector(showMap)];
     self.navigationItem.rightBarButtonItem = btn;
-    
-    self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,
-                                                             self.view.frame.size.height,
-                                                             NAD_ADVIEW_SIZE_320x50.width,
-                                                             NAD_ADVIEW_SIZE_320x50.height)];
-    [self.view addSubview:self.nadView];
-    [self.nadView setNendID:@"42ab03e7c858d17ad8dfceccfed97c8038a9e12e" spotID:@"16073"];
-    [self.nadView setDelegate:self];
-    [self.nadView load];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [[GANTracker sharedTracker] trackPageview:GELANDE_LIST withError:nil];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
+    if (!self.nadView) {
+        
+        self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,
+                                                                 self.view.frame.size.height,
+                                                                 NAD_ADVIEW_SIZE_320x50.width,
+                                                                 NAD_ADVIEW_SIZE_320x50.height)];
+        
+        [self.view addSubview:self.nadView];
+        [self.nadView setNendID:@"42ab03e7c858d17ad8dfceccfed97c8038a9e12e" spotID:@"16073"];
+        [self.nadView setDelegate:self];
+        [self.nadView load];
+    }
     
     [self.nadView resume];
 }
@@ -162,6 +166,7 @@
     
     if (!self.isNadViewVisible) {
         
+        self.isNadViewVisible = YES;
         [self nadViewFrameOffset:self.nadView.frame.size.height * -1];
     }
 }
@@ -173,6 +178,7 @@
     
     if (self.isNadViewVisible) {
         
+        self.isNadViewVisible = NO;
         [self nadViewFrameOffset:self.nadView.frame.size.height];
     }
 }

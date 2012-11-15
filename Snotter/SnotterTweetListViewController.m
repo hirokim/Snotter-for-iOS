@@ -13,7 +13,7 @@
 @interface SnotterTweetListViewController ()
 
 @property (nonatomic) NADView *nadView;
-@property (nonatomic) BOOL *isNadViewVisible;
+@property (nonatomic) BOOL isNadViewVisible;
 
 @end
 
@@ -23,7 +23,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        self.title = @"ｽﾉったーﾂｲーﾄ";
     }
     return self;
 }
@@ -48,25 +48,29 @@
     self.timeLineView = [[SearchViewController alloc] initWithDelegate:self];
     self.timeLineView.tableView.frame = self.view.frame;
     [self.view addSubview:self.timeLineView.tableView];
-    
-    self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,
-                                                             self.view.frame.size.height,
-                                                             NAD_ADVIEW_SIZE_320x50.width,
-                                                             NAD_ADVIEW_SIZE_320x50.height)];
-    [self.view addSubview:self.nadView];
-    [self.nadView setNendID:@"42ab03e7c858d17ad8dfceccfed97c8038a9e12e" spotID:@"16073"];
-    [self.nadView setDelegate:self];
-    [self.nadView load];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [[GANTracker sharedTracker] trackPageview:SNOTTER_TWEET withError:nil];
     
+    if (!self.nadView) {
+        
+        self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,
+                                                                 self.view.frame.size.height,
+                                                                 NAD_ADVIEW_SIZE_320x50.width,
+                                                                 NAD_ADVIEW_SIZE_320x50.height)];
+        
+        [self.view addSubview:self.nadView];
+        [self.nadView setNendID:@"42ab03e7c858d17ad8dfceccfed97c8038a9e12e" spotID:@"16073"];
+        [self.nadView setDelegate:self];
+        [self.nadView load];
+    }
+    
     if (![TwitterManager sharedInstance].usingAccount) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
-                                                        message:@"Twitterアカウントが設定されていません。"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"アカウント設定"
+                                                        message:@"左上の設定からTwitterアカウントを\n設定してください。"
                                                        delegate:self
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"OK", nil];
@@ -228,6 +232,7 @@
     
     if (!self.isNadViewVisible) {
         
+        self.isNadViewVisible = YES;
         [self nadViewFrameOffset:self.nadView.frame.size.height * -1];
     }
 }
@@ -239,6 +244,7 @@
     
     if (self.isNadViewVisible) {
         
+        self.isNadViewVisible = NO;
         [self nadViewFrameOffset:self.nadView.frame.size.height];
     }
 }
