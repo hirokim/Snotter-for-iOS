@@ -190,7 +190,7 @@ static dispatch_queue_t serialQueue;
  */
 - (void)requestSearchStatusesWithKeywords:(NSArray *)words SinceID:(NSString *)sinceId MaxID:(NSString *)maxId Handler:(RequestHandler)handler
 {
-    NSString *searchKeyword = [words componentsJoinedByString:@"+OR+"];
+    NSString *searchKeyword = [words componentsJoinedByString:@" OR "];
     
     DNSLog(@"Keyword:%@", searchKeyword);
     DNSLog(@"SinceID:%@", sinceId);

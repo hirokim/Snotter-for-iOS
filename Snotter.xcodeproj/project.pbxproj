@@ -10,6 +10,7 @@
 		2D435777165345B200CE7523 /* NetworkActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D435776165345B200CE7523 /* NetworkActivityManager.m */; };
 		2D4357851653638300CE7523 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4357821653638300CE7523 /* libNendAd.a */; };
 		2D4357861653638300CE7523 /* libNendAd_readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D4357831653638300CE7523 /* libNendAd_readme.txt */; };
+		2D7CC0D9165611A10011BE20 /* douou.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2D7CC0D8165611A10011BE20 /* douou.csv */; };
 		2D803F561654B05C00A56730 /* Balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D803F4E1654B05C00A56730 /* Balloon.png */; };
 		2D803F571654B05C00A56730 /* Balloon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D803F4F1654B05C00A56730 /* Balloon@2x.png */; };
 		2D803F581654B05C00A56730 /* FormatBullets.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D803F501654B05C00A56730 /* FormatBullets.png */; };
@@ -63,7 +64,6 @@
 		F5954FDD16464246006F4D69 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5954FDC16464243006F4D69 /* SearchViewController.m */; };
 		F595500316465067006F4D69 /* akita.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE416465067006F4D69 /* akita.csv */; };
 		F595500416465067006F4D69 /* aomori.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE516465067006F4D69 /* aomori.csv */; };
-		F595500516465067006F4D69 /* douchu.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE616465067006F4D69 /* douchu.csv */; };
 		F595500616465067006F4D69 /* douhoku.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE716465067006F4D69 /* douhoku.csv */; };
 		F595500716465067006F4D69 /* doutou.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE816465067006F4D69 /* doutou.csv */; };
 		F595500816465067006F4D69 /* fuji.csv in Resources */ = {isa = PBXBuildFile; fileRef = F5954FE916465067006F4D69 /* fuji.csv */; };
@@ -121,6 +121,7 @@
 		2D4357821653638300CE7523 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
 		2D4357831653638300CE7523 /* libNendAd_readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libNendAd_readme.txt; sourceTree = "<group>"; };
 		2D4357841653638300CE7523 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
+		2D7CC0D8165611A10011BE20 /* douou.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = douou.csv; sourceTree = "<group>"; };
 		2D803F4E1654B05C00A56730 /* Balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Balloon.png; sourceTree = "<group>"; };
 		2D803F4F1654B05C00A56730 /* Balloon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Balloon@2x.png"; sourceTree = "<group>"; };
 		2D803F501654B05C00A56730 /* FormatBullets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FormatBullets.png; sourceTree = "<group>"; };
@@ -195,7 +196,6 @@
 		F5954FDC16464243006F4D69 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		F5954FE416465067006F4D69 /* akita.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = akita.csv; sourceTree = "<group>"; };
 		F5954FE516465067006F4D69 /* aomori.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aomori.csv; sourceTree = "<group>"; };
-		F5954FE616465067006F4D69 /* douchu.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = douchu.csv; sourceTree = "<group>"; };
 		F5954FE716465067006F4D69 /* douhoku.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = douhoku.csv; sourceTree = "<group>"; };
 		F5954FE816465067006F4D69 /* doutou.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = doutou.csv; sourceTree = "<group>"; };
 		F5954FE916465067006F4D69 /* fuji.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fuji.csv; sourceTree = "<group>"; };
@@ -453,7 +453,7 @@
 			children = (
 				F5954FE416465067006F4D69 /* akita.csv */,
 				F5954FE516465067006F4D69 /* aomori.csv */,
-				F5954FE616465067006F4D69 /* douchu.csv */,
+				2D7CC0D8165611A10011BE20 /* douou.csv */,
 				F5954FE716465067006F4D69 /* douhoku.csv */,
 				F5954FE816465067006F4D69 /* doutou.csv */,
 				F5954FE916465067006F4D69 /* fuji.csv */,
@@ -587,7 +587,6 @@
 				F5954FCF16462296006F4D69 /* WebBrowserViewController.xib in Resources */,
 				F595500316465067006F4D69 /* akita.csv in Resources */,
 				F595500416465067006F4D69 /* aomori.csv in Resources */,
-				F595500516465067006F4D69 /* douchu.csv in Resources */,
 				F595500616465067006F4D69 /* douhoku.csv in Resources */,
 				F595500716465067006F4D69 /* doutou.csv in Resources */,
 				F595500816465067006F4D69 /* fuji.csv in Resources */,
@@ -633,6 +632,7 @@
 				2D803F5B1654B05C00A56730 /* Heart@2x.png in Resources */,
 				2D803F5C1654B05C00A56730 /* Information.png in Resources */,
 				2D803F5D1654B05C00A56730 /* Information@2x.png in Resources */,
+				2D7CC0D9165611A10011BE20 /* douou.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +708,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = armv7;
 			};

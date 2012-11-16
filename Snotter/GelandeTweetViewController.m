@@ -67,7 +67,7 @@
     self.lblTellNumber.text = self.gelande.telNumber;
     
     self.timeLineView.tableView.tableHeaderView = self.gelandeHeaderView;
-    [self.timeLineView loadSearchTimeLineWithKeywords:@[self.gelande.hashTag, self.gelande.name] SinceID:nil MaxID:nil];
+    [self.timeLineView loadSearchTimeLineWithKeywords:@[self.gelande.hashTag, self.gelande.serachWord] SinceID:nil MaxID:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

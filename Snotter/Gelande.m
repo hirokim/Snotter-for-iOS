@@ -18,6 +18,7 @@
 #define GELANDE_SMALL_AREA_NAME @"GELANDE_SMALL_AREA_NAME"
 #define GELANDE_CSV_FILE_NAME   @"GELANDE_CSV_FILE_NAME"
 #define GELANDE_KANA            @"GELANDE_KANA"
+#define GELANDE_SEARCH_WORD     @"GELANDE_SEARCH_WORD"
 
 @implementation Gelande
 
@@ -54,6 +55,7 @@
     [coder encodeObject:self.smallAreaName forKey:GELANDE_SMALL_AREA_NAME];
     [coder encodeObject:self.csvFileName forKey:GELANDE_CSV_FILE_NAME];
     [coder encodeObject:self.kana forKey:GELANDE_KANA];
+    [coder encodeObject:self.serachWord forKey:GELANDE_SEARCH_WORD];
 }
 
 - (id)initWithCoder:(NSCoder*)coder {
@@ -69,6 +71,7 @@
         self.smallAreaName = [coder decodeObjectForKey:GELANDE_SMALL_AREA_NAME];
         self.csvFileName = [coder decodeObjectForKey:GELANDE_CSV_FILE_NAME];
         self.kana = [coder decodeObjectForKey:GELANDE_KANA];
+        self.serachWord = [coder decodeObjectForKey:GELANDE_SEARCH_WORD];
     }
     return self;
 }

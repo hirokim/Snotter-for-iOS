@@ -155,7 +155,7 @@
     gelandeList = [[NSMutableArray alloc] initWithCapacity:0];
     [gelandeList addObject:[self loadGelandeCSV:@"douhoku" LargeAreaName:largeAreaName SmallAreaName:@"道北"]];
 	[gelandeList addObject:[self loadGelandeCSV:@"doutou" LargeAreaName:largeAreaName SmallAreaName:@"道東"]];
-	[gelandeList addObject:[self loadGelandeCSV:@"douchu" LargeAreaName:largeAreaName SmallAreaName:@"道央"]];
+	[gelandeList addObject:[self loadGelandeCSV:@"douou" LargeAreaName:largeAreaName SmallAreaName:@"道央"]];
     [self.areaList addObject:gelandeList];
     
     
@@ -238,21 +238,22 @@
 		
 		// カンマ「,」で区切る
 		NSArray *array = [line componentsSeparatedByString:@","];
-        
+
 		// ゲレンデ情報を配列に挿入する
 		Gelande *g = [[Gelande alloc] init];
 		
 		g.name = [array objectAtIndex:0];
 		g.address = [array objectAtIndex:1];
 		g.telNumber = [array objectAtIndex:2];
-		g.hashTag = [array objectAtIndex:3];
+		g.hashTag = [NSString stringWithFormat:@"#%@", [array objectAtIndex:3]];
 		g.latitude = [array objectAtIndex:4];
 		g.longitude = [array objectAtIndex:5];
         g.largeAreaName = largeName;
 		g.smallAreaName = smallName;
 		g.csvFileName = fileName;
 		g.kana = [array objectAtIndex:6];
-		
+		g.serachWord = [array objectAtIndex:7];
+        
 		[gelandeList addObject:g];
 		
 		//　改行文字をスキップ

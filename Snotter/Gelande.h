@@ -21,5 +21,6 @@
 @property (nonatomic) NSString *smallAreaName;
 @property (nonatomic) NSString *csvFileName;
 @property (nonatomic) NSString *kana;
+@property (nonatomic) NSString *serachWord;
 
 @end
