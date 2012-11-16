@@ -64,6 +64,7 @@
         [self.view addSubview:self.nadView];
         [self.nadView setNendID:NEND_ID spotID:SPOT_ID];
         [self.nadView setDelegate:self];
+        [self.nadView setRootViewController:self];
         [self.nadView load];
     }
     
@@ -226,13 +227,13 @@
 // NADViewのロードが成功した時に呼ばれる
 - (void)nadViewDidFinishLoad:(NADView *)adView
 {
-    NSLog(@"FirstView delegate nadViewDidFinishLoad");
+    DNSLog(@"SnotterTweetListViewController delegate nadViewDidFinishLoad");
 }
 
 // 広告受信成功
 -(void)nadViewDidReceiveAd:(NADView *)adView
 {
-    NSLog(@"FirstView delegate nadViewDidReceiveAd");
+    DNSLog(@"SnotterTweetListViewController delegate nadViewDidReceiveAd");
     
     if (!self.isNadViewVisible) {
         
@@ -244,7 +245,7 @@
 // 広告受信エラー
 -(void)nadViewDidFailToReceiveAd:(NADView *)adView
 {
-    NSLog(@"FirstView delegate nadViewDidFailToReceiveAd");
+    DNSLog(@"SnotterTweetListViewController delegate nadViewDidFailToReceiveAd");
     
     if (self.isNadViewVisible) {
         
