@@ -24,6 +24,7 @@
 
 /**
  * 初期化
+ *
  */
 - (id)initWithFrame:(CGRect)frame
 {
@@ -43,7 +44,79 @@
 }
 
 /**
+ * インスタンス破棄
+ *
+ */
+- (void)dealloc
+{
+    indicator = nil;
+    [self abort];
+}
+
+#pragma mark - NSURLConnectionDelegate
+
+/**
+ * レスポンス受信
+ *
+ */
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [data setLength:0];
+    
+    int statusCode = [((NSHTTPURLResponse *)response) statusCode];  
+    if(statusCode >= 400)
+    {  
+        //エラーハンドリング
+        isErr = YES;
+    }
+}
+
+/**
+ * データ受信中
+ *
+ */
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)nsdata
+{
+    [data appendData:nsdata];
+}
+
+/**
+ * エラー発生
+ *
+ */
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [self stopIndicator];
+    [self abort];
+}
+
+/**
+ * データ受信完了
+ *
+ */
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self stopIndicator];
+        
+        if (isErr == NO)
+        {
+            self.image = [UIImage imageWithData:data];
+            
+            // キャッシュ
+            [[ImageCache sharedInstance] storeImage:self.image URL:self.imageURL];
+        }
+        
+        [self abort];
+    });
+}
+
+#pragma mark -
+
+/**
  * 画像ロード
+ *
  */
 - (void)loadImageWithURL:(NSString *)url
 {
@@ -66,65 +139,13 @@
     NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:url]
                                          cachePolicy:NSURLRequestUseProtocolCachePolicy
                                      timeoutInterval:60.0];
-
+    
     connection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
 }
 
 /**
- * レスポンス受信
- */
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    [data setLength:0];
-    
-    int statusCode = [((NSHTTPURLResponse *)response) statusCode];  
-    if(statusCode >= 400)
-    {  
-        //エラーハンドリング
-        isErr = YES;
-    }
-}
-
-/**
- * データ受信中
- */
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)nsdata
-{
-    [data appendData:nsdata];
-}
-
-/**
- * エラー発生
- */
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    [self stopIndicator];
-    [self abort];
-}
-
-/**
- * データ受信完了
- */
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        [self stopIndicator];
-        
-        if (isErr == NO)
-        {
-            self.image = [UIImage imageWithData:data];
-            
-            // キャッシュ
-            [[ImageCache sharedInstance] storeImage:self.image URL:self.imageURL];
-        }
-        
-        [self abort];
-    });
-}
-
-/**
  * クリア
+ *
  */
 - (void)abort
 {
@@ -135,16 +156,8 @@
 }
 
 /**
- * インスタンス破棄
- */
-- (void)dealloc 
-{
-    indicator = nil;
-    [self abort];
-}
-
-/**
  * インジケータ開始
+ *
  */
 - (void)startIndicator
 {
@@ -155,6 +168,7 @@
 
 /**
  * インジケータ終了
+ *
  */
 - (void)stopIndicator
 {

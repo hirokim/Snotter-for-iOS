@@ -19,6 +19,7 @@
 
 /**
  * ImageCacheインスタンス取得
+ *
  */
 + (ImageCache *)sharedInstance
 {
@@ -34,6 +35,7 @@
 
 /**
  * ImageCacheインスタンス初期化
+ *
  */
 - (id)init
 {
@@ -55,20 +57,28 @@
 
 /**
  * メモリー警告発生時
+ *
  */
 - (void)didReceiveMemoryWarning:(NSNotification *)notif
 {
     [self clearMemoryCache];
 }
 
+/**
+ * インスタンス破棄
+ *
+ */
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     cache = nil;
 }
 
+#pragma mark -
+
 /**
  * キャッシュクリア
+ *
  */
 - (void)clearMemoryCache
 {
@@ -77,6 +87,7 @@
 
 /**
  * 画像をキャッシュに保存
+ *
  */
 - (void)storeImage:(UIImage *)image URL:(NSString *)URL 
 {
@@ -86,6 +97,7 @@
 
 /**
  * URLからキャッシュ時のキーを取得（MD5値）
+ *
  */
 + (NSString *)keyForURL:(NSString *)URL 
 {
@@ -105,6 +117,7 @@
 
 /**
  * キャッシュから画像取得
+ *
  */
 - (UIImage *)cachedImageWithURL:(NSString *)URL 
 {

@@ -93,27 +93,21 @@
     [self stopIndicator];
 }
 
-#pragma mark - インジケーター
+#pragma mark -
 
-/**
- * インジケータ開始
- */
 - (void)startIndicator
 {
     // インジケータ開始
+    [[NetworkActivityManager sharedInstance] increment];
     [SVProgressHUD showWithStatus:nil maskType:SVProgressHUDMaskTypeNone];
 }
 
-/**
- * インジケータ終了
- */
 - (void)stopIndicator
 {
     // インジケータ停止
+    [[NetworkActivityManager sharedInstance] decrement];
     [SVProgressHUD dismiss];
 }
-
-#pragma mark - 
 
 - (IBAction)openSafari:(id)sender
 {

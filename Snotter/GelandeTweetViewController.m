@@ -82,7 +82,7 @@
                                                                  NAD_ADVIEW_SIZE_320x50.height)];
         
         [self.view addSubview:self.nadView];
-        [self.nadView setNendID:@"42ab03e7c858d17ad8dfceccfed97c8038a9e12e" spotID:@"16073"];
+        [self.nadView setNendID:NEND_ID spotID:SPOT_ID];
         [self.nadView setDelegate:self];
         [self.nadView load];
     }
@@ -126,16 +126,66 @@
     [super viewDidUnload];
 }
 
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        [self tweetWithImage:image];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+            
+        case 0:
+            // つぶやく
+            [self tweetWithImage:nil];
+            break;
+            
+        case 1:
+            // カメラロールから
+            [self showImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            break;
+            
+        case 2:
+            // キャンセルじゃない場合
+            if (actionSheet.cancelButtonIndex != buttonIndex) {
+                
+                // 写真を撮る
+                [self showImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+            }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - SearchViewControllerDelegate
+
 - (void)timeLineViewController:(TimeLineViewController *)controller selectedStatus:(TweetStatus *)status
 {
     TweetViewController *ctl = [[TweetViewController alloc] initWithStatus:status];
     [self.navigationController pushViewController:ctl animated:YES];
 }
 
+#pragma mark -
+
 - (void)segCtlPressed:(UISegmentedControl *)sender
 {
     switch (sender.selectedSegmentIndex) {
-        
+            
         case 0: {
             
             [[GANTracker sharedTracker] trackEvent:GELANDE_TWEET action:SEGMENT_SELECTED label:SEL_FAVORITE value:-1 withError:nil];
@@ -221,34 +271,6 @@
     sender.selectedSegmentIndex = UISegmentedControlNoSegment;
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    switch (buttonIndex) {
-            
-        case 0:
-            // つぶやく
-            [self tweetWithImage:nil];
-            break;
-            
-        case 1:
-            // カメラロールから
-            [self showImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-            break;
-            
-        case 2:
-            // キャンセルじゃない場合
-            if (actionSheet.cancelButtonIndex != buttonIndex) {
-                
-                // 写真を撮る
-                [self showImagePickerControllerWithSourceType:UIImagePickerControllerSourceTypeCamera];
-            }
-            break;
-            
-        default:
-            break;
-    }
-}
-
 - (void)showImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)type
 {
     UIImagePickerController *iPicker = [[UIImagePickerController alloc] init];
@@ -257,24 +279,6 @@
     
     [self presentModalViewController:iPicker animated:YES];
 }
-
-#pragma mark - UIImagePickerControllerDelegate
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    [picker dismissViewControllerAnimated:YES completion:^{
-        
-        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        [self tweetWithImage:image];
-    }];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [picker dismissModalViewControllerAnimated:YES];
-}
-
-#pragma mark -
 
 - (void)tweetWithImage:(UIImage *)image
 {

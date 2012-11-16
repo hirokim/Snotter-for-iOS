@@ -107,7 +107,7 @@
                                                                  NAD_ADVIEW_SIZE_320x50.height)];
         
         [self.view addSubview:self.nadView];
-        [self.nadView setNendID:@"42ab03e7c858d17ad8dfceccfed97c8038a9e12e" spotID:@"16073"];
+        [self.nadView setNendID:NEND_ID spotID:SPOT_ID];
         [self.nadView setDelegate:self];
         [self.nadView load];
     }

@@ -87,7 +87,7 @@
     TweetStatus *status = [self.statuses objectAtIndex:indexPath.row];
     cell.userName.text = status.name;
     cell.tweetText.text = status.text;
-    cell.tweetDate.text = [self dateToString:status.date];
+    cell.tweetDate.text = [self dateToString:status.created_at];
     cell.profileImage.layer.cornerRadius = 5;
     cell.profileImage.clipsToBounds = true;
     cell.profileImage.image = nil;
@@ -207,12 +207,21 @@
     [self.BtnTweetFooter setTitle:@"読み込み中..." forState:UIControlStateNormal];
 }
 
-- (void)doneLoadingTimeLineData
+- (void)doneLoadingTimeLineDataWithStatuses:(NSArray *)statuses SinceID:sinceId MaxID:maxId
 {
 	self.loadStatus = Loaded;
     [self.BtnTweetFooter setTitle:@"もっと見る" forState:UIControlStateNormal];
     self.refreshDate = [NSDate date];
 	[self.refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+    
+    if (statuses && sinceId) {
+        
+        [self doneLoadingNewTimeLineDataWithStatuses:statuses];
+    }
+    else if (statuses) {
+        
+        [self doneLoadingOldTimeLineDataWithStatuses:statuses];
+    }
 }
 
 - (void)doneLoadingNewTimeLineDataWithStatuses:(NSArray *)statuses
@@ -238,8 +247,6 @@
                            atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, insertStatuses.count)]];
         [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
     }
-    
-    [self doneLoadingTimeLineData];
 }
 
 - (void)doneLoadingOldTimeLineDataWithStatuses:(NSArray *)statuses
@@ -264,8 +271,6 @@
         [self.statuses addObjectsFromArray:addStatuses];
         [self.tableView insertRowsAtIndexPaths:addIndexPaths withRowAnimation:UITableViewRowAnimationTop];
     }
-    
-    [self doneLoadingTimeLineData];
 }
 
 

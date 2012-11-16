@@ -21,6 +21,6 @@
 @property (nonatomic) int followers_count;
 @property (nonatomic) int friends_count;
 @property (nonatomic) NSString *text;
-@property (nonatomic) NSDate *date;
+@property (nonatomic) NSDate *created_at;
 
 @end

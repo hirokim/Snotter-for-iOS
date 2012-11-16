@@ -57,7 +57,7 @@
                                                                  NAD_ADVIEW_SIZE_320x50.height)];
         
         [self.view addSubview:self.nadView];
-        [self.nadView setNendID:@"42ab03e7c858d17ad8dfceccfed97c8038a9e12e" spotID:@"16073"];
+        [self.nadView setNendID:NEND_ID spotID:SPOT_ID];
         [self.nadView setDelegate:self];
         [self.nadView load];
     }
@@ -95,18 +95,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setNadView:nil];
+    [super viewDidUnload];
+}
+
+#pragma mark - ListsViewControllerDelegate
+
 - (void)timeLineViewController:(TimeLineViewController *)controller selectedStatus:(TweetStatus *)status
 {
     TweetViewController *ctl = [[TweetViewController alloc] initWithStatus:status];
     [self.navigationController pushViewController:ctl animated:YES];
 }
 
-- (void)viewDidUnload {
-    [self setNadView:nil];
-    [super viewDidUnload];
-}
-
-#pragma mark - 
+#pragma mark -
 
 - (void)showSetting
 {

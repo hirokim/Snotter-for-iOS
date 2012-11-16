@@ -96,18 +96,6 @@
     self.delegate = nil;
 }
 
-/**
- * キャンセルボタン押下
- *
- */
-- (IBAction)cancel:(id)sender
-{
-    if ([self.delegate respondsToSelector:@selector(cancelSelectAccount)])
-        [self.delegate cancelSelectAccount];
-    
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -155,6 +143,18 @@
 }
 
 #pragma mark -
+
+/**
+ * キャンセルボタン押下
+ *
+ */
+- (IBAction)cancel:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(cancelSelectAccount)])
+        [self.delegate cancelSelectAccount];
+    
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 /**
  * Twitterアカウントリスト取得

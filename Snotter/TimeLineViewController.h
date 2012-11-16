@@ -41,8 +41,6 @@ enum LoadStatus
 
 - (void)loadOldTimeLineData;
 - (void)loadNewTimeLineData;
-- (void)doneLoadingNewTimeLineDataWithStatuses:(NSArray *)statuses;
-- (void)doneLoadingOldTimeLineDataWithStatuses:(NSArray *)statuses;
-- (void)doneLoadingTimeLineData;
+- (void)doneLoadingTimeLineDataWithStatuses:(NSArray *)statuses SinceID:sinceId MaxID:maxId;
 
 @end

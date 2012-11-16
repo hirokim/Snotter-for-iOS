@@ -97,90 +97,6 @@
     return cell;
 }
 
-- (UITableViewCell *)createTweetCellWithReuseIdentifier:(NSString *)identifier
-{
-    //セル生成
-	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    
-	//セル選択時の色表示を解除
-	cell.selectionStyle = UITableViewCellSelectionStyleNone;
-	
-	//セル矩形を保持
-	CGRect cellFrame = [cell frame];
-    
-    // セルの大きさからセル表示テキスト部分の矩形取得（高さ以外）
-    CGRect contentOrigin = CGRectInset(cell.contentView.bounds, 20, 5);
-    
-    // セルの表示テキストのサイズを取得
-    CGSize cellContntSize = [self.status.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:17.0]
-                                         constrainedToSize:CGSizeMake(contentOrigin.size.width, 500)
-                                             lineBreakMode:UILineBreakModeCharacterWrap];
-    
-    //セル高さを更新
-	cellFrame.size.height = cellContntSize.height + 10;
-	[cell setFrame:cellFrame];
-    
-    //HTMLデータに変換
-	NSMutableArray *filteredLines = [self makeHTMLString:self.status.text];
-
-    //本文HTMLを生成
-    NSString *htmlTemplate = @"<html></script></head><body style=\"width:%f; background-color: transparent; font-family:Helvetica; font-size:14.0px; overflow:visible; padding:0; margin:0\">%@</body></html>";
-    
-    NSString *html = [NSString stringWithFormat:
-                      htmlTemplate,
-                      cellContntSize.width,
-                      [filteredLines componentsJoinedByString:@"<br>"]];
-    
-    // WebView生成
-    UIWebView *tweet = [[UIWebView alloc] initWithFrame:CGRectMake(contentOrigin.origin.x,
-                                                                   contentOrigin.origin.y,
-                                                                   cellContntSize.width,
-                                                                   cellContntSize.height)];
-	[tweet setDelegate:self];
-	[tweet loadHTMLString:html baseURL:nil];
-	tweet.scalesPageToFit = NO;
-	tweet.backgroundColor = [UIColor clearColor];
-    tweet.opaque = NO;
-    
-	[cell addSubview:tweet];
-
-    return cell;
-}
-
-- (UITableViewCell *)createFooterCellWithReuseIdentifier:(NSString *)identifier
-{
-    //セル生成
-	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
-    CGRect cellFrame = cell.frame;
-	cellFrame.size.height = 25;
-	[cell setFrame:cellFrame];
-
-	cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.detailTextLabel.text = [self dateToString:self.status.date];
-    cell.detailTextLabel.textAlignment = UITextAlignmentRight;
-    cell.detailTextLabel.textColor = [UIColor lightGrayColor];
-    cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica" size:11.0];
-    return cell;
-}
-
-- (NSString *)dateToString:(NSDate *)date
-{
-    NSCalendarUnit unit =   NSYearCalendarUnit |
-                            NSMonthCalendarUnit |
-                            NSDayCalendarUnit |
-                            NSHourCalendarUnit |
-                            NSMinuteCalendarUnit;
-    
-    NSDateComponents* tweetDateComponents = [[NSCalendar currentCalendar] components:unit fromDate:date];
-    
-    return [NSString stringWithFormat:@"%d/%d/%d %d:%02d",
-            tweetDateComponents.year,
-            tweetDateComponents.month,
-            tweetDateComponents.day,
-            tweetDateComponents.hour,
-            tweetDateComponents.minute];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
@@ -209,6 +125,90 @@
 }
 
 #pragma mark -
+
+- (UITableViewCell *)createTweetCellWithReuseIdentifier:(NSString *)identifier
+{
+    //セル生成
+	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    
+	//セル選択時の色表示を解除
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	
+	//セル矩形を保持
+	CGRect cellFrame = [cell frame];
+    
+    // セルの大きさからセル表示テキスト部分の矩形取得（高さ以外）
+    CGRect contentOrigin = CGRectInset(cell.contentView.bounds, 20, 5);
+    
+    // セルの表示テキストのサイズを取得
+    CGSize cellContntSize = [self.status.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:17.0]
+                                         constrainedToSize:CGSizeMake(contentOrigin.size.width, 500)
+                                             lineBreakMode:UILineBreakModeCharacterWrap];
+    
+    //セル高さを更新
+	cellFrame.size.height = cellContntSize.height + 10;
+	[cell setFrame:cellFrame];
+    
+    //HTMLデータに変換
+	NSMutableArray *filteredLines = [self makeHTMLString:self.status.text];
+    
+    //本文HTMLを生成
+    NSString *htmlTemplate = @"<html></script></head><body style=\"width:%f; background-color: transparent; font-family:Helvetica; font-size:14.0px; overflow:visible; padding:0; margin:0\">%@</body></html>";
+    
+    NSString *html = [NSString stringWithFormat:
+                      htmlTemplate,
+                      cellContntSize.width,
+                      [filteredLines componentsJoinedByString:@"<br>"]];
+    
+    // WebView生成
+    UIWebView *tweet = [[UIWebView alloc] initWithFrame:CGRectMake(contentOrigin.origin.x,
+                                                                   contentOrigin.origin.y,
+                                                                   cellContntSize.width,
+                                                                   cellContntSize.height)];
+	[tweet setDelegate:self];
+	[tweet loadHTMLString:html baseURL:nil];
+	tweet.scalesPageToFit = NO;
+	tweet.backgroundColor = [UIColor clearColor];
+    tweet.opaque = NO;
+    
+	[cell addSubview:tweet];
+    
+    return cell;
+}
+
+- (UITableViewCell *)createFooterCellWithReuseIdentifier:(NSString *)identifier
+{
+    //セル生成
+	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+    CGRect cellFrame = cell.frame;
+	cellFrame.size.height = 25;
+	[cell setFrame:cellFrame];
+    
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.detailTextLabel.text = [self dateToString:self.status.created_at];
+    cell.detailTextLabel.textAlignment = UITextAlignmentRight;
+    cell.detailTextLabel.textColor = [UIColor lightGrayColor];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica" size:11.0];
+    return cell;
+}
+
+- (NSString *)dateToString:(NSDate *)date
+{
+    NSCalendarUnit unit =   NSYearCalendarUnit |
+    NSMonthCalendarUnit |
+    NSDayCalendarUnit |
+    NSHourCalendarUnit |
+    NSMinuteCalendarUnit;
+    
+    NSDateComponents* tweetDateComponents = [[NSCalendar currentCalendar] components:unit fromDate:date];
+    
+    return [NSString stringWithFormat:@"%d/%d/%d %d:%02d",
+            tweetDateComponents.year,
+            tweetDateComponents.month,
+            tweetDateComponents.day,
+            tweetDateComponents.hour,
+            tweetDateComponents.minute];
+}
 
 - (NSMutableArray *)makeHTMLString:(NSString *)text
 {

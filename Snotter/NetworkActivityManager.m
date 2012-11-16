@@ -72,7 +72,7 @@ static dispatch_queue_t serialQueue;
     
     activityCount++;
     
-    NSLog(@"NetworkActivityManager ++, %d", activityCount);
+    DNSLog(@"NetworkActivityManager ++, %d", activityCount);
 }
 
 - (void)decrement
@@ -84,7 +84,7 @@ static dispatch_queue_t serialQueue;
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         }
         
-        NSLog(@"NetworkActivityManager --, %d", activityCount);
+        DNSLog(@"NetworkActivityManager --, %d", activityCount);
     }
 }
 

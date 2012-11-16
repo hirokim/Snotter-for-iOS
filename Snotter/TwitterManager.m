@@ -31,6 +31,7 @@ static dispatch_queue_t serialQueue;
 /**
  * メモリ領域確保
  *
+ * @return TwitterManagerインスタンス
  */
 + (id)allocWithZone:(NSZone *)zone {
     static dispatch_once_t onceToken;
@@ -46,6 +47,7 @@ static dispatch_queue_t serialQueue;
 /**
  * 初期化
  *
+ * @return TwitterManagerインスタンス
  */
 - (id)init {
     id __block obj;
@@ -76,6 +78,7 @@ static dispatch_queue_t serialQueue;
 /**
  * インスタンス取得
  *
+ * @return TwitterManagerインスタンス
  */
 + (TwitterManager *)sharedInstance
 {
@@ -142,8 +145,15 @@ static dispatch_queue_t serialQueue;
 /**
  * TwitterAPIにリクエスト
  *
+ * @param url TwitterAPIリクエストURL
+ * @param params パラメータ
+ * @param requestMethod GET/POST
+ * @param handler リクエスト結果受信時の処理
  */
-- (void)requestWithURL:(NSURL *)url parameters:(NSDictionary *)params requestMethod:(TWRequestMethod)requestMethod Handler:(RequestHandler)handler
+- (void)requestWithURL:(NSURL *)url
+            parameters:(NSDictionary *)params
+         requestMethod:(TWRequestMethod)requestMethod
+               Handler:(RequestHandler)handler
 {
     [[NetworkActivityManager sharedInstance] increment];
     
@@ -180,15 +190,22 @@ static dispatch_queue_t serialQueue;
             }
         }
         
-        handler(jsonData);
+        handler(jsonData, error);
     }];
 }
 
 /**
  * サーチリクエスト
  *
+ * @param words 検索ワード配列
+ * @param sinceId 先頭ツイートID
+ * @param maxId 末尾ツイートID
+ * @param handler リクエスト結果受信時の処理
  */
-- (void)requestSearchStatusesWithKeywords:(NSArray *)words SinceID:(NSString *)sinceId MaxID:(NSString *)maxId Handler:(RequestHandler)handler
+- (void)requestSearchStatusesWithKeywords:(NSArray *)words
+                                  SinceID:(NSString *)sinceId
+                                    MaxID:(NSString *)maxId
+                                  Handler:(RequestHandler)handler
 {
     NSString *searchKeyword = [words componentsJoinedByString:@" OR "];
     
@@ -206,18 +223,25 @@ static dispatch_queue_t serialQueue;
     if (sinceId)    [params setObject:sinceId forKey:@"since_id"];
     if (maxId)      [params setObject:maxId forKey:@"max_id"];
     
-    [self requestWithURL:url parameters:params requestMethod:TWRequestMethodGET Handler:^(NSDictionary *searchResult) {
+    [self requestWithURL:url parameters:params requestMethod:TWRequestMethodGET Handler:^(NSDictionary *searchResult, NSError *error) {
         
         NSArray *statuses = [searchResult objectForKey:@"statuses"];
-        handler([self parseTimelineWithTimelineData:statuses]);
+        handler([self parseTimelineWithTimelineData:statuses], error);
     }];
 }
 
 /**
  * リストリクエスト
  *
+ * @param listId リストID
+ * @param sinceId 先頭ツイートID
+ * @param maxId 末尾ツイートID
+ * @param handler リクエスト結果受信時の処理
  */
-- (void)requestListsStatusesWithListID:(NSString *)listId SinceID:(NSString *)sinceId MaxID:(NSString *)maxId Handler:(RequestHandler)handler
+- (void)requestListsStatusesWithListID:(NSString *)listId
+                               SinceID:(NSString *)sinceId
+                                 MaxID:(NSString *)maxId
+                               Handler:(RequestHandler)handler
 {
     DNSLog(@"SinceID:%@", sinceId);
     DNSLog(@"MaxID:%@", maxId);
@@ -232,15 +256,17 @@ static dispatch_queue_t serialQueue;
     if (sinceId)    [params setObject:sinceId forKey:@"since_id"];
     if (maxId)      [params setObject:maxId forKey:@"max_id"];
     
-    [self requestWithURL:url parameters:params requestMethod:TWRequestMethodGET Handler:^(NSArray *timeline) {
+    [self requestWithURL:url parameters:params requestMethod:TWRequestMethodGET Handler:^(NSArray *timeline, NSError *error) {
         
-        handler([self parseTimelineWithTimelineData:timeline]);
+        handler([self parseTimelineWithTimelineData:timeline], error);
     }];
 }
 
 /**
  * タイムラインパース
  *
+ * @param timeline ツイート配列（JSONのstatuses部分）
+ * @return TweetStatusの配列
  */
 - (NSArray *)parseTimelineWithTimelineData:(NSArray *)timeline
 {
@@ -266,7 +292,7 @@ static dispatch_queue_t serialQueue;
         status.followers_count          = [[userData objectForKey:@"followers_count"] intValue];
         status.friends_count            = [[userData objectForKey:@"friends_count"] intValue];
         status.text                     = [tweetInfo objectForKey:@"text"];
-        status.date                     = [self dateFromCreatedAtDateString:[tweetInfo objectForKey:@"created_at"]];
+        status.created_at                     = [self dateFromCreatedAtDateString:[tweetInfo objectForKey:@"created_at"]];
         
         [statuses addObject:status];
     }
@@ -275,8 +301,10 @@ static dispatch_queue_t serialQueue;
 }
 
 /**
- * 日付文字列をNSDateに変換
+ * Twitter日付文字列をNSDateに変換
  *
+ * @param strDate 日付文字列[EEE MMM dd HH:mm:ss Z yyyy]
+ * @return NSDate
  */
 - (NSDate*)dateFromCreatedAtDateString:(NSString*)strDate {
 

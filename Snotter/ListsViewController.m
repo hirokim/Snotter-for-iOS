@@ -50,22 +50,11 @@
 {
     self.listId = listId;
     self.loadStatus = Loading;
-    [[TwitterManager sharedInstance] requestListsStatusesWithListID:listId SinceID:sinceId MaxID:maxId Handler:^(NSArray *statuses) {
+    [[TwitterManager sharedInstance] requestListsStatusesWithListID:listId SinceID:sinceId MaxID:maxId Handler:^(NSArray *statuses, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
 
-            if (statuses && sinceId) {
-                
-                [super doneLoadingNewTimeLineDataWithStatuses:statuses];
-            }
-            else if (statuses) {
-                
-                [super doneLoadingOldTimeLineDataWithStatuses:statuses];
-            }
-            else {
-                
-                [super doneLoadingTimeLineData];
-            }
+            [super doneLoadingTimeLineDataWithStatuses:statuses SinceID:sinceId MaxID:maxId];
         });
     }];
 }

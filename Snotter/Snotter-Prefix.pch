@@ -36,9 +36,20 @@
  */
 #define ONE_METER 0.00000925926
 
-
+/*
+ お気に入り保存領域
+ */
 #define FAVORITE_KEY @"FavoriteGelande"
 
+/*
+ Nend
+ */
+#define NEND_ID @"42ab03e7c858d17ad8dfceccfed97c8038a9e12e"
+#define SPOT_ID @"16073"
+
+/*
+ Googleアナリティクス
+ */
 #define OFFICIAL_TWEET_LIST         @"/関連ツイート"
 #define AREA_LIST                   @"/エリアリスト"
 #define SNOTTER_TWEET               @"/スノったーツイート"
