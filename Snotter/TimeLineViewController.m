@@ -78,11 +78,27 @@
     // つぶやきセル
     static NSString *TweetCellIdentifier = @"TweetCell";
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:TweetCellIdentifier];
+    
+    static float cellHeight;
+    static float tweetTextHeight;
     if (cell == nil) {
         
         UINib *nib = [UINib nibWithNibName:TweetCellIdentifier bundle:nil];
         cell = [[nib instantiateWithOwner:nil options:nil] objectAtIndex:0];
+        cellHeight = cell.frame.size.height;
+        tweetTextHeight = cell.tweetText.frame.size.height;
     }
+    
+    // 初期化
+    cell.frame = CGRectMake(cell.frame.origin.x,
+                            cell.frame.origin.y,
+                            cell.frame.size.width,
+                            cellHeight);
+    
+    cell.tweetText.frame = CGRectMake(cell.tweetText.frame.origin.x,
+                                      cell.tweetText.frame.origin.y,
+                                      cell.tweetText.frame.size.width,
+                                      tweetTextHeight);
     
     TweetStatus *status = [self.statuses objectAtIndex:indexPath.row];
     cell.userName.text = status.name;
@@ -113,17 +129,22 @@
         self.maxId = status.status_id;
     }
     
+    // セルの高さ設定
+    float newHeight = cell.userName.frame.size.height + cell.tweetText.frame.size.height + 5;
+    if (newHeight > cell.bounds.size.height) {
+        
+        cell.frame = CGRectMake(cell.frame.origin.x,
+                                cell.frame.origin.y,
+                                cell.frame.size.width,
+                                newHeight);
+    }
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TweetCell *cell = (TweetCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-    float newHeight = cell.userName.frame.size.height + cell.tweetText.frame.size.height + 5;
-    
-    if (newHeight > cell.bounds.size.height) {
-        return newHeight;
-    }
     return cell.bounds.size.height;
 }
 
