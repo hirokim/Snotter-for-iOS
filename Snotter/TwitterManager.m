@@ -217,11 +217,11 @@ static dispatch_queue_t serialQueue;
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:searchKeyword forKey:@"q"];
-    [params setObject:@"10" forKey:@"count"];
     [params setObject:@"1" forKey:@"include_entities"];
     [params setObject:@"1" forKey:@"include_rts"];
     if (sinceId)    [params setObject:sinceId forKey:@"since_id"];
     if (maxId)      [params setObject:maxId forKey:@"max_id"];
+    if (maxId)      [params setObject:@"10" forKey:@"count"];
     
     [self requestWithURL:url parameters:params requestMethod:TWRequestMethodGET Handler:^(NSDictionary *searchResult, NSError *error) {
         
@@ -250,11 +250,11 @@ static dispatch_queue_t serialQueue;
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:listId forKey:@"list_id"];
-    [params setObject:@"10" forKey:@"count"];
     [params setObject:@"1" forKey:@"include_entities"];
     [params setObject:@"1" forKey:@"include_rts"];
     if (sinceId)    [params setObject:sinceId forKey:@"since_id"];
     if (maxId)      [params setObject:maxId forKey:@"max_id"];
+    if (maxId)      [params setObject:@"10" forKey:@"count"];
     
     [self requestWithURL:url parameters:params requestMethod:TWRequestMethodGET Handler:^(NSArray *timeline, NSError *error) {
         
