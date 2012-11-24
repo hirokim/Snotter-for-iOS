@@ -217,8 +217,10 @@
             
             [[GANTracker sharedTracker] trackEvent:SNOTTER_TWEET action:SEL_TWEET label:TWEETED value:-1 withError:nil];
         }
+        
+        [self dismissModalViewControllerAnimated:YES];
     };
-    
+        
     [self presentModalViewController:viewController animated:YES];
 }
 

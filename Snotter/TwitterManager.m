@@ -292,7 +292,7 @@ static dispatch_queue_t serialQueue;
         status.followers_count          = [[userData objectForKey:@"followers_count"] intValue];
         status.friends_count            = [[userData objectForKey:@"friends_count"] intValue];
         status.text                     = [tweetInfo objectForKey:@"text"];
-        status.created_at                     = [self dateFromCreatedAtDateString:[tweetInfo objectForKey:@"created_at"]];
+        status.created_at               = [self dateFromCreatedAtDateString:[tweetInfo objectForKey:@"created_at"]];
         
         [statuses addObject:status];
     }
