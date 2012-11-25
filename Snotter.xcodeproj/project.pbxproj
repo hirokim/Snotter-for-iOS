@@ -111,6 +111,10 @@
 		F5C1D6BE164AA97100D519F1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1D6BD164AA97100D519F1 /* Security.framework */; };
 		F5C1D6C0164AA97B00D519F1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1D6BF164AA97B00D519F1 /* CFNetwork.framework */; };
 		F5C1D6C2164AA98500D519F1 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1D6C1164AA98500D519F1 /* iAd.framework */; };
+		F5CBD59316621E7300FB2128 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CBD59116621E7300FB2128 /* UserViewController.m */; };
+		F5CBD59416621E7300FB2128 /* UserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5CBD59216621E7300FB2128 /* UserHeaderView.xib */; };
+		F5CBD5971662334D00FB2128 /* UserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CBD5961662334C00FB2128 /* UserHeaderView.m */; };
+		F5CBD59A1662670800FB2128 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CBD5991662670700FB2128 /* UserData.m */; };
 		F5F33302163D730A00C205E9 /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F33300163D730900C205E9 /* TweetViewController.m */; };
 		F5F33303163D730A00C205E9 /* TweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5F33301163D730900C205E9 /* TweetViewController.xib */; };
 /* End PBXBuildFile section */
@@ -248,6 +252,13 @@
 		F5C1D6BD164AA97100D519F1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F5C1D6BF164AA97B00D519F1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F5C1D6C1164AA98500D519F1 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		F5CBD59016621E7200FB2128 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		F5CBD59116621E7300FB2128 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		F5CBD59216621E7300FB2128 /* UserHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserHeaderView.xib; sourceTree = "<group>"; };
+		F5CBD5951662334C00FB2128 /* UserHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHeaderView.h; sourceTree = "<group>"; };
+		F5CBD5961662334C00FB2128 /* UserHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHeaderView.m; sourceTree = "<group>"; };
+		F5CBD5981662670600FB2128 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		F5CBD5991662670700FB2128 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		F5F332FF163D730900C205E9 /* TweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetViewController.h; sourceTree = "<group>"; };
 		F5F33300163D730900C205E9 /* TweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetViewController.m; sourceTree = "<group>"; };
 		F5F33301163D730900C205E9 /* TweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetViewController.xib; sourceTree = "<group>"; };
@@ -389,6 +400,8 @@
 				F54ED6921633DAD500F0ED00 /* TwitterAccountsViewController.xib */,
 				F54ED69D1633E03A00F0ED00 /* TweetStatus.h */,
 				F54ED69E1633E03A00F0ED00 /* TweetStatus.m */,
+				F5CBD5981662670600FB2128 /* UserData.h */,
+				F5CBD5991662670700FB2128 /* UserData.m */,
 				F54ED6A816340F7D00F0ED00 /* TweetCell.h */,
 				F54ED6A916340F7D00F0ED00 /* TweetCell.m */,
 				F54ED6AD16340FB300F0ED00 /* TweetCell.xib */,
@@ -406,6 +419,9 @@
 				F5954FCB16462295006F4D69 /* WebBrowserViewController.h */,
 				F5954FCC16462295006F4D69 /* WebBrowserViewController.m */,
 				F5954FCD16462296006F4D69 /* WebBrowserViewController.xib */,
+				F5CBD5951662334C00FB2128 /* UserHeaderView.h */,
+				F5CBD5961662334C00FB2128 /* UserHeaderView.m */,
+				F5CBD59216621E7300FB2128 /* UserHeaderView.xib */,
 			);
 			name = TwitterUtil;
 			sourceTree = "<group>";
@@ -435,6 +451,8 @@
 				F54ED6BE163429A800F0ED00 /* ListsViewController.m */,
 				F5954FDB16464241006F4D69 /* SearchViewController.h */,
 				F5954FDC16464243006F4D69 /* SearchViewController.m */,
+				F5CBD59016621E7200FB2128 /* UserViewController.h */,
+				F5CBD59116621E7300FB2128 /* UserViewController.m */,
 			);
 			name = TimeLineGroup;
 			sourceTree = "<group>";
@@ -633,6 +651,7 @@
 				2D803F5C1654B05C00A56730 /* Information.png in Resources */,
 				2D803F5D1654B05C00A56730 /* Information@2x.png in Resources */,
 				2D7CC0D9165611A10011BE20 /* douou.csv in Resources */,
+				F5CBD59416621E7300FB2128 /* UserHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +687,9 @@
 				F59550311646722A006F4D69 /* GelandeTweetViewController.m in Sources */,
 				F595503616467D06006F4D69 /* GelandeMapViewController.m in Sources */,
 				2D435777165345B200CE7523 /* NetworkActivityManager.m in Sources */,
+				F5CBD59316621E7300FB2128 /* UserViewController.m in Sources */,
+				F5CBD5971662334D00FB2128 /* UserHeaderView.m in Sources */,
+				F5CBD59A1662670800FB2128 /* UserData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

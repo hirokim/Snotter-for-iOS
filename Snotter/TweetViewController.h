@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblScreenName;
 
 - (id)initWithStatus:(TweetStatus *)status;
+- (IBAction)showUserProfile;
 
 @end

@@ -11,6 +11,7 @@
 #import <Twitter/Twitter.h>
 #import "TwitterAccountsViewController.h"
 #import "TweetStatus.h"
+#import "UserData.h"
 
 typedef void (^RequestHandler)(id, NSError *error);
 
@@ -31,6 +32,19 @@ typedef void (^RequestHandler)(id, NSError *error);
  * @param viewController アカウントリストを表示するベースビュー
  */
 - (void)logInWithShowInView:(UIViewController *)viewController;
+
+/**
+ * ユーザツイートリクエスト
+ *
+ * @param userId ユーザーID
+ * @param sinceId 先頭ツイートID
+ * @param maxId 末尾ツイートID
+ * @param handler リクエスト結果受信時の処理
+ */
+- (void)requestUserStatusesWithUserID:(NSString *)userId
+                              SinceID:(NSString *)sinceId
+                                MaxID:(NSString *)maxId
+                              Handler:(RequestHandler)handler;
 
 /**
  * TwitterAPIにリクエスト
@@ -70,5 +84,16 @@ typedef void (^RequestHandler)(id, NSError *error);
                                   SinceID:(NSString *)sinceId
                                     MaxID:(NSString *)maxId
                                   Handler:(RequestHandler)handler;
+
+/**
+ * ユーザー情報取得
+ *
+ * @param userId ユーザーID
+ * @param screenName スクリーン名
+ * @param handler リクエスト結果受信時の処理
+ */
+- (void)requestUserInfoWithUserId:(NSString *)userId
+                       ScreenName:(NSString *)screenName
+                          Handler:(RequestHandler)handler;
 
 @end
