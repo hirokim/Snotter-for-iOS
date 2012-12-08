@@ -421,4 +421,44 @@ static dispatch_queue_t serialQueue;
     }];
 }
 
+/**
+ * フォローする
+ *
+ * @param userId ユーザーID
+ * @param screenName スクリーン名
+ */
+- (void)requestFriendshipsCreateWithUserId:(NSString *)userId
+                                ScreenName:(NSString *)screenName
+{
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/friendships/create.json"];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:userId forKey:@"user_id"];
+    [params setObject:screenName forKey:@"screen_name"];
+    
+    [self requestWithURL:url parameters:params requestMethod:TWRequestMethodPOST Handler:^(id result, NSError *error) {
+        
+    }];
+}
+
+/**
+ * フォローはずす
+ *
+ * @param userId ユーザーID
+ * @param screenName スクリーン名
+ */
+- (void)requestFriendshipsDestroyWithUserId:(NSString *)userId
+                                 ScreenName:(NSString *)screenName
+{
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/friendships/destroy.json"];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:userId forKey:@"user_id"];
+    [params setObject:screenName forKey:@"screen_name"];
+    
+    [self requestWithURL:url parameters:params requestMethod:TWRequestMethodPOST Handler:^(id result, NSError *error) {
+        
+    }];
+}
+
 @end

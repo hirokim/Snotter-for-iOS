@@ -73,7 +73,6 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    self.url = request.URL;
     return YES;
 }
 
@@ -111,7 +110,8 @@
 
 - (IBAction)openSafari:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:self.url];
+    NSString* url = [self.tweetWebView stringByEvaluatingJavaScriptFromString:@"document.URL"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 - (IBAction)back:(id)sender

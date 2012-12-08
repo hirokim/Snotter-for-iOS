@@ -96,4 +96,22 @@ typedef void (^RequestHandler)(id, NSError *error);
                        ScreenName:(NSString *)screenName
                           Handler:(RequestHandler)handler;
 
+/**
+ * フォローする
+ *
+ * @param userId ユーザーID
+ * @param screenName スクリーン名
+ */
+- (void)requestFriendshipsCreateWithUserId:(NSString *)userId
+                                ScreenName:(NSString *)screenName;
+
+/**
+ * フォローはずす
+ *
+ * @param userId ユーザーID
+ * @param screenName スクリーン名
+ */
+- (void)requestFriendshipsDestroyWithUserId:(NSString *)userId
+                                 ScreenName:(NSString *)screenName;
+
 @end

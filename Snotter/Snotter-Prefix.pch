@@ -48,6 +48,11 @@
 #define SPOT_ID @"16073"
 
 /*
+ Bead
+ */
+#define BEAD_SID @"185b25aa1c7e59e5d559711103d333bf65b6f63704d94f7a"
+
+/*
  Googleアナリティクス
  */
 #define OFFICIAL_TWEET_LIST         @"/関連ツイート"

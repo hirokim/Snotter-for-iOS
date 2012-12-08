@@ -14,6 +14,8 @@
 #import "OfficialTweetListViewController.h"
 #import "SettingViewController.h"
 #import "TwitterManager.h"
+#import "Bead.h"
+#import <RevMobAds/RevMobAds.h>
 
 @implementation AppDelegate
 
@@ -24,6 +26,11 @@
                                                  delegate:nil];
     
     [TwitterManager sharedInstance];
+    
+    [Bead initializeAd];
+    [[Bead sharedInstance] addSID:BEAD_SID interval:4];
+    
+    [RevMobAds startSessionWithAppID:@"50c2a2df3b8c311d06000001"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -103,12 +110,13 @@ void uncaughtExceptionHandler(NSException *exception)
     [[GANTracker sharedTracker] stopTracker];
 }
 
-/*
+
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
+    [[Bead sharedInstance] showWithSID:BEAD_SID];
 }
-*/
+
 
 /*
 // Optional UITabBarControllerDelegate method.

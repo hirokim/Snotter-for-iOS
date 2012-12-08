@@ -26,7 +26,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -35,6 +35,7 @@
 {
     self = [super initWithNibName:@"TimeLineViewController" bundle:nil];
     if (self) {
+        self.title = @"プロフィール";
         self.status = status;
     }
     return self;

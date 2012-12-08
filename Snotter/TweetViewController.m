@@ -32,7 +32,7 @@
 {
     self = [super initWithNibName:@"TweetViewController" bundle:nil];
     if (self) {
-        
+        self.title = @"ツイート";
         self.status = status;
     }
     return self;

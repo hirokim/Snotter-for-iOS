@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "UIAsyncImageView.h"
 #import "UserData.h"
 
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblFollowersCount;
 @property (weak, nonatomic) IBOutlet UILabel *lblFriendsCount;
 @property (weak, nonatomic) IBOutlet UIButton *btnFollowStatus;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
 - (void)setProfile:(UserData *)user;
 - (IBAction)follow;

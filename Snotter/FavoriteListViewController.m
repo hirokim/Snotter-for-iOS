@@ -197,16 +197,17 @@
 {
     [UIView animateWithDuration:0.5 animations:^{
         
+        self.nadView.frame = CGRectOffset(self.nadView.frame,
+                                          0,
+                                          height);
+    } completion:^(BOOL finished) {
+        
         self.tableView.frame = CGRectMake(self.tableView.frame.origin.x,
                                           self.tableView.frame.origin.y,
                                           self.tableView.frame.size.width,
                                           self.tableView.frame.size.height
                                           + height);
-        
-        self.nadView.frame = CGRectOffset(self.nadView.frame,
-                                          0,
-                                          height);
-    } completion:nil];
+    }];
 }
 
 @end

@@ -115,6 +115,10 @@
 		F5CBD59416621E7300FB2128 /* UserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5CBD59216621E7300FB2128 /* UserHeaderView.xib */; };
 		F5CBD5971662334D00FB2128 /* UserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CBD5961662334C00FB2128 /* UserHeaderView.m */; };
 		F5CBD59A1662670800FB2128 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CBD5991662670700FB2128 /* UserData.m */; };
+		F5E73D181672DE7E0091491B /* libBead.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E73D161672DE7E0091491B /* libBead.a */; };
+		F5E73D1B1672DEA10091491B /* RevMobAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E73D1A1672DEA10091491B /* RevMobAds.framework */; };
+		F5E73D1D1672DFCA0091491B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E73D1C1672DFCA0091491B /* SystemConfiguration.framework */; };
+		F5E73D2A16731CA70091491B /* UIFollowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E73D2916731CA70091491B /* UIFollowButton.m */; };
 		F5F33302163D730A00C205E9 /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F33300163D730900C205E9 /* TweetViewController.m */; };
 		F5F33303163D730A00C205E9 /* TweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5F33301163D730900C205E9 /* TweetViewController.xib */; };
 /* End PBXBuildFile section */
@@ -259,6 +263,12 @@
 		F5CBD5961662334C00FB2128 /* UserHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHeaderView.m; sourceTree = "<group>"; };
 		F5CBD5981662670600FB2128 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		F5CBD5991662670700FB2128 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		F5E73D141672DE7E0091491B /* Bead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bead.h; sourceTree = "<group>"; };
+		F5E73D161672DE7E0091491B /* libBead.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBead.a; sourceTree = "<group>"; };
+		F5E73D1A1672DEA10091491B /* RevMobAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RevMobAds.framework; sourceTree = "<group>"; };
+		F5E73D1C1672DFCA0091491B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F5E73D2816731CA70091491B /* UIFollowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFollowButton.h; sourceTree = "<group>"; };
+		F5E73D2916731CA70091491B /* UIFollowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFollowButton.m; sourceTree = "<group>"; };
 		F5F332FF163D730900C205E9 /* TweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetViewController.h; sourceTree = "<group>"; };
 		F5F33300163D730900C205E9 /* TweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetViewController.m; sourceTree = "<group>"; };
 		F5F33301163D730900C205E9 /* TweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetViewController.xib; sourceTree = "<group>"; };
@@ -269,6 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E73D1D1672DFCA0091491B /* SystemConfiguration.framework in Frameworks */,
 				F5C1D6C2164AA98500D519F1 /* iAd.framework in Frameworks */,
 				F5C1D6C0164AA97B00D519F1 /* CFNetwork.framework in Frameworks */,
 				F5C1D6BE164AA97100D519F1 /* Security.framework in Frameworks */,
@@ -283,6 +294,8 @@
 				F54ED63F1633B77400F0ED00 /* CoreGraphics.framework in Frameworks */,
 				F5C1D6B8164AA93700D519F1 /* libGoogleAnalytics.a in Frameworks */,
 				2D4357851653638300CE7523 /* libNendAd.a in Frameworks */,
+				F5E73D181672DE7E0091491B /* libBead.a in Frameworks */,
+				F5E73D1B1672DEA10091491B /* RevMobAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +315,7 @@
 		F54ED62B1633B77400F0ED00 = {
 			isa = PBXGroup;
 			children = (
+				F5E73D131672DE7E0091491B /* Bead */,
 				2D4357811653638300CE7523 /* NendAd */,
 				F54ED6401633B77400F0ED00 /* Snotter */,
 				F54ED6391633B77400F0ED00 /* Frameworks */,
@@ -321,6 +335,8 @@
 			isa = PBXGroup;
 			children = (
 				F5C1D6BB164AA95B00D519F1 /* libsqlite3.0.dylib */,
+				F5E73D1C1672DFCA0091491B /* SystemConfiguration.framework */,
+				F5E73D1A1672DEA10091491B /* RevMobAds.framework */,
 				F5C1D6C1164AA98500D519F1 /* iAd.framework */,
 				F5C1D6BF164AA97B00D519F1 /* CFNetwork.framework */,
 				F5C1D6BD164AA97100D519F1 /* Security.framework */,
@@ -422,6 +438,8 @@
 				F5CBD5951662334C00FB2128 /* UserHeaderView.h */,
 				F5CBD5961662334C00FB2128 /* UserHeaderView.m */,
 				F5CBD59216621E7300FB2128 /* UserHeaderView.xib */,
+				F5E73D2816731CA70091491B /* UIFollowButton.h */,
+				F5E73D2916731CA70091491B /* UIFollowButton.m */,
 			);
 			name = TwitterUtil;
 			sourceTree = "<group>";
@@ -531,6 +549,15 @@
 				F5C1D6B6164AA93700D519F1 /* libGoogleAnalytics.a */,
 			);
 			path = Analytics;
+			sourceTree = "<group>";
+		};
+		F5E73D131672DE7E0091491B /* Bead */ = {
+			isa = PBXGroup;
+			children = (
+				F5E73D141672DE7E0091491B /* Bead.h */,
+				F5E73D161672DE7E0091491B /* libBead.a */,
+			);
+			path = Bead;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -690,6 +717,7 @@
 				F5CBD59316621E7300FB2128 /* UserViewController.m in Sources */,
 				F5CBD5971662334D00FB2128 /* UserHeaderView.m in Sources */,
 				F5CBD59A1662670800FB2128 /* UserData.m in Sources */,
+				F5E73D2A16731CA70091491B /* UIFollowButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,6 +791,10 @@
 		F54ED6691633B77400F0ED00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snotter/Snotter-Prefix.pch";
 				INFOPLIST_FILE = "Snotter/Snotter-Info.plist";
@@ -770,6 +802,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Snotter/Analytics\"",
 					"\"$(SRCROOT)/NendAd\"",
+					"\"$(SRCROOT)/Bead\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -779,6 +812,10 @@
 		F54ED66A1633B77400F0ED00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snotter/Snotter-Prefix.pch";
 				INFOPLIST_FILE = "Snotter/Snotter-Info.plist";
@@ -786,6 +823,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Snotter/Analytics\"",
 					"\"$(SRCROOT)/NendAd\"",
+					"\"$(SRCROOT)/Bead\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
