@@ -103,9 +103,15 @@
         [self.btnFollowStatus setTitle:@"フォローする" forState:UIControlStateSelected];
     }
 
-    self.btnFollowStatus.hidden = NO;
     self.indicator.hidden = YES;
     [self.indicator stopAnimating];
+    
+    // 自分のプロフィール以外ならボタン表示
+    NSString *userName = [[[TwitterManager sharedInstance] usingAccount] username];
+    if (![userName isEqualToString:user.screen_name]) {
+        
+        self.btnFollowStatus.hidden = NO;
+    }
 }
 
 - (IBAction)follow

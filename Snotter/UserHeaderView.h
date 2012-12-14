@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <Accounts/Accounts.h>
 #import "UIAsyncImageView.h"
 #import "UserData.h"
 

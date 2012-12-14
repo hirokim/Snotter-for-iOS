@@ -55,8 +55,10 @@
                                                            
                                                            dispatch_async(dispatch_get_main_queue(), ^{
                                                                
-                                                               self.status.user = user;
-                                                               [self.headerView setProfile:user];
+                                                               if (user) {
+                                                                   self.status.user = user;
+                                                                   [self.headerView setProfile:user];
+                                                               }
                                                            });
                                                        }];
     
