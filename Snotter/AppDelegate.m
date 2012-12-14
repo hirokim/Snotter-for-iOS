@@ -28,7 +28,7 @@
     [TwitterManager sharedInstance];
     
     [Bead initializeAd];
-    [[Bead sharedInstance] addSID:BEAD_SID interval:4];
+    [[Bead sharedInstance] addSID:BEAD_SID interval:BEAD_INTERVAL];
     
     [RevMobAds startSessionWithAppID:@"50c2a2df3b8c311d06000001"];
     
@@ -46,6 +46,7 @@
     UINavigationController *naviCon4 = [[UINavigationController alloc] initWithRootViewController:viewController4];
     
     self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.delegate = self;
     self.tabBarController.viewControllers = @[naviCon1, naviCon2, naviCon3, naviCon4];
     
     

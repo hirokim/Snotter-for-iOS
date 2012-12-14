@@ -50,7 +50,8 @@
 /*
  Bead
  */
-#define BEAD_SID @"185b25aa1c7e59e5d559711103d333bf65b6f63704d94f7a"
+#define BEAD_SID @"185b25aa1c7e59e54f158860abf68029069453575762f0e9"
+#define BEAD_INTERVAL 7
 
 /*
  Googleアナリティクス
