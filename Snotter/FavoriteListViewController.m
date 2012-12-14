@@ -148,7 +148,7 @@
 {
     Gelande *gelande = [self.favoriteList objectAtIndex:indexPath.row];
     
-    [[GANTracker sharedTracker] trackEvent:@"/お気に入りリスト" action:@"お気に入り選択" label:gelande.name value:-1 withError:nil];
+    [[GANTracker sharedTracker] trackEvent:FAVORITE_LIST action:GELANDE_SELECTED label:gelande.name value:-1 withError:nil];
     
     GelandeTweetViewController *ctl = [[GelandeTweetViewController alloc] initWithGelande:gelande];
     [self.navigationController pushViewController:ctl animated:YES];

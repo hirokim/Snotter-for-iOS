@@ -10,12 +10,17 @@
 #import "TwitterManager.h"
 #import "Gelande.h"
 #import "GelandeListViewController.h"
+#import "GelandeTweetViewController.h"
 
 @interface AreaListViewController ()
 
 @property (nonatomic) NSMutableArray *areaList;
 @property (nonatomic) NADView *nadView;
 @property (nonatomic) BOOL isNadViewVisible;
+
+@property (nonatomic) NSMutableArray *filteredListContent;
+@property (nonatomic) NSString *savedSearchTerm;
+@property (nonatomic) BOOL searchWasActive;
 
 @end
 
@@ -35,6 +40,7 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
+    self.searchDisplayController.searchBar.tintColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
     
     UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"設定"
                                                                    style:UIBarButtonItemStylePlain
@@ -43,6 +49,17 @@
     self.navigationItem.leftBarButtonItem = btn;
     
     [self createAllGelandeList];
+    
+    self.filteredListContent = [NSMutableArray arrayWithCapacity:0];
+    
+    // 検索条件が保存されてたらセット
+    if (self.savedSearchTerm)
+	{
+        [self.searchDisplayController setActive:self.searchWasActive];
+        [self.searchDisplayController.searchBar setText:self.savedSearchTerm];
+        
+        self.savedSearchTerm = nil;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -70,6 +87,10 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.nadView pause];
+    
+    // 検索条件を保存
+    self.searchWasActive = [self.searchDisplayController isActive];
+    self.savedSearchTerm = [self.searchDisplayController.searchBar text];
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,13 +103,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        // 検索時
+        return 1;
+    }
+    
     return [self.areaList count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        // 検索時
+        return self.filteredListContent.count;
+    }
+    
     NSArray *gelandeList = [self.areaList objectAtIndex:section];
-	
     return [gelandeList count];
 }
 
@@ -100,14 +130,29 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    Gelande *gelande = [[[self.areaList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] lastObject];
-    cell.textLabel.text = gelande.smallAreaName;
+    Gelande *gelande;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        // 検索時
+        gelande = [self.filteredListContent objectAtIndex:indexPath.row];
+        cell.textLabel.text = gelande.name;
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:16.0];
+    }
+    else {
+        
+        gelande = [[[self.areaList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] lastObject];
+        cell.textLabel.text = gelande.smallAreaName;
+    }
     
     return cell;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 	
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        // 検索時
+        return nil;
+    }
+    
     Gelande *gelande = [[[self.areaList objectAtIndex:section] lastObject] lastObject];
 	
 	UIView *v = [[UIView alloc] init];
@@ -125,10 +170,32 @@
 	return v;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        // 検索時
+        return 0;
+    }
+    
+    return [self tableView:tableView viewForHeaderInSection:section].frame.size.height;
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        // 検索時
+        Gelande *gelande = [self.filteredListContent objectAtIndex:indexPath.row];
+        
+        [[GANTracker sharedTracker] trackEvent:AREA_LIST action:GELANDE_SELECTED label:gelande.name value:-1 withError:nil];
+        
+        GelandeTweetViewController *ctl = [[GelandeTweetViewController alloc] initWithGelande:gelande];
+        [self.navigationController pushViewController:ctl animated:YES];
+        
+        return;
+    }
+    
     NSArray *gelandeList = [[self.areaList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     Gelande *gelande = [gelandeList lastObject];
     
@@ -136,6 +203,28 @@
     
     GelandeListViewController *ctl = [[GelandeListViewController alloc] initWithGelandeList:gelandeList];
     [self.navigationController pushViewController:ctl animated:YES];
+}
+
+#pragma mark - UISearchDisplayController delegate
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self.filteredListContent removeAllObjects];
+    
+    for (NSArray *arealist in self.areaList) {
+        for (NSArray *gelandeList in arealist) {
+            for (Gelande *gelande in gelandeList) {
+                
+                NSRange match = [gelande.name rangeOfString:searchString];
+                if (match.location != NSNotFound) {
+                    
+                    [self.filteredListContent addObject:gelande];
+                }
+            }
+        }
+    }
+    
+    return YES;
 }
 
 #pragma mark -

@@ -65,6 +65,7 @@
 #define GELANDE_MAP                 @"/ゲレンデマップ"
 
 #define AREA_SELECTED               @"エリア選択"
+#define GELANDE_SELECTED            @"ゲレンデ選択"
 #define SEGMENT_SELECTED            @"セグメント選択"
 
 #define SEL_FAVORITE                @"お気に入り登録"
