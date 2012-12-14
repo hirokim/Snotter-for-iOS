@@ -175,9 +175,9 @@
 
 #pragma mark - SearchViewControllerDelegate
 
-- (void)timeLineViewController:(TimeLineViewController *)controller selectedStatus:(TweetStatus *)status
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TweetViewController *ctl = [[TweetViewController alloc] initWithStatus:status];
+    TweetViewController *ctl = [[TweetViewController alloc] initWithStatus:[self.timeLineView.statuses objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:ctl animated:YES];
 }
 

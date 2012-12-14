@@ -151,9 +151,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.delegate respondsToSelector:@selector(timeLineViewController:selectedStatus:)]) {
+    if ([self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         
-        [self.delegate timeLineViewController:self selectedStatus:[self.statuses objectAtIndex:indexPath.row]];
+        [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];

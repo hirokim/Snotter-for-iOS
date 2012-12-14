@@ -20,10 +20,7 @@ enum LoadStatus
 
 @class TimeLineViewController;
 
-@protocol TimeLineViewControllerDelegate <NSObject>
-
-@optional
-- (void)timeLineViewController:(TimeLineViewController *)controller selectedStatus:(TweetStatus *)status;
+@protocol TimeLineViewControllerDelegate <UITableViewDelegate>
 
 @end
 
