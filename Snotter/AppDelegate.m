@@ -15,6 +15,7 @@
 #import "SettingViewController.h"
 #import "TwitterManager.h"
 #import "Bead.h"
+#import <RevMobAds/RevMobAds.h>
 
 @implementation AppDelegate
 
@@ -28,6 +29,8 @@
     
     [Bead initializeAd];
     [[Bead sharedInstance] addSID:BEAD_SID interval:BEAD_INTERVAL];
+    
+    [RevMobAds startSessionWithAppID:@"50c2a2df3b8c311d06000001"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -67,6 +70,29 @@
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
+    
+    // Bundle versions取得
+    NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    
+    // 保存してあるversion取得
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *savedVersion = [ud stringForKey:@"BundleVersion"];
+    
+    // バージョンが変わってたらDB初期化
+    if (![version isEqualToString:savedVersion]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"アップデート"
+                                                        message:UPDATE_INFO
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        
+        [alert show];
+        
+        [ud setObject:version forKey:@"BundleVersion"];
+        [ud synchronize];
+    }
     
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     return YES;

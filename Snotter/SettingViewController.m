@@ -35,6 +35,8 @@
                                                            target:self
                                                            action:@selector(close)];
     self.navigationItem.leftBarButtonItem = btn;
+    
+    [[GANTracker sharedTracker] trackPageview:SETTING_VIEW withError:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,12 +60,26 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    int rowCount = 0;
+    switch (section) {
+        case 0:
+            rowCount = 1;
+            break;
+            
+        case 1:
+            rowCount = 1;
+            break;
+            
+        case 2:
+            rowCount = 2;
+            break;
+    }
+    return rowCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,6 +88,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:18];
     }
     
     switch (indexPath.section) {
@@ -87,8 +104,22 @@
             cell.textLabel.text = userName;
             break;
         }
-        default:
+        case 1: {
+            if (indexPath.row == 0) {
+                cell.textLabel.text = @"評価をみる・評価をする";
+            }
             break;
+        }
+        case 2: {
+            
+            if (indexPath.row == 0) {
+                cell.textLabel.text = @"作者の他のアプリ";
+            }
+            else if (indexPath.row == 1) {
+                cell.textLabel.text = @"今日の無料アプリ";
+            }
+            break;
+        }
     }
     
     return cell;
@@ -103,7 +134,12 @@
             titleStr = @"Twitterアカウント";
             break;
             
-        default:
+        case 1:
+            titleStr = @"レビュー";
+            break;
+            
+        case 2:
+            titleStr = @"おすすめアプリ";
             break;
     }
     
@@ -113,15 +149,34 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+{    
     switch (indexPath.section) {
-        case 0:
+            
+        case 0: {
             [[TwitterManager sharedInstance] logInWithShowInView:self];
             break;
-            
-        default:
+        }
+        case 1: {
+            if (indexPath.row == 0) {
+                NSURL *url = [NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=422599580&mt=8&type=Purple+Software"];
+                [[UIApplication sharedApplication] openURL:url];
+            }
             break;
+        }
+        case 2: {
+            
+            if (indexPath.row == 0) {
+                NSURL *url = [NSURL URLWithString:@"itms-apps://itunes.com/apps/hirokim"];
+                [[UIApplication sharedApplication] openURL:url];
+            }
+            else if (indexPath.row == 1) {
+                [[RevMobAds session] showFullscreen];
+            }
+            break;
+        }
     }
+    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:NO];
 }
 
 #pragma mark -
