@@ -74,20 +74,6 @@
 {
     [[GANTracker sharedTracker] trackPageview:GELANDE_TWEET withError:nil];
     
-    if (!self.nadView) {
-        
-        self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,
-                                                                 self.view.frame.size.height,
-                                                                 NAD_ADVIEW_SIZE_320x50.width,
-                                                                 NAD_ADVIEW_SIZE_320x50.height)];
-        
-        [self.view addSubview:self.nadView];
-        [self.nadView setNendID:NEND_ID spotID:SPOT_ID];
-        [self.nadView setDelegate:self];
-        [self.nadView setRootViewController:self];
-        [self.nadView load];
-    }
-    
     if (![TwitterManager sharedInstance].usingAccount) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
@@ -102,6 +88,23 @@
     }
     
     self.timeLineView.tableView.hidden = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (!self.nadView) {
+        
+        self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,
+                                                                 self.view.frame.size.height,
+                                                                 NAD_ADVIEW_SIZE_320x50.width,
+                                                                 NAD_ADVIEW_SIZE_320x50.height)];
+        DNSLog(@"Height:%f", self.view.frame.size.height);
+        [self.view addSubview:self.nadView];
+        [self.nadView setNendID:NEND_ID spotID:SPOT_ID];
+        [self.nadView setDelegate:self];
+        [self.nadView setRootViewController:self];
+        [self.nadView load];
+    }
     
     [self.nadView resume];
 }
