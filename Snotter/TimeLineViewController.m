@@ -10,7 +10,6 @@
 #import "TwitterManager.h"
 #import "TweetCell.h"
 #import "UIAsyncImageView.h"
-#import "TweetViewController.h"
 
 @interface TimeLineViewController ()
 
@@ -101,13 +100,13 @@
                                       tweetTextHeight);
     
     TweetStatus *status = [self.statuses objectAtIndex:indexPath.row];
-    cell.userName.text = status.name;
+    cell.userName.text = status.user.name;
     cell.tweetText.text = status.text;
     cell.tweetDate.text = [self dateToString:status.created_at];
     cell.profileImage.layer.cornerRadius = 5;
     cell.profileImage.clipsToBounds = true;
     cell.profileImage.image = nil;
-    [cell.profileImage loadImageWithURL:status.profile_image_url_https];
+    [cell.profileImage loadImageWithURL:status.user.profile_image_url_https];
     
     // つぶやきラベルの高さ設定
     CGSize maxBounds = CGSizeMake(cell.tweetText.bounds.size.width, 500);
@@ -152,9 +151,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.delegate respondsToSelector:@selector(timeLineViewController:selectedStatus:)]) {
+    if ([self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         
-        [self.delegate timeLineViewController:self selectedStatus:[self.statuses objectAtIndex:indexPath.row]];
+        [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];

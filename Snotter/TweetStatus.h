@@ -7,20 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserData.h"
 
 @interface TweetStatus : NSObject
 
-@property (nonatomic) NSString *status_id;
-@property (nonatomic) NSString *user_id;
-@property (nonatomic) NSString *screen_name;
-@property (nonatomic) NSString *name;
-@property (nonatomic) NSString *description;
-@property (nonatomic) NSString *profile_image_url_https;
-@property (nonatomic) NSString *url;
-@property (nonatomic) unsigned long statuses_count;
-@property (nonatomic) int followers_count;
-@property (nonatomic) int friends_count;
-@property (nonatomic) NSString *text;
-@property (nonatomic) NSDate *created_at;
+@property (nonatomic) UserData *user;
+
+@property (nonatomic) NSString  *status_id;
+@property (nonatomic) NSString  *text;
+@property (nonatomic) NSDate    *created_at;
 
 @end

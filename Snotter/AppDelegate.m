@@ -14,6 +14,8 @@
 #import "OfficialTweetListViewController.h"
 #import "SettingViewController.h"
 #import "TwitterManager.h"
+#import "Bead.h"
+#import <RevMobAds/RevMobAds.h>
 
 @implementation AppDelegate
 
@@ -24,6 +26,11 @@
                                                  delegate:nil];
     
     [TwitterManager sharedInstance];
+    
+    [Bead initializeAd];
+    [[Bead sharedInstance] addSID:BEAD_SID interval:BEAD_INTERVAL];
+    
+    [RevMobAds startSessionWithAppID:@"50c2a2df3b8c311d06000001"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -39,6 +46,7 @@
     UINavigationController *naviCon4 = [[UINavigationController alloc] initWithRootViewController:viewController4];
     
     self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.delegate = self;
     self.tabBarController.viewControllers = @[naviCon1, naviCon2, naviCon3, naviCon4];
     
     
@@ -62,6 +70,29 @@
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
+    
+    // Bundle versions取得
+    NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    
+    // 保存してあるversion取得
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *savedVersion = [ud stringForKey:@"BundleVersion"];
+    
+    // バージョンが変わってたらDB初期化
+    if (![version isEqualToString:savedVersion]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"アップデート"
+                                                        message:UPDATE_INFO
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        
+        [alert show];
+        
+        [ud setObject:version forKey:@"BundleVersion"];
+        [ud synchronize];
+    }
     
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     return YES;
@@ -103,12 +134,13 @@ void uncaughtExceptionHandler(NSException *exception)
     [[GANTracker sharedTracker] stopTracker];
 }
 
-/*
+
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
+    [[Bead sharedInstance] showWithSID:BEAD_SID];
 }
-*/
+
 
 /*
 // Optional UITabBarControllerDelegate method.

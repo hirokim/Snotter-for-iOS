@@ -175,9 +175,9 @@
 
 #pragma mark - SearchViewControllerDelegate
 
-- (void)timeLineViewController:(TimeLineViewController *)controller selectedStatus:(TweetStatus *)status
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TweetViewController *ctl = [[TweetViewController alloc] initWithStatus:status];
+    TweetViewController *ctl = [[TweetViewController alloc] initWithStatus:[self.timeLineView.statuses objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:ctl animated:YES];
 }
 
@@ -338,16 +338,17 @@
 {
     [UIView animateWithDuration:0.5 animations:^{
         
+        self.nadView.frame = CGRectOffset(self.nadView.frame,
+                                          0,
+                                          height);
+    } completion:^(BOOL finished) {
+        
         self.timeLineView.tableView.frame = CGRectMake(self.timeLineView.tableView.frame.origin.x,
                                                        self.timeLineView.tableView.frame.origin.y,
                                                        self.timeLineView.tableView.frame.size.width,
                                                        self.timeLineView.tableView.frame.size.height
                                                        + height);
-        
-        self.nadView.frame = CGRectOffset(self.nadView.frame,
-                                          0,
-                                          height);
-    } completion:nil];
+    }];
 }
 
 @end

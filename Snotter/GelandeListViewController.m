@@ -128,7 +128,7 @@
 {
     Gelande *gelande = [self.gelandeList objectAtIndex:indexPath.row];
     
-    [[GANTracker sharedTracker] trackEvent:@"/ゲレンデリスト" action:@"ゲレンデ選択" label:gelande.name value:-1 withError:nil];
+    [[GANTracker sharedTracker] trackEvent:GELANDE_LIST action:GELANDE_SELECTED label:gelande.name value:-1 withError:nil];
     
     GelandeTweetViewController *ctl = [[GelandeTweetViewController alloc] initWithGelande:gelande];
     [self.navigationController pushViewController:ctl animated:YES];
@@ -190,16 +190,17 @@
 {
     [UIView animateWithDuration:0.5 animations:^{
         
+        self.nadView.frame = CGRectOffset(self.nadView.frame,
+                                          0,
+                                          height);
+    } completion:^(BOOL finished) {
+        
         self.tableView.frame = CGRectMake(self.tableView.frame.origin.x,
                                           self.tableView.frame.origin.y,
                                           self.tableView.frame.size.width,
                                           self.tableView.frame.size.height
                                           + height);
-        
-        self.nadView.frame = CGRectOffset(self.nadView.frame,
-                                          0,
-                                          height);
-    } completion:nil];
+    }];
 }
 
 @end

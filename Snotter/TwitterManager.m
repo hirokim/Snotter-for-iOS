@@ -219,14 +219,62 @@ static dispatch_queue_t serialQueue;
     [params setObject:searchKeyword forKey:@"q"];
     [params setObject:@"1" forKey:@"include_entities"];
     [params setObject:@"1" forKey:@"include_rts"];
-    if (sinceId)    [params setObject:sinceId forKey:@"since_id"];
-    if (maxId)      [params setObject:maxId forKey:@"max_id"];
-    if (maxId)      [params setObject:@"10" forKey:@"count"];
+    
+    if (sinceId) {
+        [params setObject:sinceId forKey:@"since_id"];
+    }
+    if (maxId) {
+        [params setObject:maxId forKey:@"max_id"];
+        [params setObject:@"10" forKey:@"count"];
+    }
+    else {
+        [params setObject:@"10" forKey:@"count"];
+    }
     
     [self requestWithURL:url parameters:params requestMethod:TWRequestMethodGET Handler:^(NSDictionary *searchResult, NSError *error) {
         
         NSArray *statuses = [searchResult objectForKey:@"statuses"];
         handler([self parseTimelineWithTimelineData:statuses], error);
+    }];
+}
+
+/**
+ * ユーザツイートリクエスト
+ *
+ * @param userId ユーザーID
+ * @param sinceId 先頭ツイートID
+ * @param maxId 末尾ツイートID
+ * @param handler リクエスト結果受信時の処理
+ */
+- (void)requestUserStatusesWithUserID:(NSString *)userId
+                               SinceID:(NSString *)sinceId
+                                 MaxID:(NSString *)maxId
+                               Handler:(RequestHandler)handler
+{
+    DNSLog(@"SinceID:%@", sinceId);
+    DNSLog(@"MaxID:%@", maxId);
+    
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/statuses/user_timeline.json"];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:userId forKey:@"user_id"];
+    [params setObject:@"1" forKey:@"include_entities"];
+    [params setObject:@"1" forKey:@"include_rts"];
+    
+    if (sinceId) {
+        [params setObject:sinceId forKey:@"since_id"];
+    }
+    if (maxId) {
+        [params setObject:maxId forKey:@"max_id"];
+        [params setObject:@"10" forKey:@"count"];
+    }
+    else {
+        [params setObject:@"10" forKey:@"count"];
+    }
+    
+    [self requestWithURL:url parameters:params requestMethod:TWRequestMethodGET Handler:^(NSArray *timeline, NSError *error) {
+        
+        handler([self parseTimelineWithTimelineData:timeline], error);
     }];
 }
 
@@ -252,9 +300,17 @@ static dispatch_queue_t serialQueue;
     [params setObject:listId forKey:@"list_id"];
     [params setObject:@"1" forKey:@"include_entities"];
     [params setObject:@"1" forKey:@"include_rts"];
-    if (sinceId)    [params setObject:sinceId forKey:@"since_id"];
-    if (maxId)      [params setObject:maxId forKey:@"max_id"];
-    if (maxId)      [params setObject:@"10" forKey:@"count"];
+    
+    if (sinceId) {
+        [params setObject:sinceId forKey:@"since_id"];
+    }
+    if (maxId) {
+        [params setObject:maxId forKey:@"max_id"];
+        [params setObject:@"10" forKey:@"count"];
+    }
+    else {
+        [params setObject:@"10" forKey:@"count"];
+    }
     
     [self requestWithURL:url parameters:params requestMethod:TWRequestMethodGET Handler:^(NSArray *timeline, NSError *error) {
         
@@ -278,26 +334,49 @@ static dispatch_queue_t serialQueue;
     
     for (NSDictionary *tweetInfo in timeline) {
         
-        NSDictionary *userData = [tweetInfo objectForKey:@"user"];
+        TweetStatus *status = [[TweetStatus alloc] init];
         
-        TweetStatus *status             = [[TweetStatus alloc] init];
-        status.status_id                = [tweetInfo objectForKey:@"id_str"];
-        status.user_id                  = [userData objectForKey:@"id_str"];
-        status.screen_name              = [userData objectForKey:@"screen_name"];
-        status.name                     = [userData objectForKey:@"name"];
-        status.description              = [userData objectForKey:@"description"];
-        status.profile_image_url_https  = [userData objectForKey:@"profile_image_url_https"];
-        status.url                      = [userData objectForKey:@"url"];
-        status.statuses_count           = [[userData objectForKey:@"statuses_count"] unsignedLongValue];
-        status.followers_count          = [[userData objectForKey:@"followers_count"] intValue];
-        status.friends_count            = [[userData objectForKey:@"friends_count"] intValue];
-        status.text                     = [tweetInfo objectForKey:@"text"];
-        status.created_at               = [self dateFromCreatedAtDateString:[tweetInfo objectForKey:@"created_at"]];
+        status.user = [self parseUserData:[tweetInfo objectForKey:@"user"]];
         
+        status.status_id                     = [tweetInfo objectForKey:@"id_str"];
+        status.text                          = [tweetInfo objectForKey:@"text"];
+        status.created_at                    = [self dateFromCreatedAtDateString:[tweetInfo objectForKey:@"created_at"]];
+    
         [statuses addObject:status];
     }
     
     return statuses;
+}
+
+/**
+ * ユーザー情報パース
+ *
+ * @param user ユーザー情報（JSONのuser部分）
+ * @return UserData
+ */
+- (UserData *)parseUserData:(NSDictionary *)user
+{
+    if (user == nil) {
+        return nil;
+    }
+    
+    UserData *data = [[UserData alloc] init];
+    
+    data.user_id                  = [user objectForKey:@"id_str"];
+    data.screen_name              = [user objectForKey:@"screen_name"];
+    data.name                     = [user objectForKey:@"name"];
+    data.description              = [user objectForKey:@"description"];
+    data.profile_image_url_https  = [user objectForKey:@"profile_image_url_https"];
+    data.url                      = [user objectForKey:@"url"];
+    data.statuses_count           = [[user objectForKey:@"statuses_count"] unsignedLongValue];
+    data.followers_count          = [[user objectForKey:@"followers_count"] intValue];
+    data.friends_count            = [[user objectForKey:@"friends_count"] intValue];
+    
+    if (![[user objectForKey:@"following"] isKindOfClass:[NSNull class]]) {
+        data.following = [[user objectForKey:@"following"] boolValue];
+    }
+    
+    return data;
 }
 
 /**
@@ -317,6 +396,69 @@ static dispatch_queue_t serialQueue;
         [format setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
     }
     return [format dateFromString:strDate];
+}
+
+/**
+ * ユーザー情報取得
+ *
+ * @param userId ユーザーID
+ * @param screenName スクリーン名
+ * @param handler リクエスト結果受信時の処理
+ */
+- (void)requestUserInfoWithUserId:(NSString *)userId
+                       ScreenName:(NSString *)screenName
+                          Handler:(RequestHandler)handler
+{
+    NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1.1/users/show.json"];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:userId forKey:@"user_id"];
+    [params setObject:screenName forKey:@"screen_name"];
+    
+    [self requestWithURL:url parameters:params requestMethod:TWRequestMethodGET Handler:^(NSDictionary *user, NSError *error) {
+        
+        handler([self parseUserData:user], error);
+    }];
+}
+
+/**
+ * フォローする
+ *
+ * @param userId ユーザーID
+ * @param screenName スクリーン名
+ */
+- (void)requestFriendshipsCreateWithUserId:(NSString *)userId
+                                ScreenName:(NSString *)screenName
+{
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/friendships/create.json"];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:userId forKey:@"user_id"];
+    [params setObject:screenName forKey:@"screen_name"];
+    
+    [self requestWithURL:url parameters:params requestMethod:TWRequestMethodPOST Handler:^(id result, NSError *error) {
+        
+    }];
+}
+
+/**
+ * フォローはずす
+ *
+ * @param userId ユーザーID
+ * @param screenName スクリーン名
+ */
+- (void)requestFriendshipsDestroyWithUserId:(NSString *)userId
+                                 ScreenName:(NSString *)screenName
+{
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/friendships/destroy.json"];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:userId forKey:@"user_id"];
+    [params setObject:screenName forKey:@"screen_name"];
+    
+    [self requestWithURL:url parameters:params requestMethod:TWRequestMethodPOST Handler:^(id result, NSError *error) {
+        
+    }];
 }
 
 @end

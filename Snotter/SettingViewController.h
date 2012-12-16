@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RevMobAds/RevMobAds.h>
 
-@interface SettingViewController : UIViewController
+@interface SettingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

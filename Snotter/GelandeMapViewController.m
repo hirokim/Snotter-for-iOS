@@ -202,7 +202,16 @@
 - (IBAction)openMap
 {
     Gelande *g = [self.gelandeList lastObject];
-    NSString *mapURL = @"http://maps.google.com/maps?ll=%@,%@";
+    
+    NSString *mapURL;
+    BOOL hasGoogleMap = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]];
+    if (hasGoogleMap) {
+        mapURL = @"comgooglemaps://?center=%@,%@";
+    }
+    else {
+        mapURL = @"http://maps.google.com/maps?ll=%@,%@";
+    }
+    
     mapURL = [NSString stringWithFormat:mapURL, g.latitude, g.longitude];
     DNSLog(@"Open Map url:%@", mapURL);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:mapURL]];

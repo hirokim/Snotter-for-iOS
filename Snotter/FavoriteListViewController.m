@@ -10,6 +10,8 @@
 #import "Gelande.h"
 #import "GelandeTweetViewController.h"
 #import "TwitterManager.h"
+#import "SettingViewController.h"
+#import "GelandeManager.h"
 
 @interface FavoriteListViewController ()
 
@@ -147,8 +149,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Gelande *gelande = [self.favoriteList objectAtIndex:indexPath.row];
+    gelande = [[GelandeManager sharedInstance] gelandeWithHashTag:gelande.hashTag];
     
-    [[GANTracker sharedTracker] trackEvent:@"/お気に入りリスト" action:@"お気に入り選択" label:gelande.name value:-1 withError:nil];
+    [[GANTracker sharedTracker] trackEvent:FAVORITE_LIST action:GELANDE_SELECTED label:gelande.name value:-1 withError:nil];
     
     GelandeTweetViewController *ctl = [[GelandeTweetViewController alloc] initWithGelande:gelande];
     [self.navigationController pushViewController:ctl animated:YES];
@@ -158,7 +161,9 @@
 
 - (void)showSetting
 {
-    [[TwitterManager sharedInstance] logInWithShowInView:self];
+    SettingViewController *ctl = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:ctl];
+    [self presentModalViewController:navi animated:YES];
 }
 
 #pragma mark - NADView delegate
@@ -197,16 +202,17 @@
 {
     [UIView animateWithDuration:0.5 animations:^{
         
+        self.nadView.frame = CGRectOffset(self.nadView.frame,
+                                          0,
+                                          height);
+    } completion:^(BOOL finished) {
+        
         self.tableView.frame = CGRectMake(self.tableView.frame.origin.x,
                                           self.tableView.frame.origin.y,
                                           self.tableView.frame.size.width,
                                           self.tableView.frame.size.height
                                           + height);
-        
-        self.nadView.frame = CGRectOffset(self.nadView.frame,
-                                          0,
-                                          height);
-    } completion:nil];
+    }];
 }
 
 @end

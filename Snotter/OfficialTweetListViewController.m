@@ -9,6 +9,7 @@
 #import "OfficialTweetListViewController.h"
 #import "TweetViewController.h"
 #import "TwitterManager.h"
+#import "SettingViewController.h"
 
 @interface OfficialTweetListViewController ()
 
@@ -103,9 +104,9 @@
 
 #pragma mark - ListsViewControllerDelegate
 
-- (void)timeLineViewController:(TimeLineViewController *)controller selectedStatus:(TweetStatus *)status
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TweetViewController *ctl = [[TweetViewController alloc] initWithStatus:status];
+    TweetViewController *ctl = [[TweetViewController alloc] initWithStatus:[self.timeLineView.statuses objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:ctl animated:YES];
 }
 
@@ -113,7 +114,9 @@
 
 - (void)showSetting
 {
-    [[TwitterManager sharedInstance] logInWithShowInView:self];
+    SettingViewController *ctl = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:ctl];
+    [self presentModalViewController:navi animated:YES];
 }
 
 #pragma mark - NADView delegate
@@ -151,17 +154,18 @@
 - (void)nadViewFrameOffset:(float)height
 {
     [UIView animateWithDuration:0.5 animations:^{
+    
+        self.nadView.frame = CGRectOffset(self.nadView.frame,
+                                          0,
+                                          height);
+    } completion:^(BOOL finished) {
         
         self.timeLineView.tableView.frame = CGRectMake(self.timeLineView.tableView.frame.origin.x,
                                                        self.timeLineView.tableView.frame.origin.y,
                                                        self.timeLineView.tableView.frame.size.width,
                                                        self.timeLineView.tableView.frame.size.height
                                                        + height);
-        
-        self.nadView.frame = CGRectOffset(self.nadView.frame,
-                                          0,
-                                          height);
-    } completion:nil];
+    }];
 }
 
 @end

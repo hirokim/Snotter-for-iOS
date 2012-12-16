@@ -25,6 +25,13 @@
 #define DNSLog(...);
 #endif
 
+// アップデート情報
+#define UPDATE_INFO @""\
+"・左上の「設定」から、レビューが見れるようになりました。\n評価よろしくお願いします！\n"\
+"・スキー場を名前で検索できるようになりました。\n"\
+"・スキー場のマップがGoogleMapで開けるようになりました。\n"\
+"・フォローができるようになりました。"
+
 /*
  ナビゲーションバーの色
  */
@@ -48,6 +55,12 @@
 #define SPOT_ID @"16073"
 
 /*
+ Bead
+ */
+#define BEAD_SID @"185b25aa1c7e59e54f158860abf68029069453575762f0e9"
+#define BEAD_INTERVAL 7
+
+/*
  Googleアナリティクス
  */
 #define OFFICIAL_TWEET_LIST         @"/関連ツイート"
@@ -57,8 +70,10 @@
 #define GELANDE_TWEET               @"/ゲレンデ詳細"
 #define FAVORITE_LIST               @"/お気に入りリスト"
 #define GELANDE_MAP                 @"/ゲレンデマップ"
+#define SETTING_VIEW                @"/設定"
 
 #define AREA_SELECTED               @"エリア選択"
+#define GELANDE_SELECTED            @"ゲレンデ選択"
 #define SEGMENT_SELECTED            @"セグメント選択"
 
 #define SEL_FAVORITE                @"お気に入り登録"

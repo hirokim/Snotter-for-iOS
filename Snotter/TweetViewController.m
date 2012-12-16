@@ -9,6 +9,7 @@
 #import "TweetViewController.h"
 #import "TweetStatus.h"
 #import "WebBrowserViewController.h"
+#import "UserViewController.h"
 
 @interface TweetViewController ()
 
@@ -31,7 +32,7 @@
 {
     self = [super initWithNibName:@"TweetViewController" bundle:nil];
     if (self) {
-        
+        self.title = @"ツイート";
         self.status = status;
     }
     return self;
@@ -42,11 +43,11 @@
     [super viewDidLoad];
     
     // ユーザ情報表示
-    [self.imgProfile loadImageWithURL:self.status.profile_image_url_https];
+    [self.imgProfile loadImageWithURL:self.status.user.profile_image_url_https];
     self.imgProfile.layer.cornerRadius = 5;
     self.imgProfile.clipsToBounds = true;
-    self.lblUserName.text = self.status.name;
-    self.lblScreenName.text = [NSString stringWithFormat:@"@%@", self.status.screen_name];
+    self.lblUserName.text = self.status.user.name;
+    self.lblScreenName.text = [NSString stringWithFormat:@"@%@", self.status.user.screen_name];
     self.tweetTableView.tableHeaderView = self.userView;
 }
 
@@ -287,6 +288,12 @@
 	converted =[converted stringByReplacingOccurrencesOfString:@"#" withString:@" #"];
 	
 	return converted;
+}
+
+- (IBAction)showUserProfile
+{
+    UserViewController *ctl = [[UserViewController alloc] initWithTweetStatus:self.status];
+    [self.navigationController pushViewController:ctl animated:YES];
 }
 
 @end
