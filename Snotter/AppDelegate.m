@@ -15,7 +15,6 @@
 #import "SettingViewController.h"
 #import "TwitterManager.h"
 #import "Bead.h"
-#import <RevMobAds/RevMobAds.h>
 
 @implementation AppDelegate
 
@@ -29,8 +28,6 @@
     
     [Bead initializeAd];
     [[Bead sharedInstance] addSID:BEAD_SID interval:BEAD_INTERVAL];
-    
-    [RevMobAds startSessionWithAppID:@"50c2a2df3b8c311d06000001"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
