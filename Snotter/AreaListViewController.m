@@ -177,7 +177,7 @@
         return 0;
     }
     
-    return [self tableView:tableView viewForHeaderInSection:section].frame.size.height;
+    return 22.0f;
 }
 
 #pragma mark - Table view delegate
