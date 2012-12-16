@@ -9,6 +9,7 @@
 #import "SnotterTweetListViewController.h"
 #import "TweetViewController.h"
 #import "TwitterManager.h"
+#import "SettingViewController.h"
 
 @interface SnotterTweetListViewController ()
 
@@ -164,7 +165,9 @@
 
 - (void)showSetting
 {
-    [[TwitterManager sharedInstance] logInWithShowInView:self];
+    SettingViewController *ctl = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:ctl];
+    [self presentModalViewController:navi animated:YES];
 }
 
 - (void)tweetChoice

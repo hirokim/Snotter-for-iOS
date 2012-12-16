@@ -10,6 +10,8 @@
 #import "Gelande.h"
 #import "GelandeTweetViewController.h"
 #import "TwitterManager.h"
+#import "SettingViewController.h"
+#import "GelandeManager.h"
 
 @interface FavoriteListViewController ()
 
@@ -147,6 +149,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Gelande *gelande = [self.favoriteList objectAtIndex:indexPath.row];
+    gelande = [[GelandeManager sharedInstance] gelandeWithHashTag:gelande.hashTag];
     
     [[GANTracker sharedTracker] trackEvent:FAVORITE_LIST action:GELANDE_SELECTED label:gelande.name value:-1 withError:nil];
     
@@ -158,7 +161,9 @@
 
 - (void)showSetting
 {
-    [[TwitterManager sharedInstance] logInWithShowInView:self];
+    SettingViewController *ctl = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:ctl];
+    [self presentModalViewController:navi animated:YES];
 }
 
 #pragma mark - NADView delegate
