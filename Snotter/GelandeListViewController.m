@@ -38,7 +38,7 @@
         self.gelandeList = gelandeList;
         
         Gelande *g = [gelandeList lastObject];
-        self.title = g.largeAreaName;
+        self.title = g.smallAreaName;
     }
     return self;
 }
