@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "TwitterManager.h"
+#import "appC.h"
 
 @interface SettingViewController ()
 
@@ -28,8 +29,6 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.tintColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
-    
     UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"閉じる"
                                                             style:UIBarButtonItemStylePlain
                                                            target:self
@@ -37,6 +36,9 @@
     self.navigationItem.leftBarButtonItem = btn;
     
     [[GANTracker sharedTracker] trackPageview:SETTING_VIEW withError:nil];
+    
+    appCSimpleView *appCView = [[appCSimpleView alloc] initWithBottomWithViewController:self];
+    [self.view addSubview:appCView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -76,7 +78,7 @@
             break;
             
         case 2:
-            rowCount = 2;
+            rowCount = 1;
             break;
     }
     return rowCount;
@@ -168,9 +170,6 @@
             if (indexPath.row == 0) {
                 NSURL *url = [NSURL URLWithString:@"itms-apps://itunes.com/apps/hirokim"];
                 [[UIApplication sharedApplication] openURL:url];
-            }
-            else if (indexPath.row == 1) {
-                [[RevMobAds session] showFullscreen];
             }
             break;
         }

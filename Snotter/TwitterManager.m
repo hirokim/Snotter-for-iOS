@@ -114,7 +114,7 @@ static dispatch_queue_t serialQueue;
     [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error) {
         
         if (error) {
-            DNSLog(error.localizedDescription);
+            DNSLog(@"%@", error.localizedDescription);
         }
         
         ACAccount *tmpAccount = nil;
@@ -167,7 +167,7 @@ static dispatch_queue_t serialQueue;
         [[NetworkActivityManager sharedInstance] decrement];
         
         if (error) {
-            DNSLog(error.description);
+            DNSLog(@"%@", error.description);
         }
         
         id jsonData = nil;
@@ -182,7 +182,7 @@ static dispatch_queue_t serialQueue;
             
             if (jsonError) {
                 
-                DNSLog(jsonError.localizedDescription);
+                DNSLog(@"%@", jsonError.localizedDescription);
             }
             else if ([jsonData isKindOfClass:[NSDictionary class]] && [jsonData objectForKey:@"errors"]) {
                 

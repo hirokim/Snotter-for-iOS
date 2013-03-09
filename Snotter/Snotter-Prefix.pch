@@ -27,8 +27,8 @@
 
 // アップデート情報
 #define UPDATE_INFO @""\
-"・「会津高原　南郷スキー場」のマップ情報を修正しました！\n"\
-"・「高鷲スノーパーク」の検索ワードを修正しました！\n"\
+"・「龍ケ崎カムイスノーボードパーク」を削除しました。\n"\
+"・内部の処理を修正しました。\n"\
 "・左上の「設定」から、レビューが見れます！\n評価よろしくお願いします！\n"
 
 /*
@@ -59,6 +59,11 @@
 #define BEAD_SID @"185b25aa1c7e59e54f158860abf68029069453575762f0e9"
 #define BEAD_INTERVAL 7
 
+/*
+ AppC
+ */
+#define APPC_MEDIA_ID @"68e45d1d0e89a318fc9e1b2852675ec0392eb35f"
+#define APPC_MARQUEE_HEIGHT 26.0f
 /*
  Googleアナリティクス
  */

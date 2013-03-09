@@ -49,7 +49,6 @@
 		F54ED6B816341AD200F0ED00 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F54ED6B716341ACF00F0ED00 /* ImageCache.m */; };
 		F54ED6BF163429A900F0ED00 /* ListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54ED6BE163429A800F0ED00 /* ListsViewController.m */; };
 		F55E9A39167D5B250049BE21 /* GelandeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E9A38167D5B250049BE21 /* GelandeManager.m */; };
-		F55E9A42167D63DF0049BE21 /* RevMobAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55E9A41167D63DF0049BE21 /* RevMobAds.framework */; };
 		F56936ED163982FD001B7067 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F56936EC163982FD001B7067 /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F56936F01639838F001B7067 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56936EF1639838F001B7067 /* QuartzCore.framework */; };
 		F56936FA16398835001B7067 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F56936F216398835001B7067 /* blackArrow.png */; };
@@ -121,6 +120,17 @@
 		F5E73D2A16731CA70091491B /* UIFollowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E73D2916731CA70091491B /* UIFollowButton.m */; };
 		F5F33302163D730A00C205E9 /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F33300163D730900C205E9 /* TweetViewController.m */; };
 		F5F33303163D730A00C205E9 /* TweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5F33301163D730900C205E9 /* TweetViewController.xib */; };
+		F66D9DC216EAE10000D47140 /* appc_marquee_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F66D9DB516EAE10000D47140 /* appc_marquee_bg@2x.png */; };
+		F66D9DC316EAE10000D47140 /* appc_marquee_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F66D9DB616EAE10000D47140 /* appc_marquee_btn@2x.png */; };
+		F66D9DC416EAE10000D47140 /* appc_marquee_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F66D9DB716EAE10000D47140 /* appc_marquee_new@2x.png */; };
+		F66D9DC516EAE10000D47140 /* appc_simple_app_pushed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F66D9DB816EAE10000D47140 /* appc_simple_app_pushed@2x.png */; };
+		F66D9DC616EAE10000D47140 /* appc_simple_appc_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F66D9DB916EAE10000D47140 /* appc_simple_appc_icon@2x.png */; };
+		F66D9DC716EAE10000D47140 /* appc_simple_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F66D9DBA16EAE10000D47140 /* appc_simple_bg@2x.png */; };
+		F66D9DC816EAE10000D47140 /* appc_simple_left_vector@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F66D9DBB16EAE10000D47140 /* appc_simple_left_vector@2x.png */; };
+		F66D9DC916EAE10000D47140 /* appc_simple_right_vector@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F66D9DBC16EAE10000D47140 /* appc_simple_right_vector@2x.png */; };
+		F66D9DCA16EAE10000D47140 /* appc_web_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F66D9DBD16EAE10000D47140 /* appc_web_close@2x.png */; };
+		F66D9DCB16EAE10000D47140 /* libappC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F66D9DC116EAE10000D47140 /* libappC.a */; };
+		F66D9DCD16EAE14500D47140 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F66D9DCC16EAE14500D47140 /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,7 +196,6 @@
 		F54ED6BE163429A800F0ED00 /* ListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListsViewController.m; sourceTree = "<group>"; };
 		F55E9A37167D5B250049BE21 /* GelandeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GelandeManager.h; sourceTree = "<group>"; };
 		F55E9A38167D5B250049BE21 /* GelandeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GelandeManager.m; sourceTree = "<group>"; };
-		F55E9A41167D63DF0049BE21 /* RevMobAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RevMobAds.framework; sourceTree = "<group>"; };
 		F56936EB163982FD001B7067 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		F56936EC163982FD001B7067 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		F56936EF1639838F001B7067 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -273,6 +282,21 @@
 		F5F332FF163D730900C205E9 /* TweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetViewController.h; sourceTree = "<group>"; };
 		F5F33300163D730900C205E9 /* TweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetViewController.m; sourceTree = "<group>"; };
 		F5F33301163D730900C205E9 /* TweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetViewController.xib; sourceTree = "<group>"; };
+		F66D9DB416EAE10000D47140 /* appC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appC.h; sourceTree = "<group>"; };
+		F66D9DB516EAE10000D47140 /* appc_marquee_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appc_marquee_bg@2x.png"; sourceTree = "<group>"; };
+		F66D9DB616EAE10000D47140 /* appc_marquee_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appc_marquee_btn@2x.png"; sourceTree = "<group>"; };
+		F66D9DB716EAE10000D47140 /* appc_marquee_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appc_marquee_new@2x.png"; sourceTree = "<group>"; };
+		F66D9DB816EAE10000D47140 /* appc_simple_app_pushed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appc_simple_app_pushed@2x.png"; sourceTree = "<group>"; };
+		F66D9DB916EAE10000D47140 /* appc_simple_appc_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appc_simple_appc_icon@2x.png"; sourceTree = "<group>"; };
+		F66D9DBA16EAE10000D47140 /* appc_simple_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appc_simple_bg@2x.png"; sourceTree = "<group>"; };
+		F66D9DBB16EAE10000D47140 /* appc_simple_left_vector@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appc_simple_left_vector@2x.png"; sourceTree = "<group>"; };
+		F66D9DBC16EAE10000D47140 /* appc_simple_right_vector@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appc_simple_right_vector@2x.png"; sourceTree = "<group>"; };
+		F66D9DBD16EAE10000D47140 /* appc_web_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appc_web_close@2x.png"; sourceTree = "<group>"; };
+		F66D9DBE16EAE10000D47140 /* appCButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appCButtonView.h; sourceTree = "<group>"; };
+		F66D9DBF16EAE10000D47140 /* appCMarqueeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appCMarqueeView.h; sourceTree = "<group>"; };
+		F66D9DC016EAE10000D47140 /* appCSimpleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appCSimpleView.h; sourceTree = "<group>"; };
+		F66D9DC116EAE10000D47140 /* libappC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libappC.a; sourceTree = "<group>"; };
+		F66D9DCC16EAE14500D47140 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreTelephony.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,7 +319,8 @@
 				F5C1D6B8164AA93700D519F1 /* libGoogleAnalytics.a in Frameworks */,
 				2D4357851653638300CE7523 /* libNendAd.a in Frameworks */,
 				F5E73D181672DE7E0091491B /* libBead.a in Frameworks */,
-				F55E9A42167D63DF0049BE21 /* RevMobAds.framework in Frameworks */,
+				F66D9DCB16EAE10000D47140 /* libappC.a in Frameworks */,
+				F66D9DCD16EAE14500D47140 /* CoreTelephony.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +340,7 @@
 		F54ED62B1633B77400F0ED00 = {
 			isa = PBXGroup;
 			children = (
+				F66D9DB116EAE10000D47140 /* appC */,
 				F5E73D131672DE7E0091491B /* Bead */,
 				2D4357811653638300CE7523 /* NendAd */,
 				F54ED6401633B77400F0ED00 /* Snotter */,
@@ -335,7 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				F5C1D6BB164AA95B00D519F1 /* libsqlite3.0.dylib */,
-				F55E9A41167D63DF0049BE21 /* RevMobAds.framework */,
+				F66D9DCC16EAE14500D47140 /* CoreTelephony.framework */,
 				F5E73D1C1672DFCA0091491B /* SystemConfiguration.framework */,
 				F5C1D6BF164AA97B00D519F1 /* CFNetwork.framework */,
 				F5C1D6BD164AA97100D519F1 /* Security.framework */,
@@ -601,6 +627,43 @@
 			path = Bead;
 			sourceTree = "<group>";
 		};
+		F66D9DB116EAE10000D47140 /* appC */ = {
+			isa = PBXGroup;
+			children = (
+				F66D9DB216EAE10000D47140 /* include */,
+				F66D9DC116EAE10000D47140 /* libappC.a */,
+			);
+			path = appC;
+			sourceTree = "<group>";
+		};
+		F66D9DB216EAE10000D47140 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				F66D9DB316EAE10000D47140 /* appC */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		F66D9DB316EAE10000D47140 /* appC */ = {
+			isa = PBXGroup;
+			children = (
+				F66D9DB416EAE10000D47140 /* appC.h */,
+				F66D9DB516EAE10000D47140 /* appc_marquee_bg@2x.png */,
+				F66D9DB616EAE10000D47140 /* appc_marquee_btn@2x.png */,
+				F66D9DB716EAE10000D47140 /* appc_marquee_new@2x.png */,
+				F66D9DB816EAE10000D47140 /* appc_simple_app_pushed@2x.png */,
+				F66D9DB916EAE10000D47140 /* appc_simple_appc_icon@2x.png */,
+				F66D9DBA16EAE10000D47140 /* appc_simple_bg@2x.png */,
+				F66D9DBB16EAE10000D47140 /* appc_simple_left_vector@2x.png */,
+				F66D9DBC16EAE10000D47140 /* appc_simple_right_vector@2x.png */,
+				F66D9DBD16EAE10000D47140 /* appc_web_close@2x.png */,
+				F66D9DBE16EAE10000D47140 /* appCButtonView.h */,
+				F66D9DBF16EAE10000D47140 /* appCMarqueeView.h */,
+				F66D9DC016EAE10000D47140 /* appCSimpleView.h */,
+			);
+			path = appC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -720,6 +783,15 @@
 				2D803F5D1654B05C00A56730 /* Information@2x.png in Resources */,
 				2D7CC0D9165611A10011BE20 /* douou.csv in Resources */,
 				F5CBD59416621E7300FB2128 /* UserHeaderView.xib in Resources */,
+				F66D9DC216EAE10000D47140 /* appc_marquee_bg@2x.png in Resources */,
+				F66D9DC316EAE10000D47140 /* appc_marquee_btn@2x.png in Resources */,
+				F66D9DC416EAE10000D47140 /* appc_marquee_new@2x.png in Resources */,
+				F66D9DC516EAE10000D47140 /* appc_simple_app_pushed@2x.png in Resources */,
+				F66D9DC616EAE10000D47140 /* appc_simple_appc_icon@2x.png in Resources */,
+				F66D9DC716EAE10000D47140 /* appc_simple_bg@2x.png in Resources */,
+				F66D9DC816EAE10000D47140 /* appc_simple_left_vector@2x.png in Resources */,
+				F66D9DC916EAE10000D47140 /* appc_simple_right_vector@2x.png in Resources */,
+				F66D9DCA16EAE10000D47140 /* appc_web_close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,6 +887,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hiroki Matsuse";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -823,6 +896,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47DE01F5-7869-48B4-B302-6B8D630C9C71";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -836,7 +910,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../Downloads/revmob-ios-sdk\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snotter/Snotter-Prefix.pch";
@@ -846,6 +919,7 @@
 					"\"$(SRCROOT)/Snotter/Analytics\"",
 					"\"$(SRCROOT)/NendAd\"",
 					"\"$(SRCROOT)/Bead\"",
+					"\"$(SRCROOT)/appC\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -858,7 +932,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../Downloads/revmob-ios-sdk\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snotter/Snotter-Prefix.pch";
@@ -868,6 +941,7 @@
 					"\"$(SRCROOT)/Snotter/Analytics\"",
 					"\"$(SRCROOT)/NendAd\"",
 					"\"$(SRCROOT)/Bead\"",
+					"\"$(SRCROOT)/appC\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

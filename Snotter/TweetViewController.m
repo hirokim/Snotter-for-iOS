@@ -149,10 +149,10 @@
     //セル高さを更新
 	cellFrame.size.height = cellContntSize.height + 10;
 	[cell setFrame:cellFrame];
-    DNSLog(self.status.text);
+    DNSLog(@"%@", self.status.text);
     //HTMLデータに変換
 	NSMutableArray *filteredLines = [self makeHTMLString:self.status.text];
-    DNSLog([filteredLines description]);
+    DNSLog(@"%@", [filteredLines description]);
     //本文HTMLを生成
     NSString *htmlTemplate = @"<html></script></head><body style=\"width:%f; background-color: transparent; font-family:Helvetica; font-size:16.0px; overflow:visible; padding:0; margin:0\">%@</body></html>";
     

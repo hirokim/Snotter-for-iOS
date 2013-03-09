@@ -15,7 +15,7 @@
 #import "SettingViewController.h"
 #import "TwitterManager.h"
 #import "Bead.h"
-#import <RevMobAds/RevMobAds.h>
+#import "appC.h"
 
 @implementation AppDelegate
 
@@ -30,7 +30,12 @@
     [Bead initializeAd];
     [[Bead sharedInstance] addSID:BEAD_SID interval:BEAD_INTERVAL];
     
-    [RevMobAds startSessionWithAppID:@"50c2a2df3b8c311d06000001"];
+    [appC setupAppCWithMediaKey:APPC_MEDIA_ID];
+    
+    UIColor *barColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
+    [[UINavigationBar appearance]   setTintColor:barColor];
+    [[UISearchBar appearance]       setTintColor:barColor];
+    [[UIToolbar appearance]         setTintColor:barColor];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
