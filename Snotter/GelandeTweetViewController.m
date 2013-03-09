@@ -11,6 +11,7 @@
 #import "GelandeMapViewController.h"
 #import "WebBrowserViewController.h"
 #import "TwitterManager.h"
+#import "appC.h"
 
 @interface GelandeTweetViewController ()
 
@@ -45,8 +46,6 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.tintColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
-    
 	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:nil];
 	[segmentedControl setSegmentedControlStyle:UISegmentedControlStyleBar];
 	[segmentedControl insertSegmentWithTitle:@"fav" atIndex:0 animated:NO];
@@ -57,8 +56,15 @@
     
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:segmentedControl];
     
+    appCMarqueeView *appCView = [[appCMarqueeView alloc] initWithTopWithViewController:self];
+    [self.view addSubview:appCView];
+    
+    CGRect rect = self.view.frame;
+    rect.origin.y = rect.origin.y + APPC_MARQUEE_HEIGHT;
+    rect.size.height = rect.size.height - APPC_MARQUEE_HEIGHT;
+    
     self.timeLineView = [[SearchViewController alloc] initWithDelegate:self];
-    self.timeLineView.tableView.frame = self.view.frame;
+    self.timeLineView.tableView.frame = rect;
     [self.view addSubview:self.timeLineView.tableView];
     
     self.lblSmallArea.text = self.gelande.smallAreaName;

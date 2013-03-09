@@ -38,10 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.naviBar.tintColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
-    self.toolBar.tintColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
-    
+        
     UIBarButtonItem *btnSetting = [[UIBarButtonItem alloc] initWithTitle:@"閉じる"
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
