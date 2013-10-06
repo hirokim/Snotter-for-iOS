@@ -8,7 +8,6 @@
 
 #import "GelandeMapViewController.h"
 #import "GelandeTweetViewController.h"
-#import "appC.h"
 
 @interface GelandeMapViewController ()
 
@@ -94,14 +93,6 @@
         
         [self updateTitleWithTitle:g.name];
     }
-    
-    appCMarqueeView *appCView = [[appCMarqueeView alloc] initWithTopWithViewController:self];
-    [self.view addSubview:appCView];
-    
-    CGRect rect = self.view.frame;
-    rect.origin.y = rect.origin.y + APPC_MARQUEE_HEIGHT;
-    rect.size.height = rect.size.height - APPC_MARQUEE_HEIGHT;
-    self.mapView.frame = rect;
 }
 
 - (void)viewWillAppear:(BOOL)animated

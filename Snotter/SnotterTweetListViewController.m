@@ -10,7 +10,6 @@
 #import "TweetViewController.h"
 #import "TwitterManager.h"
 #import "SettingViewController.h"
-#import "appC.h"
 
 @interface SnotterTweetListViewController ()
 
@@ -44,16 +43,8 @@
                                                         target:self
                                                         action:@selector(tweetChoice)];
     self.navigationItem.rightBarButtonItem = btn;
-
-    appCMarqueeView *appCView = [[appCMarqueeView alloc] initWithTopWithViewController:self];
-    [self.view addSubview:appCView];
-    
-    CGRect rect = self.view.frame;
-    rect.origin.y = rect.origin.y + APPC_MARQUEE_HEIGHT;
-    rect.size.height = rect.size.height - APPC_MARQUEE_HEIGHT;
     
     self.timeLineView = [[SearchViewController alloc] initWithDelegate:self];
-    self.timeLineView.tableView.frame = rect;
     [self.view addSubview:self.timeLineView.tableView];
 }
 

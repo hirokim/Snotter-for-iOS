@@ -13,7 +13,6 @@
 #import "GelandeTweetViewController.h"
 #import "SettingViewController.h"
 #import "GelandeManager.h"
-#import "appC.h"
 
 @interface AreaListViewController ()
 
@@ -60,14 +59,6 @@
         
         self.savedSearchTerm = nil;
     }
-    
-    appCMarqueeView *appCView = [[appCMarqueeView alloc] initWithTopWithViewController:self];
-    [self.view addSubview:appCView];
-    
-    CGRect rect = self.view.frame;
-    rect.origin.y = rect.origin.y + APPC_MARQUEE_HEIGHT;
-    rect.size.height = rect.size.height - APPC_MARQUEE_HEIGHT;
-    self.tableView.frame = rect;
 }
 
 - (void)viewWillAppear:(BOOL)animated
