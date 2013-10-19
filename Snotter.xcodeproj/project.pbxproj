@@ -131,6 +131,8 @@
 		F66D9DCA16EAE10000D47140 /* appc_web_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F66D9DBD16EAE10000D47140 /* appc_web_close@2x.png */; };
 		F66D9DCB16EAE10000D47140 /* libappC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F66D9DC116EAE10000D47140 /* libappC.a */; };
 		F66D9DCD16EAE14500D47140 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F66D9DCC16EAE14500D47140 /* CoreTelephony.framework */; };
+		F6F3E983180159A8001C0998 /* AppCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F3E981180159A8001C0998 /* AppCViewController.m */; };
+		F6F3E984180159A8001C0998 /* AppCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F3E982180159A8001C0998 /* AppCViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -297,6 +299,9 @@
 		F66D9DC016EAE10000D47140 /* appCSimpleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appCSimpleView.h; sourceTree = "<group>"; };
 		F66D9DC116EAE10000D47140 /* libappC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libappC.a; sourceTree = "<group>"; };
 		F66D9DCC16EAE14500D47140 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreTelephony.framework; sourceTree = "<group>"; };
+		F6F3E980180159A8001C0998 /* AppCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCViewController.h; sourceTree = "<group>"; };
+		F6F3E981180159A8001C0998 /* AppCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCViewController.m; sourceTree = "<group>"; };
+		F6F3E982180159A8001C0998 /* AppCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppCViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -507,6 +512,9 @@
 				F595503516467D04006F4D69 /* GelandeMapViewController.xib */,
 				F55E9A37167D5B250049BE21 /* GelandeManager.h */,
 				F55E9A38167D5B250049BE21 /* GelandeManager.m */,
+				F6F3E980180159A8001C0998 /* AppCViewController.h */,
+				F6F3E981180159A8001C0998 /* AppCViewController.m */,
+				F6F3E982180159A8001C0998 /* AppCViewController.xib */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -741,6 +749,7 @@
 				F595500816465067006F4D69 /* fuji.csv in Resources */,
 				F595500916465067006F4D69 /* hakuba.csv in Resources */,
 				F595500A16465067006F4D69 /* hida.csv in Resources */,
+				F6F3E984180159A8001C0998 /* AppCViewController.xib in Resources */,
 				F595500B16465067006F4D69 /* hukui.csv in Resources */,
 				F595500C16465067006F4D69 /* hukushima.csv in Resources */,
 				F595500D16465067006F4D69 /* hyougo.csv in Resources */,
@@ -831,6 +840,7 @@
 				F5CBD5971662334D00FB2128 /* UserHeaderView.m in Sources */,
 				F5CBD59A1662670800FB2128 /* UserData.m in Sources */,
 				F5E73D2A16731CA70091491B /* UIFollowButton.m in Sources */,
+				F6F3E983180159A8001C0998 /* AppCViewController.m in Sources */,
 				F55E9A39167D5B250049BE21 /* GelandeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

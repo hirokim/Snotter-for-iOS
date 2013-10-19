@@ -13,6 +13,7 @@
 #import "FavoriteListViewController.h"
 #import "OfficialTweetListViewController.h"
 #import "SettingViewController.h"
+#import "AppCViewController.h"
 #import "TwitterManager.h"
 #import "Bead.h"
 #import "appC.h"
@@ -43,7 +44,8 @@
     UIViewController *viewController1 = [[AreaListViewController alloc] initWithNibName:@"AreaListViewController" bundle:nil];    
     UIViewController *viewController2 = [[SnotterTweetListViewController alloc] initWithNibName:@"SnotterTweetListViewController" bundle:nil];
     UIViewController *viewController3 = [[FavoriteListViewController alloc] initWithNibName:@"FavoriteListViewController" bundle:nil];
-    UIViewController *viewController4 = [[OfficialTweetListViewController alloc] initWithNibName:@"OfficialTweetListViewController" bundle:nil];
+    UIViewController *viewController4 = [[AppCViewController alloc] initWithNibName:@"AppCViewController" bundle:nil];
+    UIViewController *viewController5 = [[OfficialTweetListViewController alloc] initWithNibName:@"OfficialTweetListViewController" bundle:nil];
     
     UINavigationController *naviCon1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
     UINavigationController *naviCon2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
@@ -72,6 +74,27 @@
     tbItem.title = @"関連ツイート";
     tbItem.image = [UIImage imageNamed:@"Information"];
     
+    //------------------------------------------------------------
+    //
+    //　appc設定
+    //
+    //------------------------------------------------------------
+    [appC setupAppCWithMediaKey:APPC_MEDIA_ID];
+    float tabWidth = [[UIScreen mainScreen] bounds].size.width / 5;
+    float tabHeight = self.tabBarController.tabBar.bounds.size.height;
+    float btnPositionX = tabWidth * 3;
+    float btnPositionY = [[UIScreen mainScreen] bounds].size.height - self.tabBarController.tabBar.bounds.size.height;
+    
+//    UIButton *appcBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [appcBtn setFrame:CGRectMake(btnPositionX, btnPositionY, tabWidth, self.tabBarController.tabBar.bounds.size.height)];
+//    [appcBtn addTarget:self action:@selector(showAppC) forControlEvents:UIControlEventTouchUpInside];
+//    [self.tabBarController.view addSubview:appcBtn];
+    
+    appCButtonView *appCButton = [[appCButtonView alloc] initWithFrame:CGRectMake(btnPositionX,
+                                                                                  btnPositionY,
+                                                                                  tabWidth,
+                                                                                  tabHeight)];
+    [self.tabBarController.view addSubview:appCButton];
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
@@ -145,13 +168,5 @@ void uncaughtExceptionHandler(NSException *exception)
 {
     [[Bead sharedInstance] showWithSID:BEAD_SID];
 }
-
-
-/*
-// Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
-{
-}
-*/
 
 @end
