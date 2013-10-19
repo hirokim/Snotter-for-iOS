@@ -3,6 +3,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "appCDefine.h"
 
 /**
  * @brief appC シンプル型のビュー
@@ -41,6 +42,19 @@
  * @param controller_ 配置先のビューコントローラ
  * @return 初期化されたインスタンス
  */
--(id)initWithPosition:(CGPoint)_point viewController:(UIViewController*)controller_;
+-(id)initWithPosition:(CGPoint)point_ viewController:(UIViewController*)controller_;
+
+/**
+ * @brief ViewController内の指定位置に配置されるように初期化
+ *
+ * 表示位置を指定して配置するためには、このインタフェースで初期化を行う<br>
+ * 引数に配置する先となるビューコントローラと表示位置を指定する
+ *
+ * @param controller_ 配置先のビューコントローラ
+ * @param vertical_ 垂直位置
+ * @return 初期化されたインスタンス
+ */
+-(id)initWithViewController:(UIViewController*)controller_
+                   vertical:(appCVertical)vertical_;
 
 @end

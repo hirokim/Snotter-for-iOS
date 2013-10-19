@@ -51,10 +51,11 @@
     UINavigationController *naviCon2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
     UINavigationController *naviCon3 = [[UINavigationController alloc] initWithRootViewController:viewController3];
     UINavigationController *naviCon4 = [[UINavigationController alloc] initWithRootViewController:viewController4];
+    UINavigationController *naviCon5 = [[UINavigationController alloc] initWithRootViewController:viewController5];
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.delegate = self;
-    self.tabBarController.viewControllers = @[naviCon1, naviCon2, naviCon3, naviCon4];
+    self.tabBarController.viewControllers = @[naviCon1, naviCon2, naviCon3, naviCon4, naviCon5];
     
     
     UITabBarItem *tbItem;
@@ -71,6 +72,10 @@
     tbItem.image = [UIImage imageNamed:@"Heart"];
     
     tbItem = [self.tabBarController.tabBar.items objectAtIndex:3];
+    tbItem.title = @"暇つぶし";
+    tbItem.image = [UIImage imageNamed:@"Heart"];
+    
+    tbItem = [self.tabBarController.tabBar.items objectAtIndex:4];
     tbItem.title = @"関連ツイート";
     tbItem.image = [UIImage imageNamed:@"Information"];
     
@@ -79,22 +84,17 @@
     //　appc設定
     //
     //------------------------------------------------------------
-    [appC setupAppCWithMediaKey:APPC_MEDIA_ID];
+    //[appC setupAppCWithMediaKey:APPC_MEDIA_ID];
     float tabWidth = [[UIScreen mainScreen] bounds].size.width / 5;
     float tabHeight = self.tabBarController.tabBar.bounds.size.height;
     float btnPositionX = tabWidth * 3;
     float btnPositionY = [[UIScreen mainScreen] bounds].size.height - self.tabBarController.tabBar.bounds.size.height;
     
-//    UIButton *appcBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [appcBtn setFrame:CGRectMake(btnPositionX, btnPositionY, tabWidth, self.tabBarController.tabBar.bounds.size.height)];
-//    [appcBtn addTarget:self action:@selector(showAppC) forControlEvents:UIControlEventTouchUpInside];
-//    [self.tabBarController.view addSubview:appcBtn];
+    UIButton *appcBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [appcBtn setFrame:CGRectMake(btnPositionX, btnPositionY, tabWidth, tabHeight)];
+    [appcBtn addTarget:self action:@selector(showAppC) forControlEvents:UIControlEventTouchUpInside];
+    [self.tabBarController.view addSubview:appcBtn];
     
-    appCButtonView *appCButton = [[appCButtonView alloc] initWithFrame:CGRectMake(btnPositionX,
-                                                                                  btnPositionY,
-                                                                                  tabWidth,
-                                                                                  tabHeight)];
-    [self.tabBarController.view addSubview:appCButton];
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
@@ -167,6 +167,11 @@ void uncaughtExceptionHandler(NSException *exception)
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
     [[Bead sharedInstance] showWithSID:BEAD_SID];
+}
+
+- (void)showAppC
+{
+    [appC openWebView];
 }
 
 @end
