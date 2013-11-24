@@ -16,7 +16,7 @@
 #import "AppCViewController.h"
 #import "TwitterManager.h"
 #import "Bead.h"
-#import "appC.h"
+#import "appCCloud.h"
 
 @implementation AppDelegate
 
@@ -30,8 +30,6 @@
     
     [Bead initializeAd];
     [[Bead sharedInstance] addSID:BEAD_SID interval:BEAD_INTERVAL];
-    
-    [appC setupAppCWithMediaKey:APPC_MEDIA_ID];
     
     UIColor *barColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
     [[UINavigationBar appearance]   setTintColor:barColor];
@@ -57,7 +55,6 @@
     self.tabBarController.delegate = self;
     self.tabBarController.viewControllers = @[naviCon1, naviCon2, naviCon3, naviCon4, naviCon5];
     
-    
     UITabBarItem *tbItem;
     tbItem = [self.tabBarController.tabBar.items objectAtIndex:0];
     tbItem.title = @"スキー場";
@@ -73,18 +70,18 @@
     
     tbItem = [self.tabBarController.tabBar.items objectAtIndex:3];
     tbItem.title = @"暇つぶし";
-    tbItem.image = [UIImage imageNamed:@"Heart"];
+    tbItem.image = [UIImage imageNamed:@"Coffee"];
     
     tbItem = [self.tabBarController.tabBar.items objectAtIndex:4];
     tbItem.title = @"関連ツイート";
     tbItem.image = [UIImage imageNamed:@"Information"];
-    
+
     //------------------------------------------------------------
     //
     //　appc設定
     //
     //------------------------------------------------------------
-    //[appC setupAppCWithMediaKey:APPC_MEDIA_ID];
+    [appC setupAppCWithMediaKey:APPC_MEDIA_ID];
     float tabWidth = [[UIScreen mainScreen] bounds].size.width / 5;
     float tabHeight = self.tabBarController.tabBar.bounds.size.height;
     float btnPositionX = tabWidth * 3;

@@ -23,6 +23,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblErrorMessage;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+
 @property (nonatomic) id<TwitterAccountsViewControllerDelegate> delegate;
 
 - (id)initWithAccount:(ACAccount *)usingAccount;

@@ -33,6 +33,9 @@
 {
     [super viewDidLoad];
     
+    if([[UIDevice currentDevice].systemVersion intValue] >= 7)
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"設定"
                                                             style:UIBarButtonItemStylePlain
                                                            target:self

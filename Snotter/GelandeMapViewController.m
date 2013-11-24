@@ -57,6 +57,9 @@
 {
     [super viewDidLoad];
     
+    if([[UIDevice currentDevice].systemVersion intValue] >= 7)
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"現在地"
                                                             style:UIBarButtonItemStylePlain
                                                            target:self
@@ -224,7 +227,7 @@
 	lblTitle.textAlignment = UITextAlignmentCenter;
 	lblTitle.font = [UIFont boldSystemFontOfSize:14.0];
 	lblTitle.text = title;
-	lblTitle.textColor = [UIColor whiteColor];
+	lblTitle.textColor = [UIColor blackColor];
 	lblTitle.backgroundColor = [UIColor clearColor];
 	self.navigationItem.titleView = lblTitle;
 }

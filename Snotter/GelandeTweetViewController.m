@@ -45,6 +45,9 @@
 {
     [super viewDidLoad];
     
+    if([[UIDevice currentDevice].systemVersion intValue] >= 7)
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
 	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:nil];
 	[segmentedControl setSegmentedControlStyle:UISegmentedControlStyleBar];
 	[segmentedControl insertSegmentWithTitle:@"fav" atIndex:0 animated:NO];

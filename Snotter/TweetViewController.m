@@ -42,6 +42,9 @@
 {
     [super viewDidLoad];
     
+    if([[UIDevice currentDevice].systemVersion intValue] >= 7)
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     // ユーザ情報表示
     [self.imgProfile loadImageWithURL:self.status.user.profile_image_url_https];
     self.imgProfile.layer.cornerRadius = 5;

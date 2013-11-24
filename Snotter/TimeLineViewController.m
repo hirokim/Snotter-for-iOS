@@ -30,6 +30,9 @@
 {
     [super viewDidLoad];
     
+    if([[UIDevice currentDevice].systemVersion intValue] >= 7)
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     self.statuses = [NSMutableArray arrayWithCapacity:0];
     
     // ヘッダー設定
