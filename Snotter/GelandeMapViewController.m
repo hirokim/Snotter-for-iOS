@@ -8,7 +8,6 @@
 
 #import "GelandeMapViewController.h"
 #import "GelandeTweetViewController.h"
-#import "appC.h"
 
 @interface GelandeMapViewController ()
 
@@ -58,6 +57,9 @@
 {
     [super viewDidLoad];
     
+    if([[UIDevice currentDevice].systemVersion intValue] >= 7)
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"現在地"
                                                             style:UIBarButtonItemStylePlain
                                                            target:self
@@ -94,14 +96,6 @@
         
         [self updateTitleWithTitle:g.name];
     }
-    
-    appCMarqueeView *appCView = [[appCMarqueeView alloc] initWithTopWithViewController:self];
-    [self.view addSubview:appCView];
-    
-    CGRect rect = self.view.frame;
-    rect.origin.y = rect.origin.y + APPC_MARQUEE_HEIGHT;
-    rect.size.height = rect.size.height - APPC_MARQUEE_HEIGHT;
-    self.mapView.frame = rect;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -233,7 +227,7 @@
 	lblTitle.textAlignment = UITextAlignmentCenter;
 	lblTitle.font = [UIFont boldSystemFontOfSize:14.0];
 	lblTitle.text = title;
-	lblTitle.textColor = [UIColor whiteColor];
+	lblTitle.textColor = [UIColor blackColor];
 	lblTitle.backgroundColor = [UIColor clearColor];
 	self.navigationItem.titleView = lblTitle;
 }

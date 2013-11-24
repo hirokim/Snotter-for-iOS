@@ -38,7 +38,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if([[UIDevice currentDevice].systemVersion intValue] >= 7) {
+        CGRect frame;
+        frame = self.naviBar.frame;
+        frame.origin.y += 20;
+        self.naviBar.frame = frame;
         
+        frame = self.tweetWebView.frame;
+        frame.origin.y += 20;
+        frame.size.height -= 20;
+        self.tweetWebView.frame = frame;
+    }
+    
     UIBarButtonItem *btnSetting = [[UIBarButtonItem alloc] initWithTitle:@"閉じる"
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
@@ -143,7 +155,7 @@
 	lblTitle.textAlignment = UITextAlignmentCenter;
 	lblTitle.font = [UIFont boldSystemFontOfSize:14.0];
 	lblTitle.text = title;
-	lblTitle.textColor = [UIColor whiteColor];
+	lblTitle.textColor = [UIColor blackColor];
 	lblTitle.backgroundColor = [UIColor clearColor];
 	self.naviBarItem.titleView = lblTitle;
 }

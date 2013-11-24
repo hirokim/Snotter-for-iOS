@@ -13,9 +13,10 @@
 #import "FavoriteListViewController.h"
 #import "OfficialTweetListViewController.h"
 #import "SettingViewController.h"
+#import "AppCViewController.h"
 #import "TwitterManager.h"
 #import "Bead.h"
-#import "appC.h"
+#import "appCCloud.h"
 
 @implementation AppDelegate
 
@@ -30,8 +31,6 @@
     [Bead initializeAd];
     [[Bead sharedInstance] addSID:BEAD_SID interval:BEAD_INTERVAL];
     
-    [appC setupAppCWithMediaKey:APPC_MEDIA_ID];
-    
     UIColor *barColor = HEXCOLOR(NAVIGATION_BAR_COLOR);
     [[UINavigationBar appearance]   setTintColor:barColor];
     [[UISearchBar appearance]       setTintColor:barColor];
@@ -43,17 +42,18 @@
     UIViewController *viewController1 = [[AreaListViewController alloc] initWithNibName:@"AreaListViewController" bundle:nil];    
     UIViewController *viewController2 = [[SnotterTweetListViewController alloc] initWithNibName:@"SnotterTweetListViewController" bundle:nil];
     UIViewController *viewController3 = [[FavoriteListViewController alloc] initWithNibName:@"FavoriteListViewController" bundle:nil];
-    UIViewController *viewController4 = [[OfficialTweetListViewController alloc] initWithNibName:@"OfficialTweetListViewController" bundle:nil];
+    UIViewController *viewController4 = [[AppCViewController alloc] initWithNibName:@"AppCViewController" bundle:nil];
+    UIViewController *viewController5 = [[OfficialTweetListViewController alloc] initWithNibName:@"OfficialTweetListViewController" bundle:nil];
     
     UINavigationController *naviCon1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
     UINavigationController *naviCon2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
     UINavigationController *naviCon3 = [[UINavigationController alloc] initWithRootViewController:viewController3];
     UINavigationController *naviCon4 = [[UINavigationController alloc] initWithRootViewController:viewController4];
+    UINavigationController *naviCon5 = [[UINavigationController alloc] initWithRootViewController:viewController5];
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.delegate = self;
-    self.tabBarController.viewControllers = @[naviCon1, naviCon2, naviCon3, naviCon4];
-    
+    self.tabBarController.viewControllers = @[naviCon1, naviCon2, naviCon3, naviCon4, naviCon5];
     
     UITabBarItem *tbItem;
     tbItem = [self.tabBarController.tabBar.items objectAtIndex:0];
@@ -69,8 +69,28 @@
     tbItem.image = [UIImage imageNamed:@"Heart"];
     
     tbItem = [self.tabBarController.tabBar.items objectAtIndex:3];
+    tbItem.title = @"暇つぶし";
+    tbItem.image = [UIImage imageNamed:@"Coffee"];
+    
+    tbItem = [self.tabBarController.tabBar.items objectAtIndex:4];
     tbItem.title = @"関連ツイート";
     tbItem.image = [UIImage imageNamed:@"Information"];
+
+    //------------------------------------------------------------
+    //
+    //　appc設定
+    //
+    //------------------------------------------------------------
+    [appC setupAppCWithMediaKey:APPC_MEDIA_ID];
+    float tabWidth = [[UIScreen mainScreen] bounds].size.width / 5;
+    float tabHeight = self.tabBarController.tabBar.bounds.size.height;
+    float btnPositionX = tabWidth * 3;
+    float btnPositionY = [[UIScreen mainScreen] bounds].size.height - self.tabBarController.tabBar.bounds.size.height;
+    
+    UIButton *appcBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [appcBtn setFrame:CGRectMake(btnPositionX, btnPositionY, tabWidth, tabHeight)];
+    [appcBtn addTarget:self action:@selector(showAppC) forControlEvents:UIControlEventTouchUpInside];
+    [self.tabBarController.view addSubview:appcBtn];
     
     
     self.window.rootViewController = self.tabBarController;
@@ -146,12 +166,9 @@ void uncaughtExceptionHandler(NSException *exception)
     [[Bead sharedInstance] showWithSID:BEAD_SID];
 }
 
-
-/*
-// Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
+- (void)showAppC
 {
+    [appC openWebView];
 }
-*/
 
 @end

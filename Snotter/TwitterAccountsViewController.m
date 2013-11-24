@@ -59,6 +59,18 @@
 {
     [super viewDidLoad];
     
+    if([[UIDevice currentDevice].systemVersion intValue] >= 7) {
+        CGRect frame;
+        frame = self.toolbar.frame;
+        frame.origin.y += 20;
+        self.toolbar.frame = frame;
+        
+        frame = self.tableview.frame;
+        frame.origin.y += 20;
+        frame.size.height -= 20;
+        self.tableview.frame = frame;
+    }
+    
     accountStore = [[ACAccountStore alloc] init];
     accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     
