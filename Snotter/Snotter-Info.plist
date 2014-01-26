@@ -8,15 +8,6 @@
 	<string>スノったー</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>icon80</string>
-		<string>icon58</string>
-		<string>icon29</string>
-		<string>icon120</string>
-		<string>icon.png</string>
-		<string>icon@2x.png</string>
-	</array>
 	<key>CFBundleIdentifier</key>
 	<string>jp.ne.nagareha.hiroki.gelandeNow</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -26,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1</string>
+	<string>2.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2.1</string>
+	<string>2.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>
