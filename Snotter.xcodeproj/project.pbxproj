@@ -100,11 +100,6 @@
 		F59550321646722A006F4D69 /* GelandeTweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F595503016467229006F4D69 /* GelandeTweetViewController.xib */; };
 		F595503616467D06006F4D69 /* GelandeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F595503416467D03006F4D69 /* GelandeMapViewController.m */; };
 		F595503716467D06006F4D69 /* GelandeMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F595503516467D04006F4D69 /* GelandeMapViewController.xib */; };
-		F595503C1646C025006F4D69 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F59550391646C025006F4D69 /* Default-568h@2x.png */; };
-		F595503D1646C025006F4D69 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F595503A1646C025006F4D69 /* Default.png */; };
-		F595503E1646C025006F4D69 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F595503B1646C025006F4D69 /* Default@2x.png */; };
-		F59550411646C039006F4D69 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F595503F1646C039006F4D69 /* icon.png */; };
-		F59550421646C039006F4D69 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F59550401646C039006F4D69 /* icon@2x.png */; };
 		F5C1D6B8164AA93700D519F1 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1D6B6164AA93700D519F1 /* libGoogleAnalytics.a */; };
 		F5C1D6BC164AA95B00D519F1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1D6BB164AA95B00D519F1 /* libsqlite3.0.dylib */; };
 		F5C1D6BE164AA97100D519F1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C1D6BD164AA97100D519F1 /* Security.framework */; };
@@ -117,6 +112,15 @@
 		F5E73D2A16731CA70091491B /* UIFollowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E73D2916731CA70091491B /* UIFollowButton.m */; };
 		F5F33302163D730A00C205E9 /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F33300163D730900C205E9 /* TweetViewController.m */; };
 		F5F33303163D730A00C205E9 /* TweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5F33301163D730900C205E9 /* TweetViewController.xib */; };
+		F67A4E8B1895373900FE3420 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = F67A4E8A1895373900FE3420 /* icon114.png */; };
+		F67A4E8E1895373F00FE3420 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = F67A4E8C1895373F00FE3420 /* icon120.png */; };
+		F67A4E9A1895397D00FE3420 /* Default-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F67A4E971895397D00FE3420 /* Default-568@2x.png */; };
+		F67A4E9D18953AC300FE3420 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F67A4E9C18953AC300FE3420 /* Images.xcassets */; };
+		F67A4EA1189553DF00FE3420 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F67A4EA0189553DF00FE3420 /* Default@2x.png */; };
+		F67A4EA31895540E00FE3420 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F67A4EA21895540E00FE3420 /* Default.png */; };
+		F67A4EA9189554D500FE3420 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = F67A4EA6189554D500FE3420 /* icon80.png */; };
+		F67A4EAC189555B800FE3420 /* icon29.png in Resources */ = {isa = PBXBuildFile; fileRef = F67A4EAA189555B800FE3420 /* icon29.png */; };
+		F67A4EAF189555EF00FE3420 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = F67A4EAE189555EF00FE3420 /* icon58.png */; };
 		F686082D182E56B1002D5DA4 /* libBead_v1_3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F686082C182E56B1002D5DA4 /* libBead_v1_3_0.a */; };
 		F686082F182E57B8002D5DA4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F686082E182E57B8002D5DA4 /* ImageIO.framework */; };
 		F6860831182E57C2002D5DA4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6860830182E57C2002D5DA4 /* CoreMotion.framework */; };
@@ -164,10 +168,6 @@
 		F6AA95471841B7B9002735A1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AA95461841B7B9002735A1 /* StoreKit.framework */; };
 		F6AA954A1841EBA6002735A1 /* Coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = F6AA95481841EBA6002735A1 /* Coffee.png */; };
 		F6AA954B1841EBA6002735A1 /* Coffee@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6AA95491841EBA6002735A1 /* Coffee@2x.png */; };
-		F6AA95501841F3B9002735A1 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = F6AA954C1841F3B9002735A1 /* icon120.png */; };
-		F6AA95511841F3B9002735A1 /* icon29.png in Resources */ = {isa = PBXBuildFile; fileRef = F6AA954D1841F3B9002735A1 /* icon29.png */; };
-		F6AA95521841F3B9002735A1 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = F6AA954E1841F3B9002735A1 /* icon58.png */; };
-		F6AA95531841F3B9002735A1 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = F6AA954F1841F3B9002735A1 /* icon80.png */; };
 		F6F3E983180159A8001C0998 /* AppCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F3E981180159A8001C0998 /* AppCViewController.m */; };
 		F6F3E984180159A8001C0998 /* AppCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F3E982180159A8001C0998 /* AppCViewController.xib */; };
 		F6F3E9E618127EE6001C0998 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F3E9E518127EE6001C0998 /* CoreTelephony.framework */; };
@@ -294,11 +294,6 @@
 		F595503316467D01006F4D69 /* GelandeMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GelandeMapViewController.h; sourceTree = "<group>"; };
 		F595503416467D03006F4D69 /* GelandeMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GelandeMapViewController.m; sourceTree = "<group>"; };
 		F595503516467D04006F4D69 /* GelandeMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GelandeMapViewController.xib; sourceTree = "<group>"; };
-		F59550391646C025006F4D69 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		F595503A1646C025006F4D69 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		F595503B1646C025006F4D69 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		F595503F1646C039006F4D69 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		F59550401646C039006F4D69 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		F5C1D6B5164AA93700D519F1 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
 		F5C1D6B6164AA93700D519F1 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		F5C1D6BB164AA95B00D519F1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -317,6 +312,15 @@
 		F5F332FF163D730900C205E9 /* TweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetViewController.h; sourceTree = "<group>"; };
 		F5F33300163D730900C205E9 /* TweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetViewController.m; sourceTree = "<group>"; };
 		F5F33301163D730900C205E9 /* TweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetViewController.xib; sourceTree = "<group>"; };
+		F67A4E8A1895373900FE3420 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
+		F67A4E8C1895373F00FE3420 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		F67A4E971895397D00FE3420 /* Default-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568@2x.png"; sourceTree = "<group>"; };
+		F67A4E9C18953AC300FE3420 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F67A4EA0189553DF00FE3420 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F67A4EA21895540E00FE3420 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F67A4EA6189554D500FE3420 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80.png; sourceTree = "<group>"; };
+		F67A4EAA189555B800FE3420 /* icon29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon29.png; sourceTree = "<group>"; };
+		F67A4EAE189555EF00FE3420 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
 		F686082B182E56B1002D5DA4 /* Bead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bead.h; sourceTree = "<group>"; };
 		F686082C182E56B1002D5DA4 /* libBead_v1_3_0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBead_v1_3_0.a; sourceTree = "<group>"; };
 		F686082E182E57B8002D5DA4 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -380,10 +384,6 @@
 		F6AA95461841B7B9002735A1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F6AA95481841EBA6002735A1 /* Coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coffee.png; sourceTree = "<group>"; };
 		F6AA95491841EBA6002735A1 /* Coffee@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coffee@2x.png"; sourceTree = "<group>"; };
-		F6AA954C1841F3B9002735A1 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
-		F6AA954D1841F3B9002735A1 /* icon29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon29.png; sourceTree = "<group>"; };
-		F6AA954E1841F3B9002735A1 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
-		F6AA954F1841F3B9002735A1 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80.png; sourceTree = "<group>"; };
 		F6F3E980180159A8001C0998 /* AppCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCViewController.h; sourceTree = "<group>"; };
 		F6F3E981180159A8001C0998 /* AppCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCViewController.m; sourceTree = "<group>"; };
 		F6F3E982180159A8001C0998 /* AppCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppCViewController.xib; sourceTree = "<group>"; };
@@ -478,6 +478,7 @@
 				F55E9A35167D4E320049BE21 /* tab_Official */,
 				F5C1D6B4164AA93700D519F1 /* Analytics */,
 				F5954FE21646500D006F4D69 /* Resources */,
+				F67A4E9C18953AC300FE3420 /* Images.xcassets */,
 				F54ED6411633B77400F0ED00 /* Supporting Files */,
 			);
 			path = Snotter;
@@ -684,10 +685,14 @@
 		F59550381646BFD5006F4D69 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				F6AA954C1841F3B9002735A1 /* icon120.png */,
-				F6AA954D1841F3B9002735A1 /* icon29.png */,
-				F6AA954E1841F3B9002735A1 /* icon58.png */,
-				F6AA954F1841F3B9002735A1 /* icon80.png */,
+				F67A4EAA189555B800FE3420 /* icon29.png */,
+				F67A4EAE189555EF00FE3420 /* icon58.png */,
+				F67A4EA6189554D500FE3420 /* icon80.png */,
+				F67A4EA21895540E00FE3420 /* Default.png */,
+				F67A4EA0189553DF00FE3420 /* Default@2x.png */,
+				F67A4E971895397D00FE3420 /* Default-568@2x.png */,
+				F67A4E8C1895373F00FE3420 /* icon120.png */,
+				F67A4E8A1895373900FE3420 /* icon114.png */,
 				F6AA95481841EBA6002735A1 /* Coffee.png */,
 				F6AA95491841EBA6002735A1 /* Coffee@2x.png */,
 				2D803F4E1654B05C00A56730 /* Balloon.png */,
@@ -698,11 +703,6 @@
 				2D803F531654B05C00A56730 /* Heart@2x.png */,
 				2D803F541654B05C00A56730 /* Information.png */,
 				2D803F551654B05C00A56730 /* Information@2x.png */,
-				F595503F1646C039006F4D69 /* icon.png */,
-				F59550401646C039006F4D69 /* icon@2x.png */,
-				F59550391646C025006F4D69 /* Default-568h@2x.png */,
-				F595503A1646C025006F4D69 /* Default.png */,
-				F595503B1646C025006F4D69 /* Default@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -872,15 +872,12 @@
 				F54ED6721633B84D00F0ED00 /* AreaListViewController.xib in Resources */,
 				F54ED6771633B91800F0ED00 /* SnotterTweetListViewController.xib in Resources */,
 				F54ED67C1633B99000F0ED00 /* FavoriteListViewController.xib in Resources */,
-				F6AA95521841F3B9002735A1 /* icon58.png in Resources */,
 				F54ED6811633BAA900F0ED00 /* OfficialTweetListViewController.xib in Resources */,
 				F54ED6861633BD3100F0ED00 /* TimeLineViewController.xib in Resources */,
 				F54ED68C1633BFFE00F0ED00 /* SettingViewController.xib in Resources */,
-				F6AA95511841F3B9002735A1 /* icon29.png in Resources */,
 				F54ED6941633DAD500F0ED00 /* TwitterAccountsViewController.xib in Resources */,
 				F54ED6AE16340FB400F0ED00 /* TweetCell.xib in Resources */,
 				F56936FA16398835001B7067 /* blackArrow.png in Resources */,
-				F6AA95531841F3B9002735A1 /* icon80.png in Resources */,
 				F56936FB16398835001B7067 /* blackArrow@2x.png in Resources */,
 				F56936FC16398835001B7067 /* blueArrow.png in Resources */,
 				F56936FD16398835001B7067 /* blueArrow@2x.png in Resources */,
@@ -895,12 +892,16 @@
 				F595500316465067006F4D69 /* akita.csv in Resources */,
 				F595500416465067006F4D69 /* aomori.csv in Resources */,
 				F595500616465067006F4D69 /* douhoku.csv in Resources */,
+				F67A4E8B1895373900FE3420 /* icon114.png in Resources */,
 				F595500716465067006F4D69 /* doutou.csv in Resources */,
 				F6AA952A1841B734002735A1 /* appc_cutin_free@2x.png in Resources */,
 				F595500816465067006F4D69 /* fuji.csv in Resources */,
 				F6AA95221841B734002735A1 /* appc_cutin2_btn_moreapp@2x.png in Resources */,
 				F595500916465067006F4D69 /* hakuba.csv in Resources */,
+				F67A4EAC189555B800FE3420 /* icon29.png in Resources */,
+				F67A4EA9189554D500FE3420 /* icon80.png in Resources */,
 				F6AA95361841B734002735A1 /* appc_marquee_btn@2x.png in Resources */,
+				F67A4EAF189555EF00FE3420 /* icon58.png in Resources */,
 				F6AA95231841B734002735A1 /* appc_cutin2_close@2x.png in Resources */,
 				F595500A16465067006F4D69 /* hida.csv in Resources */,
 				F6F3E984180159A8001C0998 /* AppCViewController.xib in Resources */,
@@ -914,6 +915,7 @@
 				F595501116465067006F4D69 /* kanagawa.csv in Resources */,
 				F595501216465067006F4D69 /* karuizawa.csv in Resources */,
 				F595501316465067006F4D69 /* kusatsu.csv in Resources */,
+				F67A4EA31895540E00FE3420 /* Default.png in Resources */,
 				F595501416465067006F4D69 /* kyoto.csv in Resources */,
 				F6AA95441841B734002735A1 /* appcc_web_splash_logo.png in Resources */,
 				F6AA952E1841B734002735A1 /* appc_manga_background@2x.png in Resources */,
@@ -921,7 +923,9 @@
 				F595501616465067006F4D69 /* madarao.csv in Resources */,
 				F6AA95281841B734002735A1 /* appc_cutin_btn_other_on@2x.png in Resources */,
 				F6AA95341841B734002735A1 /* appc_manga_vectol@2x.png in Resources */,
+				F67A4E8E1895373F00FE3420 /* icon120.png in Resources */,
 				F6AA95431841B734002735A1 /* appcc_web_splash_cayto.png in Resources */,
+				F67A4E9D18953AC300FE3420 /* Images.xcassets in Resources */,
 				F595501716465067006F4D69 /* miyagi.csv in Resources */,
 				F595501816465067006F4D69 /* myoukou.csv in Resources */,
 				F6AA95301841B734002735A1 /* appc_manga_footer@2x.png in Resources */,
@@ -946,23 +950,19 @@
 				F595502016465067006F4D69 /* toyama.csv in Resources */,
 				F6AA954A1841EBA6002735A1 /* Coffee.png in Resources */,
 				F595502116465067006F4D69 /* yamagata.csv in Resources */,
+				F67A4E9A1895397D00FE3420 /* Default-568@2x.png in Resources */,
 				F595502D16466E75006F4D69 /* GelandeListViewController.xib in Resources */,
 				F6AA95411841B734002735A1 /* appcc_micon_webview_icon@2x.png in Resources */,
 				F59550321646722A006F4D69 /* GelandeTweetViewController.xib in Resources */,
 				F595503716467D06006F4D69 /* GelandeMapViewController.xib in Resources */,
 				F6AA95421841B734002735A1 /* appcc_simple_appc_icon@2x.png in Resources */,
 				F6AA95251841B734002735A1 /* appc_cutin_btn_inst@2x.png in Resources */,
-				F595503C1646C025006F4D69 /* Default-568h@2x.png in Resources */,
-				F595503D1646C025006F4D69 /* Default.png in Resources */,
 				F6AA95381841B734002735A1 /* appc_micon_bg_pattern@2x.png in Resources */,
 				F6AA952B1841B734002735A1 /* appc_cutin_under@2x.png in Resources */,
-				F595503E1646C025006F4D69 /* Default@2x.png in Resources */,
 				F6AA953A1841B734002735A1 /* appc_simple_app_pushed@2x.png in Resources */,
-				F59550411646C039006F4D69 /* icon.png in Resources */,
-				F59550421646C039006F4D69 /* icon@2x.png in Resources */,
-				F6AA95501841F3B9002735A1 /* icon120.png in Resources */,
 				2D803F561654B05C00A56730 /* Balloon.png in Resources */,
 				F6AA95321841B734002735A1 /* appc_manga_gr_white_top@2x.png in Resources */,
+				F67A4EA1189553DF00FE3420 /* Default@2x.png in Resources */,
 				2D803F571654B05C00A56730 /* Balloon@2x.png in Resources */,
 				F6AA953C1841B734002735A1 /* appc_simple_left_vector@2x.png in Resources */,
 				F6AA95401841B734002735A1 /* appcc_cutin2_noapp_icon@2x.png in Resources */,
@@ -1095,6 +1095,8 @@
 		F54ED6691633B77400F0ED00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1123,6 +1125,8 @@
 		F54ED66A1633B77400F0ED00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
